@@ -11,7 +11,10 @@ from ast_parser import ASTParser
 from common import Language
 from config import PORT, PROMPT_TEMPLATE
 
-client = OpenAI(api_key=base64.b64decode(config.GPT_API_KEY).decode("utf-8"))
+client = OpenAI(
+    api_key=config.GPT_API_KEY,
+    base_url=config.OPENAI_BASE_URL,
+)
 
 from dataclasses import dataclass
 

@@ -179,7 +179,7 @@ def get_conn():
 
 
 def fetch_ready_rows(conn, overwrite: bool) -> list[dict]:
-    statuses = ("'ready'", "'done'") if overwrite else ("'ready'",)
+    statuses = ("'ready'", "'done'", "'error'", "'running'") if overwrite else ("'ready'",)
     sql = (
         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
         "       new_version_patch, old_version_patch "
