@@ -3,3 +3,8 @@ dotenv
 requests
 psycopg2
 openpyxl
+sseclient
+openai
+tree_sitter_c
+tree_sitter_cpp
+tree_sitter

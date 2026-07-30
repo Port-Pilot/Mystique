@@ -18,7 +18,7 @@ For every row in `backport_benchmark_results` with status='ready' this script:
         number_of_llm_api_calls, input_tokens, output_tokens,
         reasoning_tokens, total_tokens, api_cost, status
 
-Run from d:\\FYP\\Mystique\\ :
+Run from Mystique\\ :
     python phase2_generate.py --main FixMorph-Dataset/Main-data-set.xlsx
 
 Optional flags:
@@ -30,8 +30,8 @@ Environment variables (loaded from .env):
     NEON_DATABASE_URL   Postgres connection string
     GPT_MODEL           Model name (default: gpt-5.5)
     GPT_API_KEY         Base64-encoded OpenAI API key
-    COST_INPUT_PER_1M   Cost per 1M input tokens  (default: 2.50)
-    COST_OUTPUT_PER_1M  Cost per 1M output tokens (default: 10.00)
+    COST_INPUT_PER_1M   Cost per 1M input tokens  (default: 5.00)
+    COST_OUTPUT_PER_1M  Cost per 1M output tokens (default: 30.00)
 """
 
 import argparse
@@ -73,8 +73,8 @@ from common import ErrorCode, Language  # noqa: E402
 
 NEON_DATABASE_URL  = os.getenv("NEON_DATABASE_URL")
 CACHE_DB_PATH      = os.path.join(_SCRIPT_DIR, "github_fetch_cache.sqlite")
-COST_INPUT_PER_1M  = float(os.getenv("COST_INPUT_PER_1M",  "2.50"))
-COST_OUTPUT_PER_1M = float(os.getenv("COST_OUTPUT_PER_1M", "10.00"))
+COST_INPUT_PER_1M  = float(os.getenv("COST_INPUT_PER_1M",  "5.00"))
+COST_OUTPUT_PER_1M = float(os.getenv("COST_OUTPUT_PER_1M", "30.00"))
 
 # Error codes that mean bp() exited BEFORE calling the LLM.
 # In these cases we run a direct LLM fallback.

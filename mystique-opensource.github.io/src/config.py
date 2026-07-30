@@ -1,10 +1,10 @@
 import os
 
-JOERN_PATH = ""
-CTAGS_PATH = ""
-NOTION_TOKEN = ""
-DATABASE_ID = ""
-GPT_API_KEY = "cpa-7Kp4bN9xQ2mL8vR6sT1z"
+JOERN_PATH = "/opt/joern"
+CTAGS_PATH = "/usr/bin/ctags"
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+DATABASE_ID = os.getenv("DATABASE_ID")
+GPT_API_KEY = os.getenv("GPT_API_KEY")
 GPT_MODEL = os.getenv("GPT_MODEL", "gpt-5.5")
 SIM_THRESHOLD = 0.55
 SLICE_LEVEL = 1
