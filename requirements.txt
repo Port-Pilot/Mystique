@@ -7,4 +7,4 @@ sseclient
 openai
 tree_sitter_c
 tree_sitter_cpp
-tree_sitter
+tree-sitter>=0.22.0

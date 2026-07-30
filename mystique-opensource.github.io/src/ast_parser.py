@@ -5,6 +5,15 @@ import tree_sitter_cpp as tscpp
 import tree_sitter_java as tsjava
 from tree_sitter import Language, Node, Parser
 
+# tree-sitter >= 0.22 removed Language.query(); Query must be instantiated directly.
+try:
+    from tree_sitter import Query as _TSQuery
+    def _build_query(language: Language, query_str: str):
+        return _TSQuery(language, query_str)
+except (ImportError, AttributeError):
+    def _build_query(language: Language, query_str: str):
+        return language.query(query_str)
+
 import common
 
 TS_JAVA_PACKAGE = "(package_declaration (scoped_identifier) @package)(package_declaration (identifier) @package)"
@@ -67,7 +76,7 @@ class ASTParser:
                 break
 
     def query_oneshot(self, query_str: str) -> Node | None:
-        query = self.LANGUAGE.query(query_str)
+        query = _build_query(self.LANGUAGE, query_str)
         captures = query.captures(self.root)
         result = None
         for capture in captures:
@@ -76,12 +85,12 @@ class ASTParser:
         return result
 
     def query(self, query_str: str):
-        query = self.LANGUAGE.query(query_str)
+        query = _build_query(self.LANGUAGE, query_str)
         captures = query.captures(self.root)
         return captures
 
     def query_from_node(self, node: Node, query_str: str):
-        query = self.LANGUAGE.query(query_str)
+        query = _build_query(self.LANGUAGE, query_str)
         captures = query.captures(node)
         return captures
 
