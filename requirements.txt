@@ -1,0 +1,5 @@
+pandas
+dotenv
+requests
+psycopg2
+openpyxl
