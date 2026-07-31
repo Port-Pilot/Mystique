@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 import tempfile
 from dataclasses import dataclass
@@ -59,23 +60,69 @@ def git_diff_code(code1: str, code2: str, remove_diff_header: bool = False, lang
     if not code2.endswith("\n"):
         code2 += "\n"
     suffix = ".c" if language == Language.C else ".java"
-    tf1 = tempfile.NamedTemporaryFile(suffix=suffix)
-    tf2 = tempfile.NamedTemporaryFile(suffix=suffix)
-    tf1.write(code1.encode())
-    tf2.write(code2.encode())
-    tf1.flush()
-    tf2.flush()
-    diff = git_diff_file(tf1.name, tf2.name, remove_diff_header, context=context)
-    return diff
+    with tempfile.NamedTemporaryFile(suffix=suffix) as tf1, \
+            tempfile.NamedTemporaryFile(suffix=suffix) as tf2:
+        tf1.write(code1.encode())
+        tf2.write(code2.encode())
+        tf1.flush()
+        tf2.flush()
+        return git_diff_file(
+            tf1.name, tf2.name, remove_diff_header, context=context
+        )
+
+
+def normalize_and_validate_unified_diff(diff: str, target_code: str,
+                                        file_path: str) -> str | None:
+    """Return a target-path-normalized, applicable one-file diff or None."""
+    if not diff:
+        return None
+    fenced = re.search(r"```(?:diff)?\s*(.*?)```", diff, re.DOTALL)
+    if fenced is not None:
+        diff = fenced.group(1)
+    lines = diff.strip().splitlines()
+    old_headers = [i for i, line in enumerate(lines) if line.startswith("--- ")]
+    new_headers = [i for i, line in enumerate(lines) if line.startswith("+++ ")]
+    if len(old_headers) != 1 or len(new_headers) != 1:
+        return None
+    old_i, new_i = old_headers[0], new_headers[0]
+    if new_i != old_i + 1 or not any(
+        line.startswith("@@ ") for line in lines[new_i + 1:]
+    ):
+        return None
+
+    # Drop prose and git metadata.  The benchmark stores plain unified diffs.
+    lines = lines[old_i:]
+    lines[0] = f"--- a/{file_path}"
+    lines[1] = f"+++ b/{file_path}"
+    normalized = "\n".join(lines) + "\n"
+
+    if os.path.isabs(file_path) or ".." in file_path.split(os.sep):
+        return None
+    with tempfile.TemporaryDirectory() as temp_dir:
+        target_path = os.path.join(temp_dir, file_path)
+        os.makedirs(os.path.dirname(target_path), exist_ok=True)
+        with open(target_path, "w") as target_file:
+            target_file.write(target_code)
+        check = subprocess.run(
+            ["git", "apply", "--check", "--recount", "-"],
+            cwd=temp_dir,
+            input=normalized.encode(),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    return normalized if check.returncode == 0 else None
 
 
 def diff2html(diff: str, output_path: str, show_error: bool = True, title: str = "diff"):
-    if show_error:
-        subprocess.run(["diff2html", "-f", "html", "-F", output_path, "--su", "-s", "side", "--lm",
-                        "lines", "-i", "stdin", "-t", title], input=bytes(diff, "utf-8"))
-    else:
-        subprocess.run(["diff2html", "-f", "html", "-F", output_path, "--su", "-s", "side", "--lm",
-                        "lines", "-i", "stdin", "-t", title], input=bytes(diff, "utf-8"), stderr=subprocess.DEVNULL)
+    try:
+        if show_error:
+            subprocess.run(["diff2html", "-f", "html", "-F", output_path, "--su", "-s", "side", "--lm",
+                            "lines", "-i", "stdin", "-t", title], input=bytes(diff, "utf-8"))
+        else:
+            subprocess.run(["diff2html", "-f", "html", "-F", output_path, "--su", "-s", "side", "--lm",
+                            "lines", "-i", "stdin", "-t", title], input=bytes(diff, "utf-8"), stderr=subprocess.DEVNULL)
+    except FileNotFoundError:
+        pass
 
 
 def diff2html_file(file1: str, file2: str, output_path: str, show_error: bool = True, title: str | None = None, context: str = "full"):

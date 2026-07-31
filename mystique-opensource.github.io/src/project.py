@@ -41,13 +41,44 @@ class ProjectJoern:
             if pdg.line_number is None or pdg.filename is None:
                 continue
             pdgs[(pdg.line_number, pdg.name, pdg.filename)] = pdg
+
+        pdg_synthetic_dir = pdg_dir.replace('/pdg', '/pdg_synthetic')
+        if os.path.exists(pdg_synthetic_dir):
+            dot_names = os.listdir(pdg_synthetic_dir)
+            for dot in dot_names:
+                dot_path = os.path.join(pdg_synthetic_dir, dot)
+                try:
+                    pdg = joern.PDG(pdg_path=dot_path)
+                except Exception as e:
+                    continue
+                if pdg.name is None:
+                    continue
+                if pdg.line_number is None or pdg.filename is None:
+                    continue
+
+                key = (pdg.line_number, pdg.name, pdg.filename)
+                if key not in pdgs:
+                    pdgs[key] = pdg
+
         return pdgs
 
     def get_pdg(self, method: Method) -> joern.PDG | None:
         if method.clazz is not None and method.name == method.clazz.name:
-            return self.pdgs.get((method.start_line, "<init>", method.file.path))
+            key = (method.start_line, "<init>", method.file.path)
         else:
-            return self.pdgs.get((method.start_line, method.name, method.file.path))
+            key = (method.start_line, method.name, method.file.path)
+        pdg = self.pdgs.get(key)
+        if pdg is not None:
+            return pdg
+        # Fallback: match by (name, filename) ignoring start_line — covers synthetic PDGs
+        # where the formatted code seen by tree-sitter has different line numbers.
+        for (ln, name, fname), candidate in self.pdgs.items():
+            if name == method.name and (
+                fname == method.file.path
+                or os.path.basename(fname) == os.path.basename(method.file.path)
+            ):
+                return candidate
+        return None
 
 
 class Project:
@@ -132,18 +163,32 @@ class Project:
     @staticmethod
     def get_triple_methods(triple_projects: tuple[Project, Project, Project], signature: str):
         pre_project, post_project, target_project = triple_projects
-        pre_method = pre_project.get_method(signature)
-        post_method = post_project.get_method(signature)
-        target_method = target_project.get_method(signature)
-        if pre_method is not None and post_method is None:
-            post_method = post_project.get_only_method()
-        if pre_method is None:
-            return
-        if post_method is None:
-            return
-        if target_method is None:
-            return
+
+        def _find_method(project: Project, sig: str) -> Method | None:
+            """Exact signature match, then single-method file, then name-only search."""
+            m = project.get_method(sig)
+            if m is not None:
+                return m
+            # Single-function file fallback (original Mystique logic for post)
+            m = project.get_only_method()
+            if m is not None:
+                return m
+            # Name-only fallback: sig is 'filename.c#funcname', try matching just funcname
+            func_name = sig.split('#')[-1] if '#' in sig else sig
+            for file in project.files:
+                for method in file.methods:
+                    if method.name == func_name:
+                        return method
+            return None
+
+        pre_method    = _find_method(pre_project, signature)
+        post_method   = _find_method(post_project, signature)
+        target_method = _find_method(target_project, signature)
+
+        if pre_method is None or post_method is None or target_method is None:
+            return None
         return pre_method, post_method, target_method
+
 
     @staticmethod
     def get_triple_methods_java(triple_projects: tuple[Project, Project, Project], triple_signature: tuple[str, str, str]):

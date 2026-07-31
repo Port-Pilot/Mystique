@@ -1,0 +1,93 @@
+08:15:58 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+08:15:58 INFO Excel lookup built: 350 entries
+08:15:58 INFO Fetched 350 rows to process
+08:15:58 INFO [1/350] Row id=1 ...
+bp_warper: modified_methods = {'fscrypt_has_permitted_context'}
+08:16:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+08:16:03 INFO Row 1: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+Traceback (most recent call last):
+  File "/home/ubuntu/Mystique/phase2_generate_row2.py", line 485, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu/Mystique/phase2_generate_row2.py", line 447, in main
+    result = process_row(row, excel_lookup, dry_run=args.dry_run)
+  File "/home/ubuntu/Mystique/phase2_generate_row2.py", line 361, in process_row
+    fixed_code = llm.llm_fix(stored_patch, target_code, Language.C, fb_usage)
+  File "/home/ubuntu/Mystique/mystique-opensource.github.io/src/llm.py", line 52, in llm_fix
+    llm_output = gpt_fix(patch, vulcode, language, usage)
+  File "/home/ubuntu/Mystique/mystique-opensource.github.io/src/llm.py", line 109, in gpt_fix
+    completion = client.chat.completions.create(
+        model=config.GPT_MODEL,
+    ...<10 lines>...
+        ],
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 1284, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_base_client.py", line 1360, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_base_client.py", line 1065, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_client.py", line 483, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_client.py", line 461, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/openai/_base_client.py", line 990, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+        self.READ_NUM_BYTES, timeout=timeout
+    )
+  File "/home/ubuntu/venv/lib/python3.14/site-packages/httpcore/_backends/sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyboardInterrupt

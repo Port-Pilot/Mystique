@@ -75,82 +75,80 @@ class ASTParser:
             elif not cursor.goto_parent():
                 break
 
+    @staticmethod
+    def _iter_captures(captures) -> list[tuple[Node, str]]:
+        """Normalise captures from both old (list of (Node, str)) and
+        new (dict of str -> list[Node]) tree-sitter APIs."""
+        if isinstance(captures, dict):
+            nodes = []
+            for capture_name, node_list in captures.items():
+                for node in node_list:
+                    nodes.append((node, capture_name))
+            return nodes
+        # Old API: list of (Node, capture_name) tuples
+        return captures
+
     def query_oneshot(self, query_str: str) -> Node | None:
         query = _build_query(self.LANGUAGE, query_str)
-        captures = query.captures(self.root)
-        result = None
-        for capture in captures:
-            result = capture[0]
-            break
-        return result
+        if hasattr(query, 'captures'):
+            raw = query.captures(self.root)
+        else:
+            from tree_sitter import QueryCursor
+            raw = QueryCursor(query).captures(self.root)
+        nodes = self._iter_captures(raw)
+        return nodes[0][0] if nodes else None
 
     def query(self, query_str: str):
         query = _build_query(self.LANGUAGE, query_str)
-        captures = query.captures(self.root)
-        return captures
+        if hasattr(query, 'captures'):
+            raw = query.captures(self.root)
+        else:
+            from tree_sitter import QueryCursor
+            raw = QueryCursor(query).captures(self.root)
+        return self._iter_captures(raw)
 
     def query_from_node(self, node: Node, query_str: str):
         query = _build_query(self.LANGUAGE, query_str)
-        captures = query.captures(node)
-        return captures
+        if hasattr(query, 'captures'):
+            raw = query.captures(node)
+        else:
+            from tree_sitter import QueryCursor
+            raw = QueryCursor(query).captures(node)
+        return self._iter_captures(raw)
 
     def get_error_nodes(self) -> list[Node]:
         query_str = """
         (ERROR)@error
         """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_identifier_node(self) -> list[Node]:
         query_str = """
         (identifier) @id
         """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_conditional_node(self) -> list[Node]:
         query_str = TS_COND_STAT
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_assign_node(self) -> list[Node]:
         query_str = """
         (assignment_expression)@name  ( declaration )@name
         """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_return_node(self) -> list[Node]:
         query_str = """
         (return_statement)@name
         """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_call_node(self) -> list[Node]:
         query_str = """
         (call_expression)@name
         """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))
 
     def get_all_includes(self) -> list[Node]:
         if self.LANGUAGE == Language(tscpp.language()) or self.LANGUAGE == Language(tsc.language()):
@@ -161,8 +159,4 @@ class ASTParser:
             query_str = """
             ( import_declaration)@name
             """
-        captures = self.query(query_str)
-        res = []
-        for capture in captures:
-            res.append(capture[0])
-        return res
+        return list(self.query(query_str))

@@ -1,0 +1,20 @@
+03:59:30 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+03:59:30 INFO Excel lookup built: 350 entries
+03:59:30 INFO Fetched 350 rows to process
+03:59:30 INFO [1/350] Row id=1 ...
+03:59:31 INFO Row 1: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+04:00:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:00:07 INFO   -> DONE  method=mystique-llm-fallback     tokens=4386 cost=$0.0705 elapsed=36.2s
+04:00:07 INFO [2/350] Row id=2 ...
+04:00:07 INFO Row 2: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+04:01:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:01:17 INFO   -> DONE  method=mystique-llm-fallback     tokens=8184 cost=$0.1367 elapsed=69.9s
+04:01:17 INFO [3/350] Row id=3 ...
+04:01:53 INFO Row 3: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+04:03:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:03:04 INFO   -> DONE  method=mystique-llm-fallback     tokens=8605 cost=$0.1376 elapsed=107.0s
+04:03:04 INFO [4/350] Row id=4 ...
+04:03:41 INFO Row 4: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+04:04:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:04:18 INFO   -> DONE  method=mystique-llm-fallback     tokens=4632 cost=$0.0725 elapsed=73.2s
+04:04:18 INFO [5/350] Row id=5 ...

@@ -4,9 +4,12 @@ import json
 import logging
 import os
 import time
+from collections import Counter
+from types import SimpleNamespace
 
 import cpu_heater
 
+import ast_parser
 import config
 import difftools
 import format
@@ -18,6 +21,47 @@ from ast_parser import ASTParser
 from codefile import CodeFile, create_code_tree
 from common import ErrorCode, Language
 from project import Method, Project
+
+
+def _add_usage(total: llm.LLMUsage, current: llm.LLMUsage | None) -> None:
+    """Accumulate usage without assigning to LLMUsage.total_tokens (a property)."""
+    if current is None:
+        return
+    total.calls += current.calls
+    total.input_tokens += current.input_tokens
+    total.output_tokens += current.output_tokens
+    total.reasoning_tokens += current.reasoning_tokens
+
+
+def _raw_methods(code: str, file_path: str, language: Language) -> list[Method]:
+    """Parse methods without Mystique's destructive formatting/comment removal."""
+    parser = ASTParser(code, language)
+    query = ast_parser.TS_JAVA_METHOD if language == Language.JAVA else ast_parser.TS_C_METHOD
+    file = SimpleNamespace(
+        path=file_path,
+        name=os.path.basename(file_path),
+        parser=parser,
+        code=code,
+        project=None,
+    )
+    return [Method(node, None, file, language) for node, _ in parser.query(query)]
+
+
+def _methods_by_name(methods: list[Method]) -> dict[str, list[Method]]:
+    result: dict[str, list[Method]] = {}
+    for method in methods:
+        result.setdefault(method.name, []).append(method)
+    return result
+
+
+def _unified_file_diff(before: str, after: str, file_path: str) -> str:
+    """Match the benchmark's difflib unified-diff convention exactly."""
+    return "".join(difflib.unified_diff(
+        before.splitlines(keepends=True),
+        after.splitlines(keepends=True),
+        fromfile=f"a/{file_path}",
+        tofile=f"b/{file_path}",
+    ))
 
 
 def sematic_enhance_patch(rel_pre_lines: set[int], rel_post_lines: set[int],
@@ -443,6 +487,7 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     file_name = file_path.split("/")[-1]
     method_signature = f"{file_name}#{method_name}"
     triple_methods = Project.get_triple_methods(triple_projects, method_signature)
+
     if triple_methods is None:
         results["error"] = ErrorCode.METHOD_NOT_FOUND.value
         diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
@@ -603,14 +648,21 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     results["target_slice_lines"] = list(target_slice_lines)
     results["time"] = f"{(time.time() - start_time):.2f}"
 
-    fixed_code = llm.llm_fix(patch_code, target_sliced_code_placeholder, language, usage)
+    raw_target_method_code = patch.get("_raw_target_method_code")
+    llm_target_code = raw_target_method_code or target_sliced_code_placeholder
+    fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage)
     if fixed_code is None:
         results["error"] = ErrorCode.EXCEPTION.value
         results["usage"] = usage
         results["elapsed"] = time.time() - start_time
         return results
     utils.write2file(os.path.join(method_dir, f"5.ours@sp{file_suffix}"), fixed_code)
-    final_code = target_method.recover_placeholder(fixed_code, target_slice_lines, config.PLACE_HOLDER)
+    if raw_target_method_code is not None:
+        final_code = fixed_code
+    else:
+        final_code = target_method.recover_placeholder(
+            fixed_code, target_slice_lines, config.PLACE_HOLDER
+        )
     if final_code is None:
         results["error"] = ErrorCode.EXCEPTION.value
         results["usage"] = usage
@@ -625,17 +677,214 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     return results
 
 
-def bp_warper(cveid: str, patch: dict[str, str], file_path: str, method_name: str, language: Language, overwrite: bool = False, slice_level: int = config.SLICE_LEVEL) -> dict[str, str | list[int]]:
-    try:
-        return bp(cveid, patch, file_path, method_name, language, overwrite, slice_level)
-    except Exception as e:
-        return {
-            "cveid": cveid,
-            "file_path": file_path,
-            "method_name": method_name,
-            "error": ErrorCode.EXCEPTION.value
-        }
 
+def bp_warper(cveid: str, patch: dict[str, str], file_path: str,
+              method_name: str, language: Language, overwrite: bool = False,
+              slice_level: int = config.SLICE_LEVEL,
+              target_file_path: str | None = None) -> dict:
+    return bp_wrapper(
+        cveid, patch, file_path, method_name, language, overwrite, slice_level,
+        target_file_path,
+    )
+
+
+def bp_wrapper(cveid: str, patch: dict[str, str], file_path: str,
+               method_name: str, language: Language, overwrite: bool = False,
+               slice_level: int = config.SLICE_LEVEL,
+               target_file_path: str | None = None) -> dict:
+    """Backport every changed method and return one atomic file-level diff.
+
+    Any unmapped, ambiguous, renamed, missing, or failed method aborts the
+    method-level result.  The caller can then run its whole-file fallback;
+    an incomplete multi-method patch is never returned as success.
+    """
+    result_base = {
+        "cveid": cveid,
+        "file_path": file_path,
+        "method_name": method_name,
+    }
+    total_usage = llm.LLMUsage()
+    try:
+        c_pa = patch["origin_before_func_code"]
+        c_pb = patch["origin_after_func_code"]
+        target_code = patch["target_before_func_code"]
+        output_path = target_file_path or file_path
+
+        # Project deliberately formats input.  Compute the diff against those
+        # same formatted strings so its method line coordinates stay valid.
+        pre_proj = Project("1.pre", [CodeFile(file_path, c_pa)], language)
+        post_proj = Project("2.post", [CodeFile(file_path, c_pb)], language)
+        target_proj = Project(
+            "3.target", [CodeFile(output_path, target_code)], language
+        )
+        pre_file = pre_proj.files[0]
+        post_file = post_proj.files[0]
+        target_file = target_proj.files[0]
+        diff = difftools.git_diff_code(
+            pre_file.code, post_file.code, remove_diff_header=True
+        )
+        modified_lines = difftools.parse_diff(diff)
+
+        def containing(methods: list[Method], line: int) -> list[Method]:
+            return [m for m in methods if m.start_line <= line <= m.end_line]
+
+        pre_hits = [
+            (line, containing(pre_file.methods, line))
+            for line in modified_lines.get("delete", [])
+        ]
+        post_hits = [
+            (line, containing(post_file.methods, line))
+            for line in modified_lines.get("add", [])
+        ]
+        unmapped = [
+            ("delete", line) for line, methods in pre_hits if not methods
+        ] + [
+            ("add", line) for line, methods in post_hits if not methods
+        ]
+        if unmapped:
+            return {
+                **result_base,
+                "error": ErrorCode.CHANGE_OUTSIDE_METHOD.value,
+                "failed_changes": unmapped,
+                "usage": total_usage,
+                "target": target_code,
+            }
+
+        modified_methods = {
+            method.name
+            for _, methods in pre_hits + post_hits
+            for method in methods
+        }
+        if not modified_methods:
+            return {
+                **result_base,
+                "error": ErrorCode.CHANGE_OUTSIDE_METHOD.value,
+                "usage": total_usage,
+                "target": target_code,
+            }
+
+        pre_counts = Counter(m.name for m in pre_file.methods)
+        post_counts = Counter(m.name for m in post_file.methods)
+        target_counts = Counter(m.name for m in target_file.methods)
+        for name in modified_methods:
+            if pre_counts[name] == 0 or post_counts[name] == 0:
+                return {
+                    **result_base,
+                    "error": ErrorCode.REFERENCE_METHOD_MISMATCH.value,
+                    "failed_method": name,
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+            if target_counts[name] == 0:
+                return {
+                    **result_base,
+                    "error": ErrorCode.TARGET_METHOD_NOT_FOUND.value,
+                    "failed_method": name,
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+            if pre_counts[name] != 1 or post_counts[name] != 1 or target_counts[name] != 1:
+                return {
+                    **result_base,
+                    "error": ErrorCode.AMBIGUOUS_METHOD.value,
+                    "failed_method": name,
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+
+        # Deterministic source order makes runs and failure diagnostics stable.
+        pre_order = {m.name: m.start_line for m in pre_file.methods}
+        ordered_methods = sorted(modified_methods, key=lambda name: pre_order[name])
+        patched_bodies: dict[str, str] = {}
+        for name in ordered_methods:
+            method_patch = dict(patch)
+            raw_target = _methods_by_name(
+                _raw_methods(target_code, output_path, language)
+            ).get(name, [])
+            if len(raw_target) != 1:
+                return {
+                    **result_base,
+                    "error": (
+                        ErrorCode.TARGET_METHOD_NOT_FOUND.value
+                        if not raw_target else ErrorCode.AMBIGUOUS_METHOD.value
+                    ),
+                    "failed_method": name,
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+            # bp() still uses normalized code for graph/slice construction, but
+            # its LLM gets the original target method so comments/style survive.
+            method_patch["_raw_target_method_code"] = raw_target[0].code
+            res = bp(
+                cveid, method_patch, file_path, name, language, overwrite,
+                slice_level,
+            )
+            _add_usage(total_usage, res.get("usage"))
+            if res.get("error") != ErrorCode.SUCCESS.value:
+                return {
+                    **result_base,
+                    "error": ErrorCode.PARTIAL_BACKPORT_FAILED.value,
+                    "cause": res.get("error", ErrorCode.EXCEPTION.value),
+                    "failed_method": name,
+                    "completed_methods": list(patched_bodies),
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+            fixed_method = res.get("fixed_code")
+            parsed_fixed = _raw_methods(fixed_method or "", output_path, language)
+            if (
+                not fixed_method
+                or len(parsed_fixed) != 1
+                or parsed_fixed[0].name != name
+            ):
+                return {
+                    **result_base,
+                    "error": ErrorCode.INVALID_PATCH.value,
+                    "failed_method": name,
+                    "usage": total_usage,
+                    "target": target_code,
+                }
+            patched_bodies[name] = fixed_method
+
+        raw_target_by_name = _methods_by_name(
+            _raw_methods(target_code, output_path, language)
+        )
+        methods_to_replace = [
+            (
+                raw_target_by_name[name][0].node.start_byte,
+                raw_target_by_name[name][0].node.end_byte,
+                patched_bodies[name],
+            )
+            for name in ordered_methods
+        ]
+        methods_to_replace.sort(key=lambda item: item[0], reverse=True)
+        full_target_bytes = target_code.encode('utf-8')
+        for start_byte, end_byte, new_body in methods_to_replace:
+            full_target_bytes = full_target_bytes[:start_byte] + new_body.encode('utf-8') + full_target_bytes[end_byte:]
+        full_target_code = full_target_bytes.decode('utf-8')
+        final_diff = _unified_file_diff(target_code, full_target_code, output_path)
+        if not final_diff or "@@" not in final_diff:
+            return {
+                **result_base,
+                "error": ErrorCode.INVALID_PATCH.value,
+                "usage": total_usage,
+                "target": target_code,
+            }
+        return {
+            **result_base,
+            "error": ErrorCode.SUCCESS.value,
+            "fixed_code": final_diff,
+            "usage": total_usage,
+            "modified_methods": ordered_methods,
+        }
+    except Exception:
+        logging.exception("bp_wrapper failed for %s", cveid)
+        return {
+            **result_base,
+            "error": ErrorCode.EXCEPTION.value,
+            "usage": total_usage,
+            "target": patch.get("target_before_func_code", ""),
+        }
 
 def bp_java_warper(cveid: str, patch: dict[str, str], file_path: str, method_name: str, language: Language, overwrite: bool = False, slice_level: int = config.SLICE_LEVEL) -> dict[str, str | list[int]]:
     try:

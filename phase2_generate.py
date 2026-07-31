@@ -21,6 +21,9 @@ For every row in `backport_benchmark_results` with status='ready' this script:
 Run from Mystique\\ :
     python phase2_generate.py --main FixMorph-Dataset/Main-data-set.xlsx
 
+or
+    python3 phase2_generate.py --main FixMorph-Dataset/Main-data-set.xlsx
+
 Optional flags:
     --limit N      Process at most N rows (smoke-testing)
     --dry-run      Reconstruct patch dict and print, skip LLM and DB writes
@@ -47,7 +50,9 @@ import pandas as pd
 import psycopg2
 from dotenv import load_dotenv
 
-load_dotenv()
+# Use an explicit path so .env is found even after os.chdir() below.
+_DOTENV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+load_dotenv(_DOTENV_PATH, override=True)
 
 # ---------------------------------------------------------------------------
 # Bootstrap: add Mystique src/ to sys.path so we can import its modules.
@@ -63,9 +68,18 @@ if _MYSTIQUE_SRC not in sys.path:
 os.chdir(_MYSTIQUE_SRC)
 
 import config   # noqa: E402
+import difftools  # noqa: E402
 import llm      # noqa: E402
 import patchbp  # noqa: E402
 from common import ErrorCode, Language  # noqa: E402
+
+# llm.client is created at import time, before dotenv is guaranteed to have
+# populated the env.  Re-create it now with the confirmed key/url values.
+from openai import OpenAI as _OpenAI  # noqa: E402
+llm.client = _OpenAI(
+    api_key=config.GPT_API_KEY,
+    base_url=config.OPENAI_BASE_URL,
+)
 
 # ---------------------------------------------------------------------------
 # Config / constants
@@ -79,8 +93,15 @@ COST_OUTPUT_PER_1M = float(os.getenv("COST_OUTPUT_PER_1M", "30.00"))
 # Error codes that mean bp() exited BEFORE calling the LLM.
 # In these cases we run a direct LLM fallback.
 _PRE_LLM_ERRORS = {
+    ErrorCode.EXCEPTION.value,           # unhandled crash (e.g. Joern not installed)
     ErrorCode.JOERN_ERROR.value,
     ErrorCode.METHOD_NOT_FOUND.value,
+    ErrorCode.REFERENCE_METHOD_MISMATCH.value,
+    ErrorCode.TARGET_METHOD_NOT_FOUND.value,
+    ErrorCode.AMBIGUOUS_METHOD.value,
+    ErrorCode.CHANGE_OUTSIDE_METHOD.value,
+    ErrorCode.PARTIAL_BACKPORT_FAILED.value,
+    ErrorCode.INVALID_PATCH.value,
     ErrorCode.PDG_NOT_FOUND.value,
     ErrorCode.SLICE_FAILED.value,
     ErrorCode.GROUNDTRUTH_SLICE_FAILED.value,
@@ -273,7 +294,8 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
         # while the URL could have a shorter form or vice-versa)
         meta = next(
             (v for (kpb, kpe), v in excel_lookup.items()
-             if kpb.startswith(pb_sha) or pb_sha.startswith(kpb)),
+             if (kpb.startswith(pb_sha) or pb_sha.startswith(kpb))
+             and (kpe.startswith(pe_sha) or pe_sha.startswith(kpe))),
             None,
         )
     if meta is None:
@@ -322,7 +344,7 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
     try:
         bp_result = patchbp.bp_warper(
             cveid, patch_dict, ref_path, method_name,
-            Language.C, overwrite=False,
+            Language.C, overwrite=False, target_file_path=target_path,
         )
     except Exception:
         log.error("Row %s: bp_warper raised:\n%s", row["id"], traceback.format_exc())
@@ -333,18 +355,38 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
     bp_usage    = bp_result.get("usage", llm.LLMUsage())
     method_used = "mystique"
 
+    if fixed_code is not None:
+        fixed_code = difftools.normalize_and_validate_unified_diff(
+            fixed_code, c_pc, target_path
+        )
+        if fixed_code is None:
+            bp_error = ErrorCode.INVALID_PATCH.value
+            log.error("Row %s: Mystique produced an inapplicable diff", row["id"])
+
     # ---- LLM fallback ----
     # If Mystique's pipeline stopped BEFORE reaching its own LLM call
     # (e.g. no Joern, method not found, etc.) we call the LLM directly
     # with the stored raw diff + target file content.
     if fixed_code is None and bp_error in _PRE_LLM_ERRORS:
-        log.info("Row %s: bp() stopped at '%s' — running direct LLM fallback",
-                 row["id"], bp_error)
+        log.info(
+            "Row %s: bp() stopped at '%s' (cause=%s method=%s) — "
+            "running whole-file LLM fallback",
+            row["id"], bp_error, bp_result.get("cause", ""),
+            bp_result.get("failed_method", ""),
+        )
         stored_patch = row.get("new_version_patch") or ""
         target_code  = bp_result.get("target") or c_pc
         fb_usage = llm.LLMUsage()
         try:
-            fixed_code = llm.llm_fix(stored_patch, target_code, Language.C, fb_usage)
+            candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
+            fixed_code = difftools.normalize_and_validate_unified_diff(
+                candidate or "", target_code, target_path
+            )
+            if candidate and fixed_code is None:
+                log.error(
+                    "Row %s: direct LLM returned a malformed or inapplicable diff",
+                    row["id"],
+                )
         except Exception:
             log.error("Row %s: direct LLM call raised:\n%s",
                       row["id"], traceback.format_exc())
@@ -370,7 +412,10 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
         usage           = bp_usage,
         api_cost        = cost,
         status          = status,
-        error_detail    = bp_error if fixed_code is None else "",
+        error_detail    = (
+            f"{bp_error}: {bp_result.get('cause', '')} "
+            f"{bp_result.get('failed_method', '')}"
+        ).strip() if fixed_code is None else "",
     )
 
 

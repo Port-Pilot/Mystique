@@ -1,0 +1,12 @@
+18:40:49 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+18:40:49 INFO Excel lookup built: 350 entries
+18:40:50 INFO Fetched 2 rows to process
+18:40:50 INFO [1/2] Row id=1 ...
+18:40:50 INFO Row 1: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+18:41:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+18:41:26 INFO   -> DONE  method=mystique-llm-fallback     tokens=4395 cost=$0.0707 elapsed=36.7s
+18:41:26 INFO [2/2] Row id=2 ...
+18:41:27 INFO Row 2: bp() stopped at 'METHOD_NOT_FOUND' — running direct LLM fallback
+18:42:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+18:42:38 INFO   -> DONE  method=mystique-llm-fallback     tokens=8203 cost=$0.1373 elapsed=70.9s
+18:42:38 INFO === Phase 2 complete. done=2 (of which fallback=2) error=0 ===

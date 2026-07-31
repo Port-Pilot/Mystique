@@ -133,6 +133,58 @@ Code to be fixed:
     return result
 
 
+def gpt_fix_diff(patch: str, vulcode: str, usage: LLMUsage | None = None) -> str | None:
+    content = f"""
+Patch:
+{patch}
+
+Target file code:
+{vulcode}
+"""
+    logging.debug(f"🤖 GPT Input: {content}")
+    try:
+        completion = client.chat.completions.create(
+            model=config.GPT_MODEL,
+            temperature=0.5,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a professional programmer. I will provide you with a patch and a target source file. The patch was originally written for a newer version of the code, and you need to adapt it and apply it to this older target file. You must output a valid unified diff (starting with --- and +++) that patches the target file. ONLY output the unified diff in a code block. Do NOT output the full file.",
+                },
+                {
+                    "role": "user",
+                    "content": content,
+                },
+            ],
+        )
+        result = completion.choices[0].message.content
+        if usage is not None:
+            usage.calls += 1
+            usage.input_tokens += completion.usage.prompt_tokens
+            usage.output_tokens += completion.usage.completion_tokens
+            details = getattr(completion.usage, "completion_tokens_details", None)
+            usage.reasoning_tokens += getattr(details, "reasoning_tokens", 0) or 0
+    except Exception as e:
+        logging.error(f"❌ GPT Failed: {e}")
+        return None
+    return result
+
+
+def llm_fix_diff(patch: str, vulcode: str, usage: LLMUsage | None = None) -> None | str:
+    if usage is None:
+        usage = LLMUsage()
+    llm_output = gpt_fix_diff(patch, vulcode, usage)
+    logging.debug(f"LLM output: \n{llm_output}")
+    if llm_output is None:
+        return None
+    # Extract diff from code block if present
+    if "```diff" in llm_output:
+        llm_output = llm_output.split("```diff")[1].split("```")[0].strip()
+    elif "```" in llm_output:
+        llm_output = llm_output.split("```")[1].split("```")[0].strip()
+    return llm_output + "\n"
+
+
 def gpt_merge(patch: str, vulcode: str, language: Language) -> str | None:
     content = f"""
 Patch:
