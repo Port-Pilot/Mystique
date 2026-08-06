@@ -1,7 +1,0 @@
-[fatal] Linux clone failed:
-Cloning into bare repository '/home/ubuntu/.cache/mystique-compile-check/linux-bare.git'...
-warning: filtering not recognized by server, ignoring
-fatal: write error: No space left on device
-fatal: fetch-pack: invalid index-pack output
-[main] selected 2 generated patches; benchmark entries=350
-[setup] partial bare clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git -> /home/ubuntu/.cache/mystique-compile-check/linux-bare.git

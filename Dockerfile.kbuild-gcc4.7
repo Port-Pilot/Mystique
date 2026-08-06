@@ -1,0 +1,59 @@
+# Toolchain image for compile_check.py --docker-image.
+#
+# The patch_dataset build.sh recipes were built with gcc-4.7 as both HOSTCC
+# and CC. gcc-4.7 (2012) isn't available on modern distros, but it was the
+# package version shipped in Debian Wheezy, so that's the base here.
+#
+# Wheezy is EOL and no longer on the regular mirrors, so apt is pointed at
+# archive.debian.org instead.
+
+FROM debian:wheezy
+
+# RUN sed -i \
+#       -e 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' \
+#       -e 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' \
+#       -e '/wheezy-updates/d' \
+#       /etc/apt/sources.list \
+#     && apt-get -o Acquire::Check-Valid-Until=false update \
+#     && apt-get install -y --no-install-recommends \
+#          gcc-4.7 \
+#          make \
+#          bison \
+#          flex \
+#          bc \
+#          libssl-dev \
+#          libelf-dev \
+#          libncurses5-dev \
+#     && rm -rf /var/lib/apt/lists/*
+RUN sed -i \
+      -e 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' \
+      -e 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' \
+      -e '/wheezy-updates/d' \
+      /etc/apt/sources.list \
+    && apt-get \
+         -o Acquire::Check-Valid-Until=false \
+         -o Acquire::AllowInsecureRepositories=true \
+         update \
+    && apt-get \
+         -o Acquire::AllowInsecureRepositories=true \
+         -o Acquire::AllowDowngradeToInsecureRepositories=true \
+         install -y \
+         --allow-unauthenticated \
+         --no-install-recommends \
+         gcc-4.7 \
+         make \
+         bison \
+         flex \
+         bc \
+         libssl-dev \
+         libelf-dev \
+         libncurses5-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# make allyesconfig (compile_check.py's config step) doesn't set HOSTCC
+# explicitly, so kbuild's host tools (conf, fixdep, etc.) default to
+# whatever `gcc`/`cc` resolve to. Point those at gcc-4.7 too, so the
+# config step and the object-compile step (which build.sh pins to
+# HOSTCC=gcc-4.7 CC=gcc-4.7 explicitly) use the same compiler throughout.
+RUN ln -sf /usr/bin/gcc-4.7 /usr/bin/gcc \
+    && ln -sf /usr/bin/gcc-4.7 /usr/bin/cc
