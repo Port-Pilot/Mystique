@@ -46,15 +46,16 @@ def clean_llm_output(output: str, language: Language) -> str:
     return output
 
 
-def llm_fix(patch: str, vulcode: str, language: Language, usage: LLMUsage | None = None) -> None | str:
+def llm_fix(patch: str, vulcode: str, language: Language, usage: LLMUsage | None = None, feedback: str | None = None) -> None | str:
     if usage is None:
         usage = LLMUsage()
-    llm_output = gpt_fix(patch, vulcode, language, usage)
+    llm_output = gpt_fix(patch, vulcode, language, usage, feedback)
     logging.debug(f"LLM output: \n{llm_output}")
     if llm_output is None:
         return
     fixed_code = clean_llm_output(llm_output, language)
     return fixed_code
+
 
 
 def codellama_fix(patch: str, vulcode: str) -> None | str:
@@ -95,7 +96,7 @@ def llm_merge(patch: str, vulcode: str, language: Language) -> None | str:
     return fixed_code
 
 
-def gpt_fix(patch: str, vulcode: str, language: Language, usage: LLMUsage | None = None) -> str | None:
+def gpt_fix(patch: str, vulcode: str, language: Language, usage: LLMUsage | None = None, feedback: str | None = None) -> str | None:
     code_language = "Java" if language == Language.JAVA else "C"
     content = f"""
 Patch:
@@ -104,6 +105,8 @@ Patch:
 Code to be fixed:
 {vulcode}
 """
+    if feedback:
+        content += f"\nFeedback from previous attempt:\n{feedback}\n"
     logging.debug(f"🤖 GPT Input: {content}")
     try:
         completion = client.chat.completions.create(

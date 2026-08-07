@@ -1,0 +1,13 @@
+16:49:53 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+16:49:53 INFO Excel lookup built: 350 entries
+16:49:53 INFO Fetched 350 rows to process
+16:49:53 INFO --limit applied: processing 2 rows
+16:49:53 INFO [1/2] Row id=1 ...
+16:50:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+16:50:02 INFO   -> DONE  method=mystique                  tokens=1307 cost=$0.0144 elapsed=8.4s
+16:50:02 INFO [2/2] Row id=2 ...
+16:50:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+16:50:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+16:50:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+16:50:44 INFO   -> DONE  method=mystique                  tokens=4451 cost=$0.0706 elapsed=41.9s
+16:50:44 INFO === Phase 2 complete. done=2 (of which fallback=0) error=0 ===

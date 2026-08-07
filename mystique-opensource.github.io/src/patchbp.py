@@ -10,6 +10,7 @@ from types import SimpleNamespace
 import cpu_heater
 
 import ast_parser
+import check
 import config
 import difftools
 import format
@@ -62,6 +63,24 @@ def _unified_file_diff(before: str, after: str, file_path: str) -> str:
         fromfile=f"a/{file_path}",
         tofile=f"b/{file_path}",
     ))
+
+
+def _extract_structural_signature(method: Method) -> str:
+    ast = ASTParser(method.code, method.language)
+    parts = []
+    parts.append(f"name={method.name}")
+    parts.append(f"params={method.parameter_signature}")
+    
+    calls = [n[0].text.decode().split('(')[0].strip() for n in ast.get_all_call_node() if n[0].text]
+    parts.append(f"calls={len(calls)}")
+    
+    conds = [n[0].type for n in ast.get_all_conditional_node()]
+    parts.append(f"conds={len(conds)}")
+    
+    assigns = [n[0].text.decode() for n in ast.get_all_assign_node() if n[0].text]
+    parts.append(f"assigns={len(assigns)}")
+    
+    return "|".join(parts)
 
 
 def sematic_enhance_patch(rel_pre_lines: set[int], rel_post_lines: set[int],
@@ -507,6 +526,10 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     target_method.counterpart = gt_method
     gt_method.counterpart = target_method
 
+    results["sig_pre"] = _extract_structural_signature(pre_method)
+    results["sig_post"] = _extract_structural_signature(post_method)
+    results["sig_target"] = _extract_structural_signature(target_method)
+
     if pre_method.pdg is None or post_method.pdg is None or target_method.pdg is None:
         results["error"] = ErrorCode.PDG_NOT_FOUND.value
         diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
@@ -648,35 +671,81 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     results["target_slice_lines"] = list(target_slice_lines)
     results["time"] = f"{(time.time() - start_time):.2f}"
 
-    # raw_target_method_code = patch.get("_raw_target_method_code")
-    # llm_target_code = raw_target_method_code or target_sliced_code_placeholder
-    # fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage)
     raw_target_method_code = patch.get("_raw_target_method_code")
     llm_target_code = target_sliced_code_placeholder
-    fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage)
-    if fixed_code is None:
-        results["error"] = ErrorCode.EXCEPTION.value
-        results["usage"] = usage
-        results["elapsed"] = time.time() - start_time
-        return results
-    utils.write2file(os.path.join(method_dir, f"5.ours@sp{file_suffix}"), fixed_code)
-    # if raw_target_method_code is not None:
-    #     final_code = fixed_code
-    # else:
-    #     final_code = target_method.recover_placeholder(
-    #         fixed_code, target_slice_lines, config.PLACE_HOLDER
-    #     )
-    final_code = target_method.recover_placeholder(
-        fixed_code, target_slice_lines, config.PLACE_HOLDER
-    )
-    if final_code is None:
-        results["error"] = ErrorCode.EXCEPTION.value
-        results["usage"] = usage
-        results["elapsed"] = time.time() - start_time
-        return results
-    else:
-        utils.write2file(os.path.join(method_dir, f"5.ours{file_suffix}"), final_code)
 
+    max_attempts = 3
+    refinement_attempts = 0
+    check_passed = False
+    check_fail_reason = None
+    
+    final_code = None
+    feedback_prompt = None
+
+    for attempt in range(max_attempts):
+        if attempt > 0:
+            refinement_attempts += 1
+            
+        fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage, feedback_prompt)
+        if fixed_code is None:
+            if attempt == 0:
+                results["error"] = ErrorCode.EXCEPTION.value
+                results["usage"] = usage
+                results["elapsed"] = time.time() - start_time
+                return results
+            else:
+                break
+                
+        utils.write2file(os.path.join(method_dir, f"5.ours@sp{file_suffix}"), fixed_code)
+        
+        attempt_final_code = target_method.recover_placeholder(
+            fixed_code, target_slice_lines, config.PLACE_HOLDER
+        )
+        if attempt_final_code is None:
+            check_passed = False
+            check_fail_reason = "recover_placeholder failed"
+            feedback_prompt = "Failed to recover placeholders. Ensure you are outputting the correct number of placeholders."
+            final_code = fixed_code # Fallback to fixed_code on complete failure
+            continue
+            
+        final_code = attempt_final_code
+        
+        # Step 2: Syntax/AST Validity check
+        syntax_fault = check.checking_ast_error(final_code)
+        if syntax_fault.type != check.FaultType.SUCCESS:
+            check_passed = False
+            check_fail_reason = syntax_fault.description or syntax_fault.type.value
+            feedback_prompt = check_fail_reason
+            continue
+            
+        # Step 3: Full check.checking()
+        checking_fault = check.checking(
+            key="tier1",
+            pa_s=pre_sliced_code_placeholder,
+            pb=post_method.code,
+            pb_s=post_sliced_code_placeholder,
+            px=target_method.code,
+            px_sp=target_sliced_code_placeholder,
+            py_sp=fixed_code,
+            py=final_code
+        )
+        if checking_fault.type != check.FaultType.SUCCESS:
+            check_passed = False
+            check_fail_reason = checking_fault.description or checking_fault.type.value
+            feedback_prompt = f"Heuristic check failed: {check_fail_reason}"
+            continue
+            
+        # If we reached here, all checks passed
+        check_passed = True
+        check_fail_reason = None
+        break
+
+    if final_code is not None:
+        utils.write2file(os.path.join(method_dir, f"5.ours{file_suffix}"), final_code)
+    
+    results["check_passed"] = check_passed
+    results["check_fail_reason"] = check_fail_reason
+    results["refinement_attempts"] = refinement_attempts
     results["fixed_code"] = final_code
     results["usage"] = usage
     results["elapsed"] = time.time() - start_time
