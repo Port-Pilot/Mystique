@@ -648,8 +648,11 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     results["target_slice_lines"] = list(target_slice_lines)
     results["time"] = f"{(time.time() - start_time):.2f}"
 
+    # raw_target_method_code = patch.get("_raw_target_method_code")
+    # llm_target_code = raw_target_method_code or target_sliced_code_placeholder
+    # fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage)
     raw_target_method_code = patch.get("_raw_target_method_code")
-    llm_target_code = raw_target_method_code or target_sliced_code_placeholder
+    llm_target_code = target_sliced_code_placeholder
     fixed_code = llm.llm_fix(patch_code, llm_target_code, language, usage)
     if fixed_code is None:
         results["error"] = ErrorCode.EXCEPTION.value
@@ -657,12 +660,15 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
         results["elapsed"] = time.time() - start_time
         return results
     utils.write2file(os.path.join(method_dir, f"5.ours@sp{file_suffix}"), fixed_code)
-    if raw_target_method_code is not None:
-        final_code = fixed_code
-    else:
-        final_code = target_method.recover_placeholder(
-            fixed_code, target_slice_lines, config.PLACE_HOLDER
-        )
+    # if raw_target_method_code is not None:
+    #     final_code = fixed_code
+    # else:
+    #     final_code = target_method.recover_placeholder(
+    #         fixed_code, target_slice_lines, config.PLACE_HOLDER
+    #     )
+    final_code = target_method.recover_placeholder(
+        fixed_code, target_slice_lines, config.PLACE_HOLDER
+    )
     if final_code is None:
         results["error"] = ErrorCode.EXCEPTION.value
         results["usage"] = usage

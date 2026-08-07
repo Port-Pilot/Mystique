@@ -204,7 +204,7 @@ def fetch_ready_rows(conn, overwrite: bool) -> list[dict]:
     sql = (
         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
         "       new_version_patch, old_version_patch "
-        "FROM backport_benchmark_results "
+        "FROM backport_benchmark_results_mystique "
         f"WHERE status IN ({', '.join(statuses)}) "
         "ORDER BY id"
     )
@@ -217,7 +217,7 @@ def fetch_ready_rows(conn, overwrite: bool) -> list[dict]:
 def mark_running(conn, row_id: int) -> None:
     with conn.cursor() as cur:
         cur.execute(
-            "UPDATE backport_benchmark_results "
+            "UPDATE backport_benchmark_results_mystique "
             "SET status='running', updated_at=NOW() WHERE id=%s",
             (row_id,),
         )
@@ -229,7 +229,7 @@ def update_row(conn, row_id: int, *, method: str, generated_patch: str | None,
     with conn.cursor() as cur:
         cur.execute(
             """
-            UPDATE backport_benchmark_results SET
+            UPDATE backport_benchmark_results_mystique SET
                 method                   = %s,
                 generated_patch          = %s,
                 execution_time_seconds   = %s,

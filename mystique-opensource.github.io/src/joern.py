@@ -15,10 +15,13 @@ from ast_parser import TS_C_METHOD, ASTParser
 from common import Language
 
 
+# def set_joern_env(joern_path: str):
+#     os.environ["PATH"] = joern_path + os.pathsep + os.environ["PATH"]
+#     assert subprocess.run(['which', 'joern'], stdout=subprocess.PIPE).stdout.decode(
+#     ).strip() == joern_path + "/joern"
+#     os.environ['JOERN_HOME'] = joern_path
 def set_joern_env(joern_path: str):
     os.environ["PATH"] = joern_path + os.pathsep + os.environ["PATH"]
-    assert subprocess.run(['which', 'joern'], stdout=subprocess.PIPE).stdout.decode(
-    ).strip() == joern_path + "/joern"
     os.environ['JOERN_HOME'] = joern_path
 
 
@@ -94,17 +97,57 @@ def export(code_path: str, output_path: str, language: Language, overwrite: bool
 
     # Fix: pass --output explicitly so joern-parse writes cpg.bin into output_path
     # (without this, joern-parse writes to the Python process cwd, not output_path)
+    # cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
+    # subprocess.run(['joern-parse', '--language', lang,
+    #                 '-o', cpg_bin_path,
+    #                 os.path.abspath(code_path)],
+    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # subprocess.run(['joern-export', '--repr', 'cfg', '--out', os.path.abspath(cfg_dir)],
+    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # subprocess.run(['joern-export', '--repr', 'pdg', '--out', os.path.abspath(pdg_dir)],
+    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # subprocess.run(['joern-export', '--repr', 'all', '--out', os.path.abspath(cpg_dir)],
+    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
-    subprocess.run(['joern-parse', '--language', lang,
-                    '-o', cpg_bin_path,
-                    os.path.abspath(code_path)],
-                   cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.run(['joern-export', '--repr', 'cfg', '--out', os.path.abspath(cfg_dir)],
-                   cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.run(['joern-export', '--repr', 'pdg', '--out', os.path.abspath(pdg_dir)],
-                   cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.run(['joern-export', '--repr', 'all', '--out', os.path.abspath(cpg_dir)],
-                   cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    parse_result = subprocess.run(
+        ['joern-parse',
+        '--language', lang,
+        '-o', cpg_bin_path,
+        os.path.abspath(code_path)],
+        cwd=output_path,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+    if parse_result.returncode != 0:
+        print("Joern parse failed:")
+        print(parse_result.stderr)
+
+    export_results = {}
+
+    for repr_name, out_dir in [
+        ('cfg', cfg_dir),
+        ('pdg', pdg_dir),
+        ('all', cpg_dir)
+    ]:
+        result = subprocess.run(
+            ['joern-export',
+            '--repr', repr_name,
+            '--out', os.path.abspath(out_dir)],
+            cwd=output_path,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+        export_results[repr_name] = result
+
+        if result.returncode != 0:
+            print(f"Joern export failed for {repr_name}:")
+            print(result.stderr)
+    # --------------------------------------------------------
 
     if error_code_cache is not None and error_file_path is not None:
         with open(error_file_path, "w") as f:
@@ -112,7 +155,21 @@ def export(code_path: str, output_path: str, language: Language, overwrite: bool
 
     # Fix: build a synthetic PDG from tree-sitter so the pipeline can still slice
     # if Joern fails on some files (e.g. unresolved macros in kernel C).
-    if language in (Language.C, Language.CPP):
+    # if language in (Language.C, Language.CPP):
+    #     pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
+    #     _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
+    # Build synthetic PDG only if Joern PDG export produced nothing
+    pdg_dot_files = []
+
+    if os.path.exists(pdg_dir):
+        pdg_dot_files = [
+            f for f in os.listdir(pdg_dir)
+            if f.endswith(".dot")
+    ]
+
+    if language in (Language.C, Language.CPP) and len(pdg_dot_files) == 0:
+        print("No Joern PDG dot files found. Building synthetic PDG.")
+
         pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
         _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
 
