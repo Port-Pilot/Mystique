@@ -71,7 +71,11 @@ import config   # noqa: E402
 import difftools  # noqa: E402
 import llm      # noqa: E402
 import patchbp  # noqa: E402
+from ast_parser import ASTParser  # noqa: E402
 from common import ErrorCode, Language  # noqa: E402
+# Reuse bp_wrapper's own raw (unformatted) method parsing + diff assembly
+# helpers, instead of inventing a second, possibly-misaligned mechanism.
+from patchbp import _methods_by_name, _raw_methods, _unified_file_diff  # noqa: E402
 
 # llm.client is created at import time, before dotenv is guaranteed to have
 # populated the env.  Re-create it now with the confirmed key/url values.
@@ -107,6 +111,70 @@ _PRE_LLM_ERRORS = {
     ErrorCode.GROUNDTRUTH_SLICE_FAILED.value,
     ErrorCode.AST_ERROR.value,
 }
+
+
+def _scoped_llm_fallback(stored_patch: str, target_code: str, target_path: str,
+                          language: Language, failed_method: str | None,
+                          failed_changes: list[tuple[str, int]] | None,
+                          usage: "llm.LLMUsage") -> str | None:
+    """Mystique-faithful fallback for when bp()/bp_wrapper() couldn't reach
+    its own LLM call. Instead of asking the LLM to localize AND adapt across
+    the whole file (gpt_fix_diff's job), do the localization ourselves with
+    the same tree-sitter method boundaries Mystique's real path would hand to
+    Joern, then call the SAME llm.gpt_fix() Mystique uses internally on just
+    that scoped region -- fixed-code-in/fixed-code-out, not a hand-written
+    diff. Splicing + diffing reuses bp_wrapper's own raw byte-offset helpers
+    so there's no risk of the formatting pass shifting line numbers.
+ 
+    Returns a unified diff string, or None if nothing could be localized
+    (caller should then decide whether to fall further back to gpt_fix_diff
+    on the whole file as an absolute last resort).
+    """
+    raw_methods = _raw_methods(target_code, target_path, language)
+ 
+    scope_node = None
+    if failed_method:
+        candidates = _methods_by_name(raw_methods).get(failed_method, [])
+        if len(candidates) == 1:
+            scope_node = candidates[0].node
+            scope_code = candidates[0].code
+ 
+    if scope_node is None and failed_changes:
+        # CHANGE_OUTSIDE_METHOD: there is no method boundary at all (macro,
+        # global, struct/enum def, #include, ...). Localize to the smallest
+        # enclosing top-level tree-sitter node(s) covering the touched lines
+        # instead of the whole file.
+        parser = ASTParser(target_code, language)
+        touched_lines = {ln for _, ln in failed_changes}
+        covering = [
+            n for n in parser.root.children
+            if any((n.start_point[0] + 1) <= ln <= (n.end_point[0] + 1) for ln in touched_lines)
+        ]
+        if covering:
+            start_byte = min(n.start_byte for n in covering)
+            end_byte = max(n.end_byte for n in covering)
+            scope_code = target_code.encode("utf-8")[start_byte:end_byte].decode("utf-8")
+ 
+            class _Span:
+                pass
+            scope_node = _Span()
+            scope_node.start_byte = start_byte
+            scope_node.end_byte = end_byte
+ 
+    if scope_node is None:
+        return None
+ 
+    fixed_scope = llm.gpt_fix(stored_patch, scope_code, language, usage)
+    if not fixed_scope:
+        return None
+ 
+    full_bytes = target_code.encode("utf-8")
+    full_bytes = (full_bytes[:scope_node.start_byte]
+                  + fixed_scope.encode("utf-8")
+                  + full_bytes[scope_node.end_byte:])
+    full_target_code = full_bytes.decode("utf-8")
+    return _unified_file_diff(target_code, full_target_code, target_path)
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -365,32 +433,106 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
 
     # ---- LLM fallback ----
     # If Mystique's pipeline stopped BEFORE reaching its own LLM call
-    # (e.g. no Joern, method not found, etc.) we call the LLM directly
-    # with the stored raw diff + target file content.
+    # (e.g. no Joern, method not found, etc.) we don't hand the whole file
+    # to the LLM. We localize with tree-sitter (the same method boundaries
+    # Mystique's real path would hand to Joern) and call Mystique's own
+    # llm.gpt_fix() on just that scope. Only if that localization genuinely
+    # finds nothing (scope_node is None) do we fall further back to the
+    # whole-file gpt_fix_diff as an absolute last resort.
+    # if fixed_code is None and bp_error in _PRE_LLM_ERRORS:
+    #     log.info(
+    #         "Row %s: bp() stopped at '%s' (cause=%s method=%s) — "
+    #         "running whole-file LLM fallback",
+    #         row["id"], bp_error, bp_result.get("cause", ""),
+    #         bp_result.get("failed_method", ""),
+    #     )
+    #     stored_patch = row.get("new_version_patch") or ""
+    #     target_code  = bp_result.get("target") or c_pc
+    #     fb_usage = llm.LLMUsage()
+    #     try:
+    #         candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
+    #         fixed_code = difftools.normalize_and_validate_unified_diff(
+    #             candidate or "", target_code, target_path
+    #         )
+    #         if candidate and fixed_code is None:
+    #             log.error(
+    #                 "Row %s: direct LLM returned a malformed or inapplicable diff",
+    #                 row["id"],
+    #             )
+    #     except Exception:
+    #         log.error("Row %s: direct LLM call raised:\n%s",
+    #                   row["id"], traceback.format_exc())
+    #         fixed_code = None
+
+    #     # Merge token counts (bp may have spent 0 tokens; fallback adds on top)
+    #     bp_usage = llm.LLMUsage(
+    #         calls            = bp_usage.calls + fb_usage.calls,
+    #         input_tokens     = bp_usage.input_tokens + fb_usage.input_tokens,
+    #         output_tokens    = bp_usage.output_tokens + fb_usage.output_tokens,
+    #         reasoning_tokens = bp_usage.reasoning_tokens + fb_usage.reasoning_tokens,
+    #     )
+    #     method_used = "mystique-llm-fallback"
+    # ---- LLM fallback ----
+    # If Mystique's pipeline stopped BEFORE reaching its own LLM call
+    # (e.g. no Joern, method not found, etc.) we don't hand the whole file
+    # to the LLM. We localize with tree-sitter (the same method boundaries
+    # Mystique's real path would hand to Joern) and call Mystique's own
+    # llm.gpt_fix() on just that scope. Only if that localization genuinely
+    # finds nothing (scope_node is None) do we fall further back to the
+    # whole-file gpt_fix_diff as an absolute last resort.
     if fixed_code is None and bp_error in _PRE_LLM_ERRORS:
-        log.info(
-            "Row %s: bp() stopped at '%s' (cause=%s method=%s) — "
-            "running whole-file LLM fallback",
-            row["id"], bp_error, bp_result.get("cause", ""),
-            bp_result.get("failed_method", ""),
-        )
         stored_patch = row.get("new_version_patch") or ""
         target_code  = bp_result.get("target") or c_pc
+        failed_method  = bp_result.get("failed_method")
+        failed_changes = bp_result.get("failed_changes")
         fb_usage = llm.LLMUsage()
+        method_used = "mystique-llm-fallback"
+
         try:
-            candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
-            fixed_code = difftools.normalize_and_validate_unified_diff(
-                candidate or "", target_code, target_path
+            candidate = _scoped_llm_fallback(
+                stored_patch, target_code, target_path, Language.C,
+                failed_method, failed_changes, fb_usage,
             )
-            if candidate and fixed_code is None:
-                log.error(
-                    "Row %s: direct LLM returned a malformed or inapplicable diff",
-                    row["id"],
+            if candidate is not None:
+                log.info(
+                    "Row %s: bp() stopped at '%s' (cause=%s method=%s) — "
+                    "running scoped (tree-sitter localized) LLM fallback",
+                    row["id"], bp_error, bp_result.get("cause", ""), failed_method or "",
                 )
+                fixed_code = difftools.normalize_and_validate_unified_diff(
+                    candidate, target_code, target_path
+                )
+                if fixed_code is None:
+                    log.error(
+                        "Row %s: scoped LLM fallback produced an inapplicable diff",
+                        row["id"],
+                    )
+                else:
+                    method_used = "mystique-llm-fallback-scoped"
         except Exception:
-            log.error("Row %s: direct LLM call raised:\n%s",
+            log.error("Row %s: scoped LLM fallback raised:\n%s",
                       row["id"], traceback.format_exc())
             fixed_code = None
+
+        if fixed_code is None:
+            log.info(
+                "Row %s: could not localize a scope — running whole-file LLM fallback",
+                row["id"],
+            )
+            try:
+                candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
+                fixed_code = difftools.normalize_and_validate_unified_diff(
+                    candidate or "", target_code, target_path
+                )
+                if candidate and fixed_code is None:
+                    log.error(
+                        "Row %s: direct LLM returned a malformed or inapplicable diff",
+                        row["id"],
+                    )
+            except Exception:
+                log.error("Row %s: direct LLM call raised:\n%s",
+                          row["id"], traceback.format_exc())
+                fixed_code = None
 
         # Merge token counts (bp may have spent 0 tokens; fallback adds on top)
         bp_usage = llm.LLMUsage(
@@ -399,7 +541,6 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
             output_tokens    = bp_usage.output_tokens + fb_usage.output_tokens,
             reasoning_tokens = bp_usage.reasoning_tokens + fb_usage.reasoning_tokens,
         )
-        method_used = "mystique-llm-fallback"
 
     elapsed = time.time() - t0
     cost    = estimate_cost(bp_usage)

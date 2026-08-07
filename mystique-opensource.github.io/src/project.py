@@ -21,6 +21,17 @@ from joern import PDGNode
 from tree_sitter import Node
 
 
+def _is_method_return(node_type: str) -> bool:
+    """node_type from real Joern is a stringified list, e.g. "['METHOD_RETURN']";
+    node_type from the synthetic tree-sitter PDG is a bare string, e.g. 'METHOD_RETURN'.
+    Handle both instead of assuming ast.literal_eval always succeeds."""
+    try:
+        parsed = ast.literal_eval(node_type)
+        return "METHOD_RETURN" in parsed
+    except (ValueError, SyntaxError):
+        return node_type == "METHOD_RETURN"
+
+
 class ProjectJoern:
     def __init__(self, cpg_dir: str, pdg_dir: str):
         self.cpg = joern.CPG(cpg_dir)
@@ -860,7 +871,8 @@ class Method:
         # CFG 切片
         for slice_line in criteria_lines:
             for node in all_nodes[slice_line]:
-                if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                # if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                if node.type == "METHOD" or _is_method_return(node.type):
                     continue
                 for pred_node in node.pred_cfg_nodes:
                     if pred_node.line_number is None or int(pred_node.line_number) == sys.maxsize:
@@ -871,7 +883,8 @@ class Method:
         # DDG 切片
         for sline in criteria_lines:
             for node in all_nodes[sline]:
-                if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                # if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                if node.type == "METHOD" or _is_method_return(node.type):
                     continue
                 visited = set()
                 queue: deque[tuple[PDGNode, int]] = deque([(node, 0)])
@@ -908,7 +921,8 @@ class Method:
 
         for slice_line in criteria_lines:
             for node in all_nodes[slice_line]:
-                if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                # if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                if node.type == "METHOD" or _is_method_return(node.type):
                     continue
                 if node.line_number is None:
                     continue
@@ -922,7 +936,8 @@ class Method:
 
         for sline in criteria_lines:
             for node in all_nodes[sline]:
-                if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                # if node.type == "METHOD" or "METHOD_RETURN" in ast.literal_eval(node.type):
+                if node.type == "METHOD" or _is_method_return(node.type):
                     continue
                 visited = set()
                 queue: deque[tuple[PDGNode, int]] = deque([(node, 0)])
