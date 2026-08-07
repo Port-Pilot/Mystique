@@ -133,6 +133,74 @@ Code to be fixed:
     return result
 
 
+def gpt_fix_wholefile(patch: str, target_file_code: str, language: Language,
+                       usage: LLMUsage | None = None) -> str | None:
+    """Same behavioral contract as gpt_fix() -- adapt only the patch part,
+    change nothing else, preserve style/comments, don't fill in gaps -- but
+    scoped to a whole file instead of a narrow slice, for the rare cases
+    where nothing could be localized (e.g. the target method doesn't exist
+    in this file at all). Returns full fixed file content, NOT a diff --
+    the diff is computed deterministically in Python by the caller, so the
+    LLM is never responsible for hand-authoring diff syntax."""
+    code_language = "Java" if language == Language.JAVA else "C"
+    content = f"""
+Patch:
+{patch}
+ 
+Target file code:
+{target_file_code}
+"""
+    logging.debug(f"🤖 GPT Input: {content}")
+    try:
+        completion = client.chat.completions.create(
+            model=config.GPT_MODEL,
+            temperature=0.5,
+            messages=[
+                {
+                    "role": "system",
+                    "content": f"You're a professional and cautious {code_language} programmer, and you're very good at patching programs. Now I'm going to give you a patch and a target source file, but it's worth noting that the patch you've been given won't necessarily work directly with this file; you'll need to adapt it. You only need to adapt and fix the patch part, do not make any other fixes or improvements anywhere else in the file. Maintain the original style of the code as much as possible. Do not delete or add any comments in the code. Some parts of the file are unrelated to this patch; leave them completely untouched, character for character. You just need to output the complete fixed file content -- the whole file, not a diff, not just the changed function.",
+                },
+                {
+                    "role": "user",
+                    "content": content,
+                },
+            ],
+        )
+        result = completion.choices[0].message.content
+        if usage is not None:
+            usage.calls += 1
+            usage.input_tokens += completion.usage.prompt_tokens
+            usage.output_tokens += completion.usage.completion_tokens
+            details = getattr(completion.usage, "completion_tokens_details", None)
+            usage.reasoning_tokens += getattr(details, "reasoning_tokens", 0) or 0
+    except Exception as e:
+        logging.error(f"❌ GPT Failed: {e}")
+        return None
+    return result
+ 
+ 
+def llm_fix_wholefile(patch: str, target_file_code: str, language: Language,
+                       usage: LLMUsage | None = None) -> None | str:
+    if usage is None:
+        usage = LLMUsage()
+    llm_output = gpt_fix_wholefile(patch, target_file_code, language, usage)
+    logging.debug(f"LLM output: \n{llm_output}")
+    if llm_output is None:
+        return None
+    # Strip code fences only -- do NOT extract a single function node here
+    # (clean_llm_output does that, which is correct for the narrow-scope
+    # tiers but would wrongly discard the rest of a whole-file response).
+    output = llm_output.strip()
+    if output.startswith("```"):
+        lines = output.split("\n")
+        if lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        output = "\n".join(lines)
+    return output
+
+
 def gpt_fix_diff(patch: str, vulcode: str, usage: LLMUsage | None = None) -> str | None:
     content = f"""
 Patch:

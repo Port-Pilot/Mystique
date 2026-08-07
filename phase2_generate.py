@@ -514,23 +514,53 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
                       row["id"], traceback.format_exc())
             fixed_code = None
 
+        # if fixed_code is None:
+        #     log.info(
+        #         "Row %s: could not localize a scope — running whole-file LLM fallback",
+        #         row["id"],
+        #     )
+        #     try:
+        #         candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
+        #         fixed_code = difftools.normalize_and_validate_unified_diff(
+        #             candidate or "", target_code, target_path
+        #         )
+        #         if candidate and fixed_code is None:
+        #             log.error(
+        #                 "Row %s: direct LLM returned a malformed or inapplicable diff",
+        #                 row["id"],
+        #             )
+        #     except Exception:
+        #         log.error("Row %s: direct LLM call raised:\n%s",
+        #                   row["id"], traceback.format_exc())
+        #         fixed_code = None
         if fixed_code is None:
             log.info(
-                "Row %s: could not localize a scope — running whole-file LLM fallback",
+                "Row %s: could not localize a scope — running Mystique-style "
+                "whole-file LLM fallback",
                 row["id"],
             )
             try:
-                candidate = llm.llm_fix_diff(stored_patch, target_code, fb_usage)
+                # Same behavioral contract as tiers 1/2 (llm.gpt_fix):
+                # adapt-only, preserve everything else, output fixed code --
+                # just scoped to the whole file instead of a slice, and with
+                # the diff computed deterministically rather than LLM-authored.
+                full_fixed_code = llm.llm_fix_wholefile(
+                    stored_patch, target_code, Language.C, fb_usage
+                )
+                candidate = (
+                    _unified_file_diff(target_code, full_fixed_code, target_path)
+                    if full_fixed_code else None
+                )
                 fixed_code = difftools.normalize_and_validate_unified_diff(
                     candidate or "", target_code, target_path
                 )
                 if candidate and fixed_code is None:
                     log.error(
-                        "Row %s: direct LLM returned a malformed or inapplicable diff",
+                        "Row %s: whole-file LLM fix produced an inapplicable diff",
                         row["id"],
                     )
             except Exception:
-                log.error("Row %s: direct LLM call raised:\n%s",
+                log.error("Row %s: whole-file LLM call raised:\n%s",
                           row["id"], traceback.format_exc())
                 fixed_code = None
 
@@ -584,7 +614,22 @@ def main():
         "--overwrite", action="store_true",
         help="Re-process rows that already have status='done'",
     )
+    parser.add_argument(
+        "--log-file", type=str, default=None,
+        help="Optional file path to save output log to (e.g., phase2.log)",
+    )
     args = parser.parse_args()
+
+    if args.log_file:
+        class FlushingFileHandler(logging.FileHandler):
+            def emit(self, record):
+                super().emit(record)
+                self.flush()
+
+        fh = FlushingFileHandler(args.log_file, mode="a", encoding="utf-8")
+        fh.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S"))
+        logging.getLogger().addHandler(fh)
+        log.info("Logging output to file: %s", args.log_file)
 
     if not NEON_DATABASE_URL:
         log.error("NEON_DATABASE_URL is not set — check your .env file")
