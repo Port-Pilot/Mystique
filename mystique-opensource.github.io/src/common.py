@@ -33,6 +33,9 @@ class ErrorCode(Enum):
     PDG_NOT_FOUND = "PDG_NOT_FOUND"
     SLICE_FAILED = "SLICE_FAILED"
     GROUNDTRUTH_SLICE_FAILED = "GROUNDTRUTH_FAILED"
+    # Tier 1 produced a patch, but it never passed check.checking() /
+    # checking_ast_error() within the refinement loop's attempt budget.
+    CHECK_FAILED = "CHECK_FAILED"
 
 
 class BPType(Enum):

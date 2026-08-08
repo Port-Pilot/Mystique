@@ -743,6 +743,15 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     if final_code is not None:
         utils.write2file(os.path.join(method_dir, f"5.ours{file_suffix}"), final_code)
     
+    # Refinement exhausted its attempt budget without ever passing
+    # check.checking()/checking_ast_error() -- don't report this as
+    # ErrorCode.SUCCESS (set earlier, before this loop ran). Downstream
+    # (_PRE_LLM_ERRORS in phase2_generate.py) will route this into the
+    # existing tier 2/3 fallback path instead of accepting an unvalidated
+    # or possibly broken (e.g. failed recover_placeholder) result.
+    if not check_passed:
+        results["error"] = ErrorCode.CHECK_FAILED.value
+
     results["check_passed"] = check_passed
     results["check_fail_reason"] = check_fail_reason
     results["refinement_attempts"] = refinement_attempts
