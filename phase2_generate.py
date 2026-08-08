@@ -94,6 +94,12 @@ CACHE_DB_PATH      = os.path.join(_SCRIPT_DIR, "github_fetch_cache.sqlite")
 COST_INPUT_PER_1M  = float(os.getenv("COST_INPUT_PER_1M",  "5.00"))
 COST_OUTPUT_PER_1M = float(os.getenv("COST_OUTPUT_PER_1M", "30.00"))
 
+# When True: only tier-1 (real Mystique -- PDG slice + AST completeness +
+# check/refine loop) results are accepted. Any row that can't complete tier 1
+# is recorded as skipped rather than being handed to a tree-sitter-scoped or
+# whole-file LLM fallback.
+TIER1_ONLY = True
+
 # Error codes that mean bp() exited BEFORE calling the LLM.
 # In these cases we run a direct LLM fallback.
 _PRE_LLM_ERRORS = {
@@ -480,7 +486,7 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
     # llm.gpt_fix() on just that scope. Only if that localization genuinely
     # finds nothing (scope_node is None) do we fall further back to the
     # whole-file gpt_fix_diff as an absolute last resort.
-    if fixed_code is None and bp_error in _PRE_LLM_ERRORS:
+    if fixed_code is None and bp_error in _PRE_LLM_ERRORS and not TIER1_ONLY:
         stored_patch = row.get("new_version_patch") or ""
         target_code  = bp_result.get("target") or c_pc
         failed_method  = bp_result.get("failed_method")
@@ -574,7 +580,7 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
 
     elapsed = time.time() - t0
     cost    = estimate_cost(bp_usage)
-    status  = "done" if fixed_code is not None else "error"
+    status = "done" if fixed_code is not None else "error"
 
     return dict(
         method          = method_used,
