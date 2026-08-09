@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """This is a modified script for patch 233
+
+    python compile_check_patch_233.py --docker-image kbuild-gcc4.7 --ids 233
 """
 
 from __future__ import annotations
@@ -548,7 +550,7 @@ def fetch_rows(
         params.append(limit)
     query = (
         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
-        f"generated_patch FROM backport_benchmark_results WHERE {where} "
+        f"generated_patch FROM backport_benchmark_results_mystique WHERE {where} "
         f"ORDER BY id{limit_clause}"
     )
     with psycopg2.connect(dsn) as connection:
@@ -561,7 +563,7 @@ def update_compilation_result(dsn: str, row_id: int, success: bool) -> None:
     with psycopg2.connect(dsn) as connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE backport_benchmark_results "
+                "UPDATE backport_benchmark_results_mystique "
                 "SET compilation_success = %s, updated_at = NOW() WHERE id = %s",
                 (success, row_id),
             )

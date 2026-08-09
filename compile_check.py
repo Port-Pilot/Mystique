@@ -15,7 +15,7 @@ object to compile, and which compiler/vars to use) come straight from PortGPT da
         make allyesconfig
         make HOSTCC=gcc-4.7 CC=gcc-4.7 -j `nproc` fs/crypto/policy.o
 
-Each ``backport_benchmark_results`` row's ``id`` corresponds directly to a
+Each ``backport_benchmark_results_mystique`` row's ``id`` corresponds directly to a
 ``fixmorph_bugs/<id>`` folder in that repo, so no separate benchmark
 spreadsheet is needed and no per-kernel-version compiler/config guessing is
 needed either: every case in the dataset uses the same recipe shape, so the
@@ -45,6 +45,7 @@ The exact toolchain the dataset expects (e.g. gcc-4.7 as both HOSTCC and CC)
 normally isn't on a modern host, so pass a Docker image that provides it:
 
     python compile_check.py --docker-image kbuild-gcc4.7
+    python compile_check.py --method mystique --limit 5 --dry-run --docker-image kbuild-gcc4.7
 """
 
 from __future__ import annotations
@@ -574,7 +575,7 @@ def fetch_rows(
         params.append(limit)
     query = (
         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
-        f"generated_patch FROM backport_benchmark_results WHERE {where} "
+        f"generated_patch FROM backport_benchmark_results_mystique WHERE {where} "
         f"ORDER BY id{limit_clause}"
     )
     with psycopg2.connect(dsn) as connection:
@@ -587,7 +588,7 @@ def update_compilation_result(dsn: str, row_id: int, success: bool) -> None:
     with psycopg2.connect(dsn) as connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE backport_benchmark_results "
+                "UPDATE backport_benchmark_results_mystique "
                 "SET compilation_success = %s, updated_at = NOW() WHERE id = %s",
                 (success, row_id),
             )
@@ -803,7 +804,7 @@ if __name__ == "__main__":
 #         make allyesconfig
 #         make HOSTCC=gcc-4.7 CC=gcc-4.7 -j `nproc` fs/crypto/policy.o
 
-# Each ``backport_benchmark_results`` row's ``id`` corresponds directly to a
+# Each ``backport_benchmark_results_mystique`` row's ``id`` corresponds directly to a
 # ``fixmorph_bugs/<id>`` folder in that repo, so no separate benchmark
 # spreadsheet is needed and no per-kernel-version compiler/config guessing is
 # needed either: every case in the dataset uses the same recipe shape, so the
@@ -1328,7 +1329,7 @@ if __name__ == "__main__":
 #         params.append(limit)
 #     query = (
 #         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
-#         f"generated_patch FROM backport_benchmark_results WHERE {where} "
+#         f"generated_patch FROM backport_benchmark_results_mystique WHERE {where} "
 #         f"ORDER BY id{limit_clause}"
 #     )
 #     with psycopg2.connect(dsn) as connection:
@@ -1341,7 +1342,7 @@ if __name__ == "__main__":
 #     with psycopg2.connect(dsn) as connection:
 #         with connection.cursor() as cursor:
 #             cursor.execute(
-#                 "UPDATE backport_benchmark_results "
+#                 "UPDATE backport_benchmark_results_mystique "
 #                 "SET compilation_success = %s, updated_at = NOW() WHERE id = %s",
 #                 (success, row_id),
 #             )

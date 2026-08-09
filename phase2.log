@@ -1,0 +1,1203 @@
+python3 phase2_generate.py --main FixMorph-Dataset/Main-data-set.xlsx
+09:59:30 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+09:59:30 INFO Excel lookup built: 350 entries
+09:59:30 INFO Fetched 350 rows to process
+09:59:30 INFO [1/350] Row id=1 ...
+09:59:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+09:59:42 INFO   -> DONE  method=mystique                  tokens=1280 cost=$0.0142 elapsed=11.2s
+09:59:42 INFO [2/350] Row id=2 ...
+09:59:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+09:59:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:07 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED spectre_v2_parse_cmdline
+10:00:07 INFO [3/350] Row id=3 ...
+10:00:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:00:59 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED core_tmr_drain_state_list
+10:00:59 INFO [4/350] Row id=4 ...
+10:00:59 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:00:59 INFO [5/350] Row id=5 ...
+10:01:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:01:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:01:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:01:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:01:45 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __dwc3_cleanup_done_trbs
+10:01:45 INFO [6/350] Row id=6 ...
+10:02:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:02:03 INFO   -> DONE  method=mystique                  tokens=805 cost=$0.0074 elapsed=18.4s
+10:02:03 INFO [7/350] Row id=7 ...
+10:02:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:02:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:02:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:02:48 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED lock_timer_base
+10:02:48 INFO [8/350] Row id=8 ...
+10:02:53 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:02:53 INFO   -> DONE  method=mystique                  tokens=691 cost=$0.0056 elapsed=4.9s
+10:02:53 INFO [9/350] Row id=9 ...
+10:03:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:03:38 INFO   -> DONE  method=mystique                  tokens=5663 cost=$0.0777 elapsed=44.0s
+10:03:38 INFO [10/350] Row id=10 ...
+10:03:48 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED __dm_destroy
+10:03:48 INFO [11/350] Row id=11 ...
+10:04:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:13 INFO   -> DONE  method=mystique                  tokens=2211 cost=$0.0266 elapsed=24.4s
+10:04:13 INFO [12/350] Row id=12 ...
+10:04:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:23 INFO   -> DONE  method=mystique                  tokens=949 cost=$0.0095 elapsed=9.4s
+10:04:23 INFO [13/350] Row id=13 ...
+10:04:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:39 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED clocksource_watchdog
+10:04:39 INFO [14/350] Row id=14 ...
+10:04:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:04:51 INFO   -> DONE  method=mystique                  tokens=858 cost=$0.0078 elapsed=11.3s
+10:04:51 INFO [15/350] Row id=15 ...
+10:04:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:05:10 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:05:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:05:15 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED bnep_add_connection
+10:05:15 INFO [16/350] Row id=16 ...
+10:05:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:28 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED ubifs_jnl_truncate
+10:06:28 INFO [17/350] Row id=17 ...
+10:06:28 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  bsg_prepare_job
+10:06:28 INFO [18/350] Row id=18 ...
+10:06:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:06:43 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED tango_nand_probe
+10:06:43 INFO [19/350] Row id=19 ...
+10:06:44 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:06:44 INFO [20/350] Row id=20 ...
+10:07:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:05 INFO   -> DONE  method=mystique                  tokens=1173 cost=$0.0123 elapsed=20.8s
+10:07:05 INFO [21/350] Row id=21 ...
+10:07:05 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:07:05 INFO [22/350] Row id=22 ...
+10:07:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:18 INFO   -> DONE  method=mystique                  tokens=1907 cost=$0.0256 elapsed=13.2s
+10:07:18 INFO [23/350] Row id=23 ...
+10:07:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:36 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:36 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED dev_pm_opp_get_opp_count
+10:07:36 INFO [24/350] Row id=24 ...
+10:07:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:49 INFO   -> DONE  method=mystique                  tokens=864 cost=$0.0089 elapsed=12.3s
+10:07:49 INFO [25/350] Row id=25 ...
+10:07:49 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:07:49 INFO [26/350] Row id=26 ...
+10:07:49 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  vb2_core_streamon
+10:07:49 INFO [27/350] Row id=27 ...
+10:07:50 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:07:50 INFO [28/350] Row id=28 ...
+10:07:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:07:58 INFO   -> DONE  method=mystique                  tokens=736 cost=$0.0063 elapsed=7.8s
+10:07:58 INFO [29/350] Row id=29 ...
+10:08:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:08:05 INFO   -> DONE  method=mystique                  tokens=970 cost=$0.0100 elapsed=7.0s
+10:08:05 INFO [30/350] Row id=30 ...
+10:08:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:08:30 INFO   -> DONE  method=mystique                  tokens=2305 cost=$0.0303 elapsed=24.5s
+10:08:30 INFO [31/350] Row id=31 ...
+10:08:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:08:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:08:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:08:59 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED dev_config
+10:08:59 INFO [32/350] Row id=32 ...
+10:09:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:09:17 INFO   -> DONE  method=mystique                  tokens=992 cost=$0.0112 elapsed=17.5s
+10:09:17 INFO [33/350] Row id=33 ...
+10:09:17 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:09:17 INFO [34/350] Row id=34 ...
+10:09:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:09:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:09:35 INFO   -> DONE  method=mystique                  tokens=1894 cost=$0.0183 elapsed=17.0s
+10:09:35 INFO [35/350] Row id=35 ...
+10:09:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:10:10 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:10:10 INFO   -> DONE  method=mystique                  tokens=1662 cost=$0.0159 elapsed=35.0s
+10:10:10 INFO [36/350] Row id=36 ...
+10:10:10 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  tcp_fastopen_create_child
+10:10:10 INFO [37/350] Row id=37 ...
+10:10:11 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  gpiod_export_link
+10:10:11 INFO [38/350] Row id=38 ...
+10:10:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:10:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:10:29 INFO   -> DONE  method=mystique                  tokens=2565 cost=$0.0262 elapsed=18.6s
+10:10:29 INFO [39/350] Row id=39 ...
+10:10:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:10:43 INFO   -> DONE  method=mystique                  tokens=578 cost=$0.0041 elapsed=13.8s
+10:10:43 INFO [40/350] Row id=40 ...
+10:11:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:11:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:11:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:11:25 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED check_hw_exists
+10:11:25 INFO [41/350] Row id=41 ...
+10:11:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:11:35 INFO   -> DONE  method=mystique                  tokens=834 cost=$0.0074 elapsed=10.0s
+10:11:35 INFO [42/350] Row id=42 ...
+10:11:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:11:43 INFO   -> DONE  method=mystique                  tokens=917 cost=$0.0084 elapsed=7.8s
+10:11:43 INFO [43/350] Row id=43 ...
+10:11:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:09 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED hns3_init_module
+10:12:09 INFO [44/350] Row id=44 ...
+10:12:09 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  pubek_show
+10:12:09 INFO [45/350] Row id=45 ...
+10:12:19 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:19 INFO   -> DONE  method=mystique                  tokens=1453 cost=$0.0156 elapsed=9.6s
+10:12:19 INFO [46/350] Row id=46 ...
+10:12:30 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:30 INFO   -> DONE  method=mystique                  tokens=1061 cost=$0.0122 elapsed=10.8s
+10:12:30 INFO [47/350] Row id=47 ...
+10:12:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:47 INFO   -> DONE  method=mystique                  tokens=781 cost=$0.0069 elapsed=16.5s
+10:12:47 INFO [48/350] Row id=48 ...
+10:12:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:12:54 INFO   -> DONE  method=mystique                  tokens=834 cost=$0.0076 elapsed=7.3s
+10:12:54 INFO [49/350] Row id=49 ...
+10:13:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:18 INFO   -> DONE  method=mystique                  tokens=2021 cost=$0.0233 elapsed=23.9s
+10:13:18 INFO [50/350] Row id=50 ...
+10:13:25 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:34 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED tty_termios_encode_baud_rate
+10:13:34 INFO [51/350] Row id=51 ...
+10:13:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:40 INFO   -> DONE  method=mystique                  tokens=845 cost=$0.0078 elapsed=5.5s
+10:13:40 INFO [52/350] Row id=52 ...
+10:13:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:13:56 INFO   -> DONE  method=mystique                  tokens=1402 cost=$0.0150 elapsed=15.6s
+10:13:56 INFO [53/350] Row id=53 ...
+10:14:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:14:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:15:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:15:12 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED advk_pcie_parse_request_of_pci_ranges
+10:15:12 INFO [54/350] Row id=54 ...
+10:15:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:15:17 INFO   -> DONE  method=mystique                  tokens=821 cost=$0.0077 elapsed=4.7s
+10:15:17 INFO [55/350] Row id=55 ...
+10:15:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:15:28 INFO   -> DONE  method=mystique                  tokens=1173 cost=$0.0130 elapsed=10.8s
+10:15:28 INFO [56/350] Row id=56 ...
+10:15:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:15:38 INFO   -> DONE  method=mystique                  tokens=896 cost=$0.0087 elapsed=10.4s
+10:15:38 INFO [57/350] Row id=57 ...
+10:15:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:16:00 INFO   -> DONE  method=mystique                  tokens=1194 cost=$0.0122 elapsed=20.9s
+10:16:00 INFO [58/350] Row id=58 ...
+10:16:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:16:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:16:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:16:47 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED af9005_usb_module_init
+10:16:47 INFO [59/350] Row id=59 ...
+10:16:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:16:56 INFO   -> DONE  method=mystique                  tokens=967 cost=$0.0095 elapsed=8.4s
+10:16:56 INFO [60/350] Row id=60 ...
+10:17:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:04 INFO   -> DONE  method=mystique                  tokens=1068 cost=$0.0105 elapsed=8.2s
+10:17:04 INFO [61/350] Row id=61 ...
+10:17:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:42 INFO   -> DONE  method=mystique                  tokens=2022 cost=$0.0196 elapsed=37.2s
+10:17:42 INFO [62/350] Row id=62 ...
+10:17:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:52 INFO   -> DONE  method=mystique                  tokens=1548 cost=$0.0133 elapsed=10.4s
+10:17:52 INFO [63/350] Row id=63 ...
+10:17:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:17:59 INFO   -> DONE  method=mystique                  tokens=1034 cost=$0.0100 elapsed=7.0s
+10:17:59 INFO [64/350] Row id=64 ...
+10:18:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:18:10 INFO   -> DONE  method=mystique                  tokens=951 cost=$0.0093 elapsed=10.0s
+10:18:10 INFO [65/350] Row id=65 ...
+10:18:10 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:18:10 INFO [66/350] Row id=66 ...
+10:18:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:18:23 INFO   -> DONE  method=mystique                  tokens=1703 cost=$0.0194 elapsed=12.3s
+10:18:23 INFO [67/350] Row id=67 ...
+10:18:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:18:53 INFO   -> DONE  method=mystique                  tokens=883 cost=$0.0084 elapsed=29.6s
+10:18:53 INFO [68/350] Row id=68 ...
+10:18:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:18:58 INFO   -> DONE  method=mystique                  tokens=969 cost=$0.0098 elapsed=5.3s
+10:18:58 INFO [69/350] Row id=69 ...
+10:19:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:19:05 INFO   -> DONE  method=mystique                  tokens=743 cost=$0.0063 elapsed=6.4s
+10:19:05 INFO [70/350] Row id=70 ...
+10:19:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:19:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:08 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED wacom_intuos_irq
+10:20:08 INFO [71/350] Row id=71 ...
+10:20:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:16 INFO   -> DONE  method=mystique                  tokens=813 cost=$0.0076 elapsed=8.7s
+10:20:16 INFO [72/350] Row id=72 ...
+10:20:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:20:55 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED hv_compose_msi_msg
+10:20:55 INFO [73/350] Row id=73 ...
+10:21:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:15 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vmw_surface_define_ioctl
+10:21:15 INFO [74/350] Row id=74 ...
+10:21:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:23 INFO   -> DONE  method=mystique                  tokens=772 cost=$0.0071 elapsed=7.7s
+10:21:23 INFO [75/350] Row id=75 ...
+10:21:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:45 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED brcmf_sdiod_recv_chain
+10:21:45 INFO [76/350] Row id=76 ...
+10:21:46 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:21:46 INFO [77/350] Row id=77 ...
+10:21:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:21:51 INFO   -> DONE  method=mystique                  tokens=798 cost=$0.0078 elapsed=4.8s
+10:21:51 INFO [78/350] Row id=78 ...
+10:22:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:07 INFO   -> DONE  method=mystique                  tokens=1265 cost=$0.0127 elapsed=16.1s
+10:22:07 INFO [79/350] Row id=79 ...
+10:22:30 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:30 INFO   -> DONE  method=mystique                  tokens=1471 cost=$0.0169 elapsed=23.0s
+10:22:30 INFO [80/350] Row id=80 ...
+10:22:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:38 INFO   -> DONE  method=mystique                  tokens=956 cost=$0.0097 elapsed=7.7s
+10:22:38 INFO [81/350] Row id=81 ...
+10:22:38 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:22:38 INFO [82/350] Row id=82 ...
+10:22:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:22:59 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED do_video_ioctl
+10:22:59 INFO [83/350] Row id=83 ...
+10:23:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:23 INFO   -> DONE  method=mystique                  tokens=715 cost=$0.0066 elapsed=23.2s
+10:23:23 INFO [84/350] Row id=84 ...
+10:23:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:27 INFO   -> DONE  method=mystique                  tokens=693 cost=$0.0054 elapsed=4.0s
+10:23:27 INFO [85/350] Row id=85 ...
+10:23:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:35 INFO   -> DONE  method=mystique                  tokens=734 cost=$0.0060 elapsed=7.8s
+10:23:35 INFO [86/350] Row id=86 ...
+10:23:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:48 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED bt878_probe
+10:23:48 INFO [87/350] Row id=87 ...
+10:23:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:23:56 INFO   -> DONE  method=mystique                  tokens=767 cost=$0.0064 elapsed=7.3s
+10:23:56 INFO [88/350] Row id=88 ...
+10:24:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:24:03 INFO   -> DONE  method=mystique                  tokens=865 cost=$0.0086 elapsed=7.0s
+10:24:03 INFO [89/350] Row id=89 ...
+10:24:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 408 Request Timeout"
+10:24:18 INFO Retrying request to /chat/completions in 0.465231 seconds
+10:24:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:24:22 INFO   -> DONE  method=mystique                  tokens=838 cost=$0.0078 elapsed=19.4s
+10:24:22 INFO [90/350] Row id=90 ...
+10:24:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:24:28 INFO   -> DONE  method=mystique                  tokens=887 cost=$0.0088 elapsed=5.3s
+10:24:28 INFO [91/350] Row id=91 ...
+10:24:36 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:24:36 INFO   -> DONE  method=mystique                  tokens=926 cost=$0.0092 elapsed=8.1s
+10:24:36 INFO [92/350] Row id=92 ...
+10:24:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:24:45 INFO   -> DONE  method=mystique                  tokens=1058 cost=$0.0107 elapsed=8.1s
+10:24:45 INFO [93/350] Row id=93 ...
+10:24:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:27 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED mwifiex_histogram_read
+10:25:27 INFO [94/350] Row id=94 ...
+10:25:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:33 INFO   -> DONE  method=mystique                  tokens=770 cost=$0.0069 elapsed=5.8s
+10:25:33 INFO [95/350] Row id=95 ...
+10:25:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:39 INFO   -> DONE  method=mystique                  tokens=1066 cost=$0.0107 elapsed=6.1s
+10:25:39 INFO [96/350] Row id=96 ...
+10:25:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:50 INFO   -> DONE  method=mystique                  tokens=1036 cost=$0.0108 elapsed=10.7s
+10:25:50 INFO [97/350] Row id=97 ...
+10:25:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:25:57 INFO   -> DONE  method=mystique                  tokens=857 cost=$0.0079 elapsed=6.7s
+10:25:57 INFO [98/350] Row id=98 ...
+10:26:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:26:11 INFO   -> DONE  method=mystique                  tokens=1762 cost=$0.0202 elapsed=13.8s
+10:26:11 INFO [99/350] Row id=99 ...
+10:26:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:26:23 INFO   -> DONE  method=mystique                  tokens=843 cost=$0.0074 elapsed=11.8s
+10:26:23 INFO [100/350] Row id=100 ...
+10:26:23 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  dpaa2_ptp_probe
+10:26:23 INFO [101/350] Row id=101 ...
+10:26:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:27:00 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:27:00 INFO   -> DONE  method=mystique                  tokens=2028 cost=$0.0204 elapsed=36.4s
+10:27:00 INFO [102/350] Row id=102 ...
+10:27:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:27:19 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:27:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:27:37 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vf610_clocks_init
+10:27:37 INFO [103/350] Row id=103 ...
+10:27:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:28:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:28:12 INFO   -> DONE  method=mystique                  tokens=4141 cost=$0.0551 elapsed=35.1s
+10:28:12 INFO [104/350] Row id=104 ...
+10:28:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:28:27 INFO   -> DONE  method=mystique                  tokens=1250 cost=$0.0128 elapsed=14.0s
+10:28:27 INFO [105/350] Row id=105 ...
+10:28:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:28:42 INFO   -> DONE  method=mystique                  tokens=780 cost=$0.0073 elapsed=15.2s
+10:28:42 INFO [106/350] Row id=106 ...
+10:28:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:28:52 INFO   -> DONE  method=mystique                  tokens=960 cost=$0.0097 elapsed=9.9s
+10:28:52 INFO [107/350] Row id=107 ...
+10:29:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:21 INFO   -> DONE  method=mystique                  tokens=1758 cost=$0.0162 elapsed=28.8s
+10:29:21 INFO [108/350] Row id=108 ...
+10:29:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:32 INFO   -> DONE  method=mystique                  tokens=570 cost=$0.0037 elapsed=11.1s
+10:29:32 INFO [109/350] Row id=109 ...
+10:29:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:48 INFO   -> DONE  method=mystique                  tokens=2091 cost=$0.0212 elapsed=15.6s
+10:29:48 INFO [110/350] Row id=110 ...
+10:29:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:29:56 INFO   -> DONE  method=mystique                  tokens=696 cost=$0.0058 elapsed=7.0s
+10:29:56 INFO [111/350] Row id=111 ...
+10:30:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:07 INFO   -> DONE  method=mystique                  tokens=1088 cost=$0.0110 elapsed=11.0s
+10:30:07 INFO [112/350] Row id=112 ...
+10:30:07 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  virtio_pci_legacy_remove
+10:30:07 INFO [113/350] Row id=113 ...
+10:30:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:15 INFO   -> DONE  method=mystique                  tokens=940 cost=$0.0089 elapsed=7.8s
+10:30:15 INFO [114/350] Row id=114 ...
+10:30:16 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  imx_pmx_set
+10:30:16 INFO [115/350] Row id=115 ...
+10:30:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:28 INFO   -> DONE  method=mystique                  tokens=813 cost=$0.0074 elapsed=12.6s
+10:30:28 INFO [116/350] Row id=116 ...
+10:30:29 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:30:29 INFO [117/350] Row id=117 ...
+10:30:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:30:57 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED xen_early_virt_to_phys
+10:30:57 INFO [118/350] Row id=118 ...
+10:31:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:31:22 INFO   -> DONE  method=mystique                  tokens=1337 cost=$0.0152 elapsed=24.4s
+10:31:22 INFO [119/350] Row id=119 ...
+10:31:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:32:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:32:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:32:18 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED cx231xx_usb_probe
+10:32:18 INFO [120/350] Row id=120 ...
+10:32:36 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:32:36 INFO   -> DONE  method=mystique                  tokens=1145 cost=$0.0133 elapsed=18.1s
+10:32:36 INFO [121/350] Row id=121 ...
+10:32:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:32:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __rcu_process_callbacks
+10:33:02 INFO [122/350] Row id=122 ...
+10:33:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:45 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __put_v4l2_format32
+10:33:45 INFO [123/350] Row id=123 ...
+10:33:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:33:54 INFO   -> DONE  method=mystique                  tokens=1103 cost=$0.0113 elapsed=9.0s
+10:33:54 INFO [124/350] Row id=124 ...
+10:34:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:34:07 INFO   -> DONE  method=mystique                  tokens=945 cost=$0.0091 elapsed=12.6s
+10:34:07 INFO [125/350] Row id=125 ...
+10:34:08 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  ext4_direct_IO_write
+10:34:08 INFO [126/350] Row id=126 ...
+10:34:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:34:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:34:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:34:28 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED efi_bgrt_init
+10:34:28 INFO [127/350] Row id=127 ...
+10:34:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:34:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:35:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:35:08 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED iwl_mvm_mac_tx
+10:35:08 INFO [128/350] Row id=128 ...
+Error: syntax error in line 153
+Error: syntax error in line 535 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"usleep_range(20000, 4000
+Error: syntax error in line 83
+Error: syntax error in line 941 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"['<op
+Error: syntax error in line 954
+Error: syntax error in line 528
+Error: syntax error in line 132
+Error: syntax error in line 272
+Error: syntax error in line 1477 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"['<operator>.assignment', '<operator>.indirectFiel
+Error: syntax error in line 57 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"#if
+Error: syntax error in line 1419 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"['variable_declar
+Error: syntax error in line 280
+Error: syntax error in line 993 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"['variable_declar
+Error: syntax error in line 150 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"[176093660855][29][variable_declaration]:hc_dma = readl(hs
+Error: syntax error in line 1031
+Error: syntax error in line 143 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"dev_dbg(hsotg->dev, __quote__  Num channels: 
+Error: syntax error in line 2824 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"['variabl
+Error: syntax error in line 1106 scanning a quoted string (missing endquote? longer than 16384?)
+String starting:"[55834575108][479]:qtd
+10:35:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:35:24 INFO   -> DONE  method=mystique                  tokens=1211 cost=$0.0126 elapsed=15.7s
+10:35:24 INFO [129/350] Row id=129 ...
+10:35:24 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+10:35:24 INFO [130/350] Row id=130 ...
+10:36:09 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND set_link_state_by_speed
+10:36:09 INFO [131/350] Row id=131 ...
+10:36:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:36:50 INFO   -> DONE  method=mystique                  tokens=663 cost=$0.0052 elapsed=40.5s
+10:36:50 INFO [132/350] Row id=132 ...
+10:37:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:37:59 INFO   -> DONE  method=mystique                  tokens=691 cost=$0.0058 elapsed=69.2s
+10:37:59 INFO [133/350] Row id=133 ...
+10:41:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:42:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:43:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:43:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED binder_thread_write
+10:43:02 INFO [134/350] Row id=134 ...
+10:43:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:43:37 INFO   -> DONE  method=mystique                  tokens=851 cost=$0.0087 elapsed=34.2s
+10:43:37 INFO [135/350] Row id=135 ...
+10:44:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:44:23 INFO   -> DONE  method=mystique                  tokens=1162 cost=$0.0129 elapsed=45.9s
+10:44:23 INFO [136/350] Row id=136 ...
+10:45:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:47:31 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:47:31 INFO   -> DONE  method=mystique                  tokens=1412 cost=$0.0117 elapsed=187.9s
+10:47:31 INFO [137/350] Row id=137 ...
+10:48:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:09 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED uvc_ctrl_add_mapping
+10:49:09 INFO [138/350] Row id=138 ...
+10:49:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:59 INFO   -> DONE  method=mystique                  tokens=774 cost=$0.0064 elapsed=49.5s
+10:49:59 INFO [139/350] Row id=139 ...
+10:50:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:50:55 INFO   -> DONE  method=mystique                  tokens=935 cost=$0.0091 elapsed=55.9s
+10:50:55 INFO [140/350] Row id=140 ...
+10:50:56 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  dma_fence_init
+10:50:56 INFO [141/350] Row id=141 ...
+10:51:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:51:39 INFO   -> DONE  method=mystique                  tokens=1094 cost=$0.0122 elapsed=43.3s
+10:51:39 INFO [142/350] Row id=142 ...
+10:52:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:52:14 INFO   -> DONE  method=mystique                  tokens=795 cost=$0.0073 elapsed=34.4s
+10:52:14 INFO [143/350] Row id=143 ...
+10:52:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:52:58 INFO   -> DONE  method=mystique                  tokens=1030 cost=$0.0108 elapsed=43.3s
+10:52:58 INFO [144/350] Row id=144 ...
+10:53:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:53:47 INFO   -> DONE  method=mystique                  tokens=709 cost=$0.0059 elapsed=49.0s
+10:53:47 INFO [145/350] Row id=145 ...
+10:54:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:54:28 INFO   -> DONE  method=mystique                  tokens=927 cost=$0.0089 elapsed=41.1s
+10:54:28 INFO [146/350] Row id=146 ...
+10:54:29 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  ubi_compare_lebs
+10:54:29 INFO [147/350] Row id=147 ...
+10:54:58 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND brcmf_cfg80211_stop_ap
+10:54:58 INFO [148/350] Row id=148 ...
+10:56:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:56:08 INFO   -> DONE  method=mystique                  tokens=1297 cost=$0.0137 elapsed=69.7s
+10:56:08 INFO [149/350] Row id=149 ...
+10:56:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:58:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:58:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+10:58:21 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED xgene_pcie_map_ranges
+10:58:21 INFO [150/350] Row id=150 ...
+10:58:48 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND brcms_ops_ampdu_action
+10:58:48 INFO [151/350] Row id=151 ...
+10:59:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:00:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:00:03 INFO   -> DONE  method=mystique                  tokens=1944 cost=$0.0195 elapsed=74.9s
+11:00:03 INFO [152/350] Row id=152 ...
+11:01:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:01:41 INFO   -> DONE  method=mystique                  tokens=995 cost=$0.0106 elapsed=97.3s
+11:01:41 INFO [153/350] Row id=153 ...
+11:02:11 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND brcmf_cfg80211_reg_notifier
+11:02:11 INFO [154/350] Row id=154 ...
+11:03:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:03:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:03:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:03:13 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED pn_set_alt
+11:03:13 INFO [155/350] Row id=155 ...
+11:04:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:04:02 INFO   -> DONE  method=mystique                  tokens=927 cost=$0.0093 elapsed=48.8s
+11:04:02 INFO [156/350] Row id=156 ...
+11:05:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:05:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:05:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:05:45 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED azx_rirb_get_response
+11:05:45 INFO [157/350] Row id=157 ...
+11:07:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:07:12 INFO   -> DONE  method=mystique                  tokens=2432 cost=$0.0321 elapsed=86.1s
+11:07:12 INFO [158/350] Row id=158 ...
+11:07:36 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND marvell_nfc_hw_ecc_bch_write_chunk
+11:07:36 INFO [159/350] Row id=159 ...
+11:08:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:08:52 INFO   -> DONE  method=mystique                  tokens=688 cost=$0.0057 elapsed=75.0s
+11:08:52 INFO [160/350] Row id=160 ...
+11:09:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:09:50 INFO   -> DONE  method=mystique                  tokens=885 cost=$0.0080 elapsed=57.6s
+11:09:50 INFO [161/350] Row id=161 ...
+11:10:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:10:50 INFO   -> DONE  method=mystique                  tokens=1321 cost=$0.0146 elapsed=60.3s
+11:10:50 INFO [162/350] Row id=162 ...
+11:11:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:12:00 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:12:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:12:07 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED sd_start
+11:12:07 INFO [163/350] Row id=163 ...
+11:12:07 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  binder_alloc_mmap_handler
+11:12:07 INFO [164/350] Row id=164 ...
+11:12:07 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+11:12:07 INFO [165/350] Row id=165 ...
+11:12:08 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  test_hexdump_prepare_test
+11:12:08 INFO [166/350] Row id=166 ...
+11:12:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:12:51 INFO   -> DONE  method=mystique                  tokens=688 cost=$0.0063 elapsed=42.5s
+11:12:51 INFO [167/350] Row id=167 ...
+11:13:33 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:13:33 INFO   -> DONE  method=mystique                  tokens=697 cost=$0.0058 elapsed=42.6s
+11:13:33 INFO [168/350] Row id=168 ...
+11:14:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:14:16 INFO   -> DONE  method=mystique                  tokens=1106 cost=$0.0119 elapsed=42.4s
+11:14:16 INFO [169/350] Row id=169 ...
+11:15:00 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND ep_write
+11:15:00 INFO [170/350] Row id=170 ...
+11:16:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:16:08 INFO   -> DONE  method=mystique                  tokens=725 cost=$0.0066 elapsed=68.0s
+11:16:08 INFO [171/350] Row id=171 ...
+11:17:00 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:17:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:17:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:17:17 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED imx_ldb_bind
+11:17:17 INFO [172/350] Row id=172 ...
+11:18:36 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:18:37 INFO   -> DONE  method=mystique                  tokens=868 cost=$0.0080 elapsed=79.4s
+11:18:37 INFO [173/350] Row id=173 ...
+11:20:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:20:29 INFO   -> DONE  method=mystique                  tokens=1950 cost=$0.0314 elapsed=112.6s
+11:20:29 INFO [174/350] Row id=174 ...
+11:21:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:21:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:21:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:21:56 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED mwifiex_usb_disconnect
+11:21:56 INFO [175/350] Row id=175 ...
+11:21:57 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+11:21:57 INFO [176/350] Row id=176 ...
+11:22:29 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND put_v4l2_create32
+11:22:29 INFO [177/350] Row id=177 ...
+11:23:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:23:39 INFO   -> DONE  method=mystique                  tokens=1114 cost=$0.0117 elapsed=69.6s
+11:23:39 INFO [178/350] Row id=178 ...
+11:24:21 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND stop_activity
+11:24:21 INFO [179/350] Row id=179 ...
+11:24:21 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  dm_old_request_fn
+11:24:21 INFO [180/350] Row id=180 ...
+11:25:30 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:25:30 INFO   -> DONE  method=mystique                  tokens=825 cost=$0.0077 elapsed=68.7s
+11:25:30 INFO [181/350] Row id=181 ...
+11:27:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:27:15 INFO   -> DONE  method=mystique                  tokens=1212 cost=$0.0130 elapsed=104.4s
+11:27:15 INFO [182/350] Row id=182 ...
+11:27:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:27:57 INFO   -> DONE  method=mystique                  tokens=947 cost=$0.0095 elapsed=41.9s
+11:27:57 INFO [183/350] Row id=183 ...
+11:27:57 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+11:27:57 INFO [184/350] Row id=184 ...
+11:28:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:28:33 INFO   -> DONE  method=mystique                  tokens=557 cost=$0.0037 elapsed=35.2s
+11:28:33 INFO [185/350] Row id=185 ...
+11:28:33 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  _generic_set_opp_regulator
+11:28:33 INFO [186/350] Row id=186 ...
+11:29:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:29:08 INFO   -> DONE  method=mystique                  tokens=688 cost=$0.0056 elapsed=35.1s
+11:29:08 INFO [187/350] Row id=187 ...
+11:30:10 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:30:36 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:31:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:31:04 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED imx_ldb_bind
+11:31:04 INFO [188/350] Row id=188 ...
+11:32:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:32:17 INFO   -> DONE  method=mystique                  tokens=897 cost=$0.0082 elapsed=72.8s
+11:32:17 INFO [189/350] Row id=189 ...
+11:33:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:33:11 INFO   -> DONE  method=mystique                  tokens=714 cost=$0.0059 elapsed=54.1s
+11:33:11 INFO [190/350] Row id=190 ...
+11:34:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:34:22 INFO   -> DONE  method=mystique                  tokens=1189 cost=$0.0121 elapsed=70.9s
+11:34:22 INFO [191/350] Row id=191 ...
+11:36:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:36:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:36:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:36:23 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED dvb_frontend_ioctl_legacy
+11:36:23 INFO [192/350] Row id=192 ...
+11:37:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:37:33 INFO   -> DONE  method=mystique                  tokens=830 cost=$0.0078 elapsed=69.9s
+11:37:33 INFO [193/350] Row id=193 ...
+11:38:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:38:26 INFO   -> DONE  method=mystique                  tokens=1205 cost=$0.0122 elapsed=53.2s
+11:38:26 INFO [194/350] Row id=194 ...
+11:39:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:39:18 INFO   -> DONE  method=mystique                  tokens=1047 cost=$0.0111 elapsed=51.3s
+11:39:18 INFO [195/350] Row id=195 ...
+11:40:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:40:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:40:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:40:54 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED ffs_closed
+11:40:54 INFO [196/350] Row id=196 ...
+11:42:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:42:45 INFO   -> DONE  method=mystique                  tokens=1318 cost=$0.0143 elapsed=110.6s
+11:42:45 INFO [197/350] Row id=197 ...
+11:43:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:43:29 INFO   -> DONE  method=mystique                  tokens=1201 cost=$0.0135 elapsed=43.2s
+11:43:29 INFO [198/350] Row id=198 ...
+11:44:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:44:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:44:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:44:23 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vb2_vmalloc_get_userptr
+11:44:23 INFO [199/350] Row id=199 ...
+11:45:32 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND vpfe_probe
+11:45:32 INFO [200/350] Row id=200 ...
+11:46:06 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND efifb_setcolreg
+11:46:06 INFO [201/350] Row id=201 ...
+11:47:00 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND usbvision_probe
+11:47:00 INFO [202/350] Row id=202 ...
+11:47:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:47:54 INFO   -> DONE  method=mystique                  tokens=889 cost=$0.0083 elapsed=53.8s
+11:47:54 INFO [203/350] Row id=203 ...
+11:48:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:48:42 INFO   -> DONE  method=mystique                  tokens=770 cost=$0.0067 elapsed=47.2s
+11:48:42 INFO [204/350] Row id=204 ...
+11:49:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:49:51 INFO   -> DONE  method=mystique                  tokens=910 cost=$0.0095 elapsed=68.6s
+11:49:51 INFO [205/350] Row id=205 ...
+11:50:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:50:43 INFO   -> DONE  method=mystique                  tokens=655 cost=$0.0051 elapsed=52.1s
+11:50:43 INFO [206/350] Row id=206 ...
+11:51:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:52:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:52:39 INFO   -> DONE  method=mystique                  tokens=2132 cost=$0.0207 elapsed=115.6s
+11:52:39 INFO [207/350] Row id=207 ...
+11:53:30 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:53:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:54:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:54:07 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED faraday_pci_probe
+11:54:07 INFO [208/350] Row id=208 ...
+11:55:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:55:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:55:19 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:55:20 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED acpi_video_device_enumerate
+11:55:20 INFO [209/350] Row id=209 ...
+11:56:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:56:07 INFO   -> DONE  method=mystique                  tokens=1069 cost=$0.0117 elapsed=46.6s
+11:56:07 INFO [210/350] Row id=210 ...
+11:57:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:57:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:57:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:57:44 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED bdw_limit_period
+11:57:44 INFO [211/350] Row id=211 ...
+11:58:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:58:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:59:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+11:59:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vmw_surface_define_ioctl
+11:59:02 INFO [212/350] Row id=212 ...
+12:00:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:00:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:00:19 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:00:19 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED tda1004x_get_fe
+12:00:19 INFO [213/350] Row id=213 ...
+12:02:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:02:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:02:33 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:02:33 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED iwl_mvm_mac_tx
+12:02:33 INFO [214/350] Row id=214 ...
+12:03:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:03:30 INFO   -> DONE  method=mystique                  tokens=1787 cost=$0.0211 elapsed=56.0s
+12:03:30 INFO [215/350] Row id=215 ...
+12:05:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:05:40 INFO   -> DONE  method=mystique                  tokens=1187 cost=$0.0139 elapsed=130.7s
+12:05:40 INFO [216/350] Row id=216 ...
+12:07:00 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:07:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:07:20 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:07:20 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED zr364xx_read_video_callback
+12:07:20 INFO [217/350] Row id=217 ...
+12:07:50 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND swap_cgroup_prepare
+12:07:50 INFO [218/350] Row id=218 ...
+12:08:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:09:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:10:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:10:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:11:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:12:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:12:15 INFO   -> DONE  method=mystique                  tokens=5435 cost=$0.0507 elapsed=265.1s
+12:12:15 INFO [219/350] Row id=219 ...
+12:12:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:12:56 INFO   -> DONE  method=mystique                  tokens=930 cost=$0.0089 elapsed=41.0s
+12:12:56 INFO [220/350] Row id=220 ...
+12:13:30 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND get_matching_model_microcode
+12:13:30 INFO [221/350] Row id=221 ...
+12:14:16 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND ep0_write
+12:14:16 INFO [222/350] Row id=222 ...
+12:14:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:15:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:15:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:15:18 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED tty_termios_encode_baud_rate
+12:15:18 INFO [223/350] Row id=223 ...
+12:16:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:16:13 INFO   -> DONE  method=mystique                  tokens=723 cost=$0.0066 elapsed=54.6s
+12:16:13 INFO [224/350] Row id=224 ...
+12:17:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:17:02 INFO   -> DONE  method=mystique                  tokens=697 cost=$0.0055 elapsed=48.6s
+12:17:02 INFO [225/350] Row id=225 ...
+12:18:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:18:27 INFO   -> DONE  method=mystique                  tokens=900 cost=$0.0089 elapsed=84.6s
+12:18:27 INFO [226/350] Row id=226 ...
+12:19:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:19:26 INFO   -> DONE  method=mystique                  tokens=708 cost=$0.0062 elapsed=59.0s
+12:19:26 INFO [227/350] Row id=227 ...
+12:19:27 WARNING   -> ERROR AMBIGUOUS_METHOD:  call_console_drivers
+12:19:27 INFO [228/350] Row id=228 ...
+12:19:27 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+12:19:27 INFO [229/350] Row id=229 ...
+12:20:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:20:54 INFO   -> DONE  method=mystique                  tokens=1657 cost=$0.0241 elapsed=86.4s
+12:20:54 INFO [230/350] Row id=230 ...
+12:21:24 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND brcmf_cfg80211_start_ap
+12:21:24 INFO [231/350] Row id=231 ...
+12:22:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:22:04 INFO   -> DONE  method=mystique                  tokens=725 cost=$0.0060 elapsed=40.3s
+12:22:04 INFO [232/350] Row id=232 ...
+12:22:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:22:47 INFO   -> DONE  method=mystique                  tokens=1165 cost=$0.0135 elapsed=42.6s
+12:22:47 INFO [233/350] Row id=233 ...
+12:23:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:23:52 INFO   -> DONE  method=mystique                  tokens=1025 cost=$0.0101 elapsed=64.6s
+12:23:52 INFO [234/350] Row id=234 ...
+12:24:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:24:59 INFO   -> DONE  method=mystique                  tokens=561 cost=$0.0039 elapsed=66.3s
+12:24:59 INFO [235/350] Row id=235 ...
+12:25:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:25:45 INFO   -> DONE  method=mystique                  tokens=1289 cost=$0.0140 elapsed=46.2s
+12:25:45 INFO [236/350] Row id=236 ...
+12:26:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:26:35 INFO   -> DONE  method=mystique                  tokens=663 cost=$0.0051 elapsed=49.8s
+12:26:35 INFO [237/350] Row id=237 ...
+12:27:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:27:40 INFO   -> DONE  method=mystique                  tokens=937 cost=$0.0093 elapsed=64.7s
+12:27:40 INFO [238/350] Row id=238 ...
+12:29:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:29:05 INFO   -> DONE  method=mystique                  tokens=865 cost=$0.0086 elapsed=84.7s
+12:29:05 INFO [239/350] Row id=239 ...
+12:29:42 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND node_show
+12:29:42 INFO [240/350] Row id=240 ...
+12:30:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:30:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:30:35 INFO   -> DONE  method=mystique                  tokens=2183 cost=$0.0359 elapsed=53.1s
+12:30:35 INFO [241/350] Row id=241 ...
+12:30:36 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+12:30:36 INFO [242/350] Row id=242 ...
+12:31:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:31:25 INFO   -> DONE  method=mystique                  tokens=1130 cost=$0.0116 elapsed=48.5s
+12:31:25 INFO [243/350] Row id=243 ...
+12:32:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:32:15 INFO   -> DONE  method=mystique                  tokens=832 cost=$0.0086 elapsed=50.6s
+12:32:15 INFO [244/350] Row id=244 ...
+12:32:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:32:49 INFO   -> DONE  method=mystique                  tokens=836 cost=$0.0076 elapsed=33.3s
+12:32:49 INFO [245/350] Row id=245 ...
+12:33:31 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:33:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:33:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:33:46 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED snd_seq_oss_open
+12:33:46 INFO [246/350] Row id=246 ...
+12:35:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:35:15 INFO   -> DONE  method=mystique                  tokens=1689 cost=$0.0215 elapsed=88.0s
+12:35:15 INFO [247/350] Row id=247 ...
+12:36:31 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:36:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:36:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:36:46 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __do_cpuid_ent
+12:36:46 INFO [248/350] Row id=248 ...
+12:38:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:38:35 INFO   -> DONE  method=mystique                  tokens=1705 cost=$0.0207 elapsed=108.1s
+12:38:35 INFO [249/350] Row id=249 ...
+12:39:33 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:39:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:39:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:39:42 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED intel_pstate_cpu_init
+12:39:42 INFO [250/350] Row id=250 ...
+12:41:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:17 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED fs_fully_visible
+12:41:17 INFO [251/350] Row id=251 ...
+12:41:17 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  unix_stream_read_generic
+12:41:17 INFO [252/350] Row id=252 ...
+12:43:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:43:48 INFO   -> DONE  method=mystique                  tokens=851 cost=$0.0083 elapsed=149.9s
+12:43:48 INFO [253/350] Row id=253 ...
+12:45:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:45:13 INFO   -> DONE  method=mystique                  tokens=1298 cost=$0.0154 elapsed=85.4s
+12:45:13 INFO [254/350] Row id=254 ...
+12:46:10 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:46:11 INFO   -> DONE  method=mystique                  tokens=1031 cost=$0.0115 elapsed=57.0s
+12:46:11 INFO [255/350] Row id=255 ...
+12:47:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:47:25 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:47:25 INFO   -> DONE  method=mystique                  tokens=2074 cost=$0.0268 elapsed=74.3s
+12:47:25 INFO [256/350] Row id=256 ...
+12:48:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:48:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:48:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:48:43 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED batadv_softif_destroy_netlink
+12:48:43 INFO [257/350] Row id=257 ...
+12:50:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:19 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:50:20 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED target_wait_for_sess_cmds
+12:50:20 INFO [258/350] Row id=258 ...
+12:51:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:51:12 INFO   -> DONE  method=mystique                  tokens=683 cost=$0.0056 elapsed=52.4s
+12:51:12 INFO [259/350] Row id=259 ...
+12:52:04 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND tps65910_probe
+12:52:04 INFO [260/350] Row id=260 ...
+12:53:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:53:02 INFO   -> DONE  method=mystique                  tokens=1185 cost=$0.0132 elapsed=57.4s
+12:53:02 INFO [261/350] Row id=261 ...
+12:54:31 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:54:53 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:55:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:55:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED batadv_tt_local_add
+12:55:02 INFO [262/350] Row id=262 ...
+12:55:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:56:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:56:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:56:12 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED batadv_orig_node_release
+12:56:12 INFO [263/350] Row id=263 ...
+12:58:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:58:15 INFO   -> DONE  method=mystique                  tokens=1336 cost=$0.0139 elapsed=121.8s
+12:58:15 INFO [264/350] Row id=264 ...
+12:58:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:59:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:59:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:59:06 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED adu_disconnect
+12:59:06 INFO [265/350] Row id=265 ...
+12:59:43 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND vmx_complete_nested_posted_interrupt
+12:59:43 INFO [266/350] Row id=266 ...
+13:01:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:01:01 INFO   -> DONE  method=mystique                  tokens=1893 cost=$0.0265 elapsed=77.5s
+13:01:01 INFO [267/350] Row id=267 ...
+13:03:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:03:08 INFO   -> DONE  method=mystique                  tokens=1741 cost=$0.0196 elapsed=126.8s
+13:03:08 INFO [268/350] Row id=268 ...
+13:03:08 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  usb_gadget_unmap_request_by_dev
+13:03:08 INFO [269/350] Row id=269 ...
+13:03:53 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:03:54 INFO   -> DONE  method=mystique                  tokens=1438 cost=$0.0189 elapsed=44.8s
+13:03:54 INFO [270/350] Row id=270 ...
+13:04:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:04:45 INFO   -> DONE  method=mystique                  tokens=1008 cost=$0.0100 elapsed=51.1s
+13:04:45 INFO [271/350] Row id=271 ...
+13:05:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:05:27 INFO   -> DONE  method=mystique                  tokens=1754 cost=$0.0197 elapsed=42.1s
+13:05:27 INFO [272/350] Row id=272 ...
+13:06:05 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED _decode_session6
+13:06:05 INFO [273/350] Row id=273 ...
+13:06:44 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND getxattr
+13:06:44 INFO [274/350] Row id=274 ...
+13:07:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:07:58 INFO   -> DONE  method=mystique                  tokens=788 cost=$0.0073 elapsed=74.0s
+13:07:58 INFO [275/350] Row id=275 ...
+13:09:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:09:06 INFO   -> DONE  method=mystique                  tokens=1022 cost=$0.0130 elapsed=67.5s
+13:09:06 INFO [276/350] Row id=276 ...
+13:09:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:10:03 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:10:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:10:16 INFO   -> DONE  method=mystique                  tokens=3014 cost=$0.0415 elapsed=69.7s
+13:10:16 INFO [277/350] Row id=277 ...
+13:11:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:11:07 INFO   -> DONE  method=mystique                  tokens=1749 cost=$0.0204 elapsed=51.6s
+13:11:07 INFO [278/350] Row id=278 ...
+13:12:03 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED pppol2tp_session_close
+13:12:03 INFO [279/350] Row id=279 ...
+13:13:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:13:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:13:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:13:59 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED team_port_add
+13:13:59 INFO [280/350] Row id=280 ...
+13:15:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:15:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:15:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:15:44 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED xhci_mem_cleanup
+13:15:44 INFO [281/350] Row id=281 ...
+13:23:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:23:31 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:23:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:23:39 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED raid5_do_work
+13:23:39 INFO [282/350] Row id=282 ...
+13:26:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:26:38 INFO   -> DONE  method=mystique                  tokens=1121 cost=$0.0125 elapsed=178.7s
+13:26:38 INFO [283/350] Row id=283 ...
+13:27:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:28:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:29:02 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:29:07 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:29:07 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED ip_frag_reasm
+13:29:07 INFO [284/350] Row id=284 ...
+13:30:31 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED xs_reset_transport
+13:30:31 INFO [285/350] Row id=285 ...
+13:32:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:32:11 INFO   -> DONE  method=mystique                  tokens=754 cost=$0.0072 elapsed=100.1s
+13:32:11 INFO [286/350] Row id=286 ...
+13:32:12 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:32:12 INFO [287/350] Row id=287 ...
+13:33:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:33:09 INFO   -> DONE  method=mystique                  tokens=1622 cost=$0.0216 elapsed=56.7s
+13:33:09 INFO [288/350] Row id=288 ...
+13:33:09 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:33:09 INFO [289/350] Row id=289 ...
+13:33:10 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:33:10 INFO [290/350] Row id=290 ...
+13:34:26 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:35:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:37:17 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:37:17 INFO   -> DONE  method=mystique                  tokens=2165 cost=$0.0186 elapsed=247.3s
+13:37:17 INFO [291/350] Row id=291 ...
+13:37:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:38:33 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:38:33 INFO   -> DONE  method=mystique                  tokens=2002 cost=$0.0213 elapsed=75.5s
+13:38:33 INFO [292/350] Row id=292 ...
+13:40:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:40:58 INFO   -> DONE  method=mystique                  tokens=1605 cost=$0.0192 elapsed=144.3s
+13:40:58 INFO [293/350] Row id=293 ...
+13:42:33 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED __alloc_pages_slowpath
+13:42:33 INFO [294/350] Row id=294 ...
+13:43:53 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND btrfs_ioctl_file_extent_same
+13:43:53 INFO [295/350] Row id=295 ...
+13:44:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:44:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:44:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:44:45 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED tpmm_chip_alloc
+13:44:45 INFO [296/350] Row id=296 ...
+13:45:53 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:45:53 INFO   -> DONE  method=mystique                  tokens=1048 cost=$0.0106 elapsed=67.1s
+13:45:53 INFO [297/350] Row id=297 ...
+13:48:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:48:41 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:48:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:48:56 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED mlx4_ib_create_flow
+13:48:56 INFO [298/350] Row id=298 ...
+13:48:57 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:48:57 INFO [299/350] Row id=299 ...
+13:49:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:50:48 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:50:49 INFO   -> DONE  method=mystique                  tokens=2049 cost=$0.0218 elapsed=111.6s
+13:50:49 INFO [300/350] Row id=300 ...
+13:51:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:51:29 INFO   -> DONE  method=mystique                  tokens=875 cost=$0.0085 elapsed=40.1s
+13:51:29 INFO [301/350] Row id=301 ...
+13:51:30 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:51:30 INFO [302/350] Row id=302 ...
+13:52:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:52:59 INFO   -> DONE  method=mystique                  tokens=1598 cost=$0.0200 elapsed=89.0s
+13:52:59 INFO [303/350] Row id=303 ...
+13:53:00 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:53:00 INFO [304/350] Row id=304 ...
+13:53:00 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  raid10_run
+13:53:00 INFO [305/350] Row id=305 ...
+13:54:27 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:54:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:54:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:54:46 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED scsi_alloc_sgtable
+13:54:46 INFO [306/350] Row id=306 ...
+13:56:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:57:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:57:37 INFO   -> DONE  method=mystique                  tokens=2178 cost=$0.0233 elapsed=170.6s
+13:57:37 INFO [307/350] Row id=307 ...
+13:58:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:58:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:58:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:58:58 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vmbus_establish_gpadl
+13:58:58 INFO [308/350] Row id=308 ...
+13:59:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:59:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:59:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+13:59:58 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED core_tmr_abort_task
+13:59:58 INFO [309/350] Row id=309 ...
+13:59:59 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  tun_xdp_one
+13:59:59 INFO [310/350] Row id=310 ...
+13:59:59 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+13:59:59 INFO [311/350] Row id=311 ...
+14:00:56 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED l2tp_nl_cmd_session_create
+14:00:56 INFO [312/350] Row id=312 ...
+14:04:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:04:56 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:05:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:05:08 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED raid10_start_reshape
+14:05:08 INFO [313/350] Row id=313 ...
+14:06:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:06:32 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 408 Request Timeout"
+14:06:32 INFO Retrying request to /chat/completions in 0.466825 seconds
+14:06:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:06:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:06:55 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED qed_slowpath_setup_int
+14:06:55 INFO [314/350] Row id=314 ...
+14:07:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:07:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:08:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:08:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED hid_sensor_parse_common_attributes
+14:08:02 INFO [315/350] Row id=315 ...
+14:08:02 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+14:08:02 INFO [316/350] Row id=316 ...
+14:09:20 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:09:21 INFO   -> DONE  method=mystique                  tokens=1687 cost=$0.0243 elapsed=78.3s
+14:09:21 INFO [317/350] Row id=317 ...
+14:10:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:10:39 INFO   -> DONE  method=mystique                  tokens=1424 cost=$0.0158 elapsed=77.8s
+14:10:39 INFO [318/350] Row id=318 ...
+14:11:07 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND stm32_clockevent_init
+14:11:07 INFO [319/350] Row id=319 ...
+14:11:46 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED ehrpwm_pwm_probe
+14:11:46 INFO [320/350] Row id=320 ...
+14:11:46 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+14:11:46 INFO [321/350] Row id=321 ...
+14:13:59 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:14:00 INFO   -> DONE  method=mystique                  tokens=2244 cost=$0.0299 elapsed=133.2s
+14:14:00 INFO [322/350] Row id=322 ...
+14:14:23 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:14:25 INFO   -> DONE  method=mystique                  tokens=1984 cost=$0.0239 elapsed=25.4s
+14:14:25 INFO [323/350] Row id=323 ...
+14:15:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:15:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:15:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:15:56 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED pppol2tp_tunnel_ioctl
+14:15:56 INFO [324/350] Row id=324 ...
+14:15:56 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+14:15:56 INFO [325/350] Row id=325 ...
+14:19:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:19:05 INFO   -> DONE  method=mystique                  tokens=1510 cost=$0.0166 elapsed=189.2s
+14:19:05 INFO [326/350] Row id=326 ...
+14:19:57 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:20:01 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:20:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:20:12 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED f_setown
+14:20:12 INFO [327/350] Row id=327 ...
+14:21:05 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:21:11 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:21:18 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:21:18 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED skcipher_free_async_sgls
+14:21:18 INFO [328/350] Row id=328 ...
+14:22:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:22:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:22:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:22:58 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED target_release_cmd_kref
+14:22:58 INFO [329/350] Row id=329 ...
+14:25:29 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:26:15 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:27:00 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:27:01 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED omap_nand_probe
+14:27:01 INFO [330/350] Row id=330 ...
+14:27:52 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED phy_state_machine
+14:27:52 INFO [331/350] Row id=331 ...
+14:28:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:28:43 INFO   -> DONE  method=mystique                  tokens=1683 cost=$0.0182 elapsed=51.3s
+14:28:43 INFO [332/350] Row id=332 ...
+14:30:08 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:30:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:30:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:30:21 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED rcu_check_callbacks
+14:30:21 INFO [333/350] Row id=333 ...
+14:37:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:37:35 INFO   -> DONE  method=mystique                  tokens=1200 cost=$0.0150 elapsed=433.8s
+14:37:35 INFO [334/350] Row id=334 ...
+14:38:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:38:36 INFO   -> DONE  method=mystique                  tokens=1552 cost=$0.0216 elapsed=60.3s
+14:38:36 INFO [335/350] Row id=335 ...
+14:39:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:39:24 INFO   -> DONE  method=mystique                  tokens=1902 cost=$0.0261 elapsed=48.2s
+14:39:24 INFO [336/350] Row id=336 ...
+14:41:38 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED ip6_route_multipath_add
+14:41:38 INFO [337/350] Row id=337 ...
+14:44:55 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:44:55 INFO   -> DONE  method=mystique                  tokens=1107 cost=$0.0115 elapsed=197.4s
+14:44:55 INFO [338/350] Row id=338 ...
+14:46:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:46:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:47:04 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:47:04 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED sg_start_req
+14:47:04 INFO [339/350] Row id=339 ...
+14:48:14 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:48:42 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:49:12 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:49:13 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __skb_flow_dissect
+14:49:13 INFO [340/350] Row id=340 ...
+14:50:02 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED create_fixed_stream_quirk
+14:50:02 INFO [341/350] Row id=341 ...
+14:51:37 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:51:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:51:52 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:51:53 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED fuse_file_put
+14:51:53 INFO [342/350] Row id=342 ...
+14:52:25 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND avx2_usable
+14:52:25 INFO [343/350] Row id=343 ...
+14:54:21 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:54:40 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:54:47 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:54:47 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED sctp_transport_lookup_process
+14:54:47 INFO [344/350] Row id=344 ...
+14:54:47 WARNING   -> ERROR TARGET_METHOD_NOT_FOUND:  mr_table_alloc
+14:54:47 INFO [345/350] Row id=345 ...
+14:56:20 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:56:28 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:56:35 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:56:35 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED hns_nic_init_phy
+14:56:35 INFO [346/350] Row id=346 ...
+14:57:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:57:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:57:54 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+14:57:54 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED vb2_plane_vaddr
+14:57:54 INFO [347/350] Row id=347 ...
+14:59:20 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: GROUNDTRUTH_FAILED ffs_epfile_io
+14:59:20 INFO [348/350] Row id=348 ...
+15:01:06 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:13 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:13 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __tun_detach
+15:01:13 INFO [349/350] Row id=349 ...
+15:01:50 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:51 INFO   -> DONE  method=mystique                  tokens=919 cost=$0.0089 elapsed=37.1s
+15:01:51 INFO [350/350] Row id=350 ...
+15:02:44 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:45 INFO   -> DONE  method=mystique                  tokens=974 cost=$0.0104 elapsed=53.6s
+15:02:45 INFO === Phase 2 complete. done=187 (of which fallback=0) error=163 ===

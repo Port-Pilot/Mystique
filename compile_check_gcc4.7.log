@@ -1,541 +1,3 @@
-[row 94] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-P    arch/x86/include/generated/asm/early_ioremap.h
-  WRAP    arch/x86/include/generated/asm/mcs_spinlock.h
-  WRAP    arch/x86/include/generated/asm/mm-arch-hooks.h
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/orc_gen.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/orc_dump.o
-  HOSTCC  scripts/dtc/dtc.o
-  HOSTCC  scripts/dtc/flattree.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/elf.o
-  HOSTCC  scripts/dtc/fstree.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/special.o
-  HOSTCC  scripts/dtc/data.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/libstring.o
-  HOSTCC  scripts/dtc/livetree.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/str_error_r.o
-  LD       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool-in.o
-  LINK     /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool
-  HOSTCC  scripts/genksyms/genksyms.o
-  HOSTCC  scripts/dtc/treesource.o
-  SHIPPED scripts/genksyms/parse.tab.c
-  SHIPPED scripts/genksyms/lex.lex.c
-  SHIPPED scripts/genksyms/parse.tab.h
-  HOSTCC  scripts/genksyms/parse.tab.o
-  HOSTCC  scripts/dtc/srcpos.o
-  HOSTCC  scripts/dtc/checks.o
-  HOSTCC  scripts/genksyms/lex.lex.o
-  HOSTCC  scripts/dtc/util.o
-  HOSTLD  scripts/genksyms/genksyms
-  CC      arch/x86/purgatory/purgatory.o
-  SHIPPED scripts/dtc/dtc-lexer.lex.c
-  SHIPPED scripts/dtc/dtc-parser.tab.h
-  SHIPPED scripts/dtc/dtc-parser.tab.c
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  AS      arch/x86/purgatory/stack.o
-  AS      arch/x86/purgatory/setup-x86_64.o
-  CC      arch/x86/purgatory/sha256.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  AS      arch/x86/purgatory/entry64.o
-  CC      arch/x86/purgatory/string.o
-  LD      arch/x86/purgatory/purgatory.ro
-  BIN2C   arch/x86/purgatory/kexec-purgatory.c
-  HOSTLD  scripts/dtc/dtc
-  CC      scripts/mod/empty.o
-  HOSTCC  scripts/mod/mk_elfconfig
-  HOSTCC  scripts/selinux/genheaders/genheaders
-  CC      scripts/mod/devicetable-offsets.s
-  MKELF   scripts/mod/elfconfig.h
-  CHK     scripts/mod/devicetable-offsets.h
-  UPD     scripts/mod/devicetable-offsets.h
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/selinux/mdp/mdp
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/pnmtologo
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/conmakehash
-  HOSTCC  scripts/recordmcount
-  HOSTLD  scripts/mod/modpost
-  HOSTCC  scripts/sortextable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/sign-file
-  HOSTCC  scripts/extract-cert
-  HOSTCC  scripts/insert-sys-cert
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [archprepare] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [sub-make] Error 2
-[row 100] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  GEN     ./Makefile
-  HOSTCC  scripts/basic/fixdep
-  HOSTCC  scripts/kconfig/conf.o
-  HOSTCC  scripts/kconfig/zconf.tab.o
-  HOSTLD  scripts/kconfig/conf
-scripts/kconfig/conf  --syncconfig Kconfig
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [checkbin] Error 1
-make: *** [sub-make] Error 2
-make: INTERNAL: Exiting with 3 jobserver tokens available; should be 2!
-[row 177] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  GEN     ./Makefile
-  HOSTCC  scripts/basic/fixdep
-  HOSTCC  scripts/kconfig/conf.o
-  HOSTCC  scripts/kconfig/zconf.tab.o
-  HOSTLD  scripts/kconfig/conf
-scripts/kconfig/conf  --syncconfig Kconfig
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [checkbin] Error 1
-make: *** [sub-make] Error 2
-make: INTERNAL: Exiting with 3 jobserver tokens available; should be 2!
-[row 180] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  GEN     ./Makefile
-  HOSTCC  scripts/basic/fixdep
-  HOSTCC  scripts/kconfig/conf.o
-  HOSTCC  scripts/kconfig/zconf.tab.o
-  HOSTLD  scripts/kconfig/conf
-scripts/kconfig/conf  --syncconfig Kconfig
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [checkbin] Error 1
-make: *** [sub-make] Error 2
-make: INTERNAL: Exiting with 3 jobserver tokens available; should be 2!
-[row 186] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  GEN     ./Makefile
-  HOSTCC  scripts/basic/fixdep
-  HOSTCC  scripts/kconfig/conf.o
-  HOSTCC  scripts/kconfig/zconf.tab.o
-  HOSTLD  scripts/kconfig/conf
-scripts/kconfig/conf  --silentoldconfig Kconfig
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-arch/x86/Makefile:245: *** You are building kernel with non-retpoline compiler, please update your compiler..  Stop.
-make: *** [sub-make] Error 2
-[row 203] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-etable-offsets.s
-  MKELF   scripts/mod/elfconfig.h
-  CHK     scripts/mod/devicetable-offsets.h
-  UPD     scripts/mod/devicetable-offsets.h
-  HOSTCC  scripts/mod/sumversion.o
-  SHIPPED scripts/dtc/dtc-lexer.lex.c
-  SHIPPED scripts/dtc/dtc-parser.tab.h
-  SHIPPED scripts/dtc/dtc-parser.tab.c
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  HOSTLD  scripts/dtc/dtc
-  HOSTCC  scripts/selinux/genheaders/genheaders
-  HOSTCC  scripts/selinux/mdp/mdp
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/pnmtologo
-  HOSTLD  scripts/mod/modpost
-  HOSTCC  scripts/conmakehash
-  HOSTCC  scripts/recordmcount
-  HOSTCC  scripts/sortextable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/sign-file
-  HOSTCC  scripts/extract-cert
-  HOSTCC  scripts/insert-sys-cert
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/printk.h:6:0,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/kernel.h:14,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/asm-generic/bug.h:16,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/include/asm/bug.h:83,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/bug.h:5,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/purgatory/purgatory.c:13:
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:136:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:137:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:270:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:271:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/kernel.h:14:0,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/asm-generic/bug.h:16,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/include/asm/bug.h:83,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/bug.h:5,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/purgatory/purgatory.c:13:
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/printk.h:207:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [archprepare] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [sub-make] Error 2
-[row 233] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-arch/x86/Makefile:227: *** You are building kernel with non-retpoline compiler, please update your compiler..  Stop.
-make: *** [sub-make] Error 2
-[row 243] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-P    arch/x86/include/generated/asm/early_ioremap.h
-  WRAP    arch/x86/include/generated/asm/mcs_spinlock.h
-  WRAP    arch/x86/include/generated/asm/mm-arch-hooks.h
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/orc_gen.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/orc_dump.o
-  HOSTCC  scripts/dtc/dtc.o
-  HOSTCC  scripts/dtc/flattree.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/elf.o
-  HOSTCC  scripts/dtc/fstree.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/special.o
-  HOSTCC  scripts/dtc/data.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/libstring.o
-  CC       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/str_error_r.o
-  HOSTCC  scripts/dtc/livetree.o
-  LD       /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool-in.o
-  LINK     /home/ubuntu/.cache/mystique-compile-check/build/tools/objtool/objtool
-  HOSTCC  scripts/genksyms/genksyms.o
-  HOSTCC  scripts/dtc/treesource.o
-  SHIPPED scripts/genksyms/parse.tab.c
-  SHIPPED scripts/genksyms/lex.lex.c
-  SHIPPED scripts/genksyms/parse.tab.h
-  HOSTCC  scripts/genksyms/parse.tab.o
-  HOSTCC  scripts/dtc/srcpos.o
-  HOSTCC  scripts/genksyms/lex.lex.o
-  HOSTCC  scripts/dtc/checks.o
-  HOSTCC  scripts/dtc/util.o
-  HOSTLD  scripts/genksyms/genksyms
-  CC      arch/x86/purgatory/purgatory.o
-  SHIPPED scripts/dtc/dtc-lexer.lex.c
-  AS      arch/x86/purgatory/stack.o
-  SHIPPED scripts/dtc/dtc-parser.tab.h
-  SHIPPED scripts/dtc/dtc-parser.tab.c
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  AS      arch/x86/purgatory/setup-x86_64.o
-  CC      arch/x86/purgatory/sha256.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  AS      arch/x86/purgatory/entry64.o
-  CC      arch/x86/purgatory/string.o
-  LD      arch/x86/purgatory/purgatory.ro
-  BIN2C   arch/x86/purgatory/kexec-purgatory.c
-  CC      scripts/mod/empty.o
-  HOSTCC  scripts/mod/mk_elfconfig
-  HOSTLD  scripts/dtc/dtc
-  HOSTCC  scripts/selinux/genheaders/genheaders
-  CC      scripts/mod/devicetable-offsets.s
-  MKELF   scripts/mod/elfconfig.h
-  CHK     scripts/mod/devicetable-offsets.h
-  UPD     scripts/mod/devicetable-offsets.h
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/selinux/mdp/mdp
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/pnmtologo
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/conmakehash
-  HOSTCC  scripts/recordmcount
-  HOSTLD  scripts/mod/modpost
-  HOSTCC  scripts/sortextable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/sign-file
-  HOSTCC  scripts/extract-cert
-  HOSTCC  scripts/insert-sys-cert
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [archprepare] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [sub-make] Error 2
-[row 345] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
-  CC      arch/x86/purgatory/string.o
-  CC      scripts/mod/empty.o
-  HOSTCC  scripts/mod/mk_elfconfig
-  LD      arch/x86/purgatory/purgatory.ro
-  BIN2C   arch/x86/purgatory/kexec-purgatory.c
-  CC      scripts/mod/devicetable-offsets.s
-  HOSTCC  scripts/selinux/genheaders/genheaders
-  MKELF   scripts/mod/elfconfig.h
-  CHK     scripts/mod/devicetable-offsets.h
-  UPD     scripts/mod/devicetable-offsets.h
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/selinux/mdp/mdp
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/pnmtologo
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/conmakehash
-  HOSTCC  scripts/recordmcount
-  HOSTLD  scripts/mod/modpost
-  HOSTCC  scripts/sortextable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/sign-file
-  HOSTCC  scripts/extract-cert
-  HOSTCC  scripts/insert-sys-cert
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/printk.h:6:0,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/kernel.h:14,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/asm-generic/bug.h:16,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/include/asm/bug.h:83,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/bug.h:5,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/purgatory/purgatory.c:13:
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:136:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:137:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:270:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/init.h:271:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/kernel.h:14:0,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/asm-generic/bug.h:16,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/include/asm/bug.h:83,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/bug.h:5,
-                 from /home/ubuntu/.cache/mystique-compile-check/worktree/arch/x86/purgatory/purgatory.c:13:
-/home/ubuntu/.cache/mystique-compile-check/worktree/include/linux/printk.h:207:1: warning: 'indirect_branch' attribute directive ignored [-Wattributes]
-You are building kernel with non-retpoline compiler.
-Please update your compiler.
-make[1]: *** [archprepare] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [sub-make] Error 2
-[main] selected 350 generated patches
-[row 1] Pc=8b722a45b3e2 target=fs/crypto/policy.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 1] PASS: patched object compiled
-[row 1] database compilation_success=True
-[row 2] Pc=a5d80bba1614 target=arch/x86/kernel/cpu/bugs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 2] PASS: patched object compiled
-[row 2] database compilation_success=True
-[row 3] Pc=50d2b0e7c163 target=drivers/target/target_core_tmr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 3] PASS: patched object compiled
-[row 3] database compilation_success=True
-[row 4] Pc=0eb58a029c4a target=drivers/mmc/host/sdhci-of-arasan.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 4] PASS: patched object compiled
-[row 4] database compilation_success=True
-[row 5] Pc=38db26fb3ae5 target=drivers/usb/dwc3/gadget.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 5] FAIL: patched object did not compile
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  CHK     include/config/kernel.release
-  GEN     ./Makefile
-  CHK     include/generated/uapi/linux/version.h
-  DESCEND  objtool
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CHK     include/generated/timeconst.h
-  CHK     include/generated/bounds.h
-  CHK     include/generated/asm-offsets.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      drivers/usb/dwc3/gadget.o
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
-
-make: *** wait: No child processes.  Stop.
-[row 5] database compilation_success=False
-[row 6] Pc=68ca4087a2c4 target=sound/soc/codecs/wm8994.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 6] PASS: patched object compiled
-[row 6] database compilation_success=True
-[row 7] Pc=08b1cf4964d5 target=kernel/time/timer.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 7] PASS: patched object compiled
-[row 7] database compilation_success=True
-[row 8] Pc=1b711ef74b98 target=net/ipv4/ip_vti.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 8] PASS: patched object compiled
-[row 8] database compilation_success=True
-[row 9] Pc=c245a412c7f1 target=drivers/usb/class/cdc-acm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 9] PASS: patched object compiled
-[row 9] database compilation_success=True
-[row 10] Pc=64124d136db6 target=drivers/md/dm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 10] PASS: patched object compiled
-[row 10] database compilation_success=True
-[row 11] Pc=7af1cd4b40aa target=drivers/usb/musb/musb_host.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 11] PASS: patched object compiled
-[row 11] database compilation_success=True
-[row 12] Pc=fd608131a916 target=drivers/acpi/acpica/dsopcode.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 12] PASS: patched object compiled
-[row 12] database compilation_success=True
-[row 13] Pc=e1263d46df6f target=kernel/time/clocksource.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 13] PASS: patched object compiled
-[row 13] database compilation_success=True
-[row 14] Pc=a7c25c704889 target=drivers/i2c/i2c-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 14] PASS: patched object compiled
-[row 14] database compilation_success=True
-[row 15] Pc=16a6be25e09c target=net/bluetooth/bnep/core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 15] FAIL: patched object did not compile
-make[2]: Nothing to be done for `relocs'.
-  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
-  CHK     include/linux/version.h
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      net/bluetooth/bnep/core.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/bluetooth/bnep/core.c: In function 'bnep_add_connection':
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/bluetooth/bnep/core.c:566:48: error: 'struct l2cap_chan' has no member named 'dst'
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/bluetooth/bnep/core.c:567:48: error: 'struct l2cap_chan' has no member named 'src'
-make[2]: *** [net/bluetooth/bnep/core.o] Error 1
-make[1]: *** [net/bluetooth/bnep/core.o] Error 2
-make: *** [sub-make] Error 2
-[row 15] database compilation_success=False
-[row 16] Pc=0ae67939e008 target=fs/ubifs/journal.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 16] FAIL: patched object did not compile
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  CHK     include/config/kernel.release
-  GEN     ./Makefile
-  CHK     include/generated/uapi/linux/version.h
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      fs/ubifs/journal.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ubifs/journal.c: In function 'ubifs_jnl_truncate':
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ubifs/journal.c:1192:5: error: expected ')' before 'c'
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ubifs/journal.c:1192:5: warning: format '%d' expects a matching 'int' argument [-Wformat]
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ubifs/journal.c:1192:5: warning: format '%s' expects a matching 'char *' argument [-Wformat]
-make[2]: *** [fs/ubifs/journal.o] Error 1
-make[1]: *** [fs/ubifs/journal.o] Error 2
-make: *** [sub-make] Error 2
-[row 16] database compilation_success=False
-[row 17] Pc=65e3664fc608 target=block/bsg-lib.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 17] PASS: patched object compiled
-[row 17] database compilation_success=True
-[row 18] Pc=f69cd2d30a80 target=drivers/mtd/nand/tango_nand.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 18] PASS: patched object compiled
-[row 18] database compilation_success=True
-[row 19] Pc=7408c3e7745d target=drivers/usb/gadget/dummy_hcd.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 19] PASS: patched object compiled
-[row 19] database compilation_success=True
-[row 20] Pc=9447dabf5ea2 target=drivers/net/wireless/mwifiex/pcie.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 20] PASS: patched object compiled
-[row 20] database compilation_success=True
-[row 21] Pc=c5833ac1da1d target=drivers/media/video/v4l2-compat-ioctl32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 21] PASS: patched object compiled
-[row 21] database compilation_success=True
-[row 22] Pc=645fd470312a target=fs/partitions/mac.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 22] PASS: patched object compiled
-[row 22] database compilation_success=True
-[row 23] Pc=164a941c031b target=drivers/base/power/opp/core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 23] PASS: patched object compiled
-[row 23] database compilation_success=True
-[row 24] Pc=b16a6af97461 target=drivers/media/v4l2-core/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 24] PASS: patched object compiled
-[row 24] database compilation_success=True
-[row 25] Pc=9a99ae972377 target=drivers/media/video/v4l2-compat-ioctl32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 25] PASS: patched object compiled
-[row 25] database compilation_success=True
-[row 26] Pc=1c38b9d9e74a target=drivers/media/v4l2-core/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 26] PASS: patched object compiled
-[row 26] database compilation_success=True
-[row 27] Pc=e787fce41c07 target=drivers/dma/zx296702_dma.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 27] PASS: patched object compiled
-[row 27] database compilation_success=True
-[row 28] Pc=f32bb2aad27e target=drivers/i2c/busses/i2c-designware-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 28] PASS: patched object compiled
-[row 28] database compilation_success=True
-[row 29] Pc=b940ac3ecb4c target=drivers/net/wireless/rtlwifi/rtl8188ee/sw.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 29] PASS: patched object compiled
-[row 29] database compilation_success=True
-[row 30] Pc=93dedcf5a177 target=drivers/md/bitmap.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 30] PASS: patched object compiled
-[row 30] database compilation_success=True
-[row 31] Pc=0a1af9ffc368 target=drivers/usb/gadget/inode.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 31] PASS: patched object compiled
-[row 31] database compilation_success=True
-[row 32] Pc=6fed33c3a424 target=drivers/power/ab8500_charger.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 32] PASS: patched object compiled
-[row 32] database compilation_success=True
-[row 33] Pc=51d0c3514660 target=drivers/staging/gma500/psb_drv.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 33] PASS: patched object compiled
-[row 33] database compilation_success=True
-[row 34] Pc=457e587fbca4 target=drivers/staging/iio/accel/kxsd9.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 34] PASS: patched object compiled
-[row 34] database compilation_success=True
-[row 35] Pc=9755c4085835 target=drivers/net/ethernet/cadence/macb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 35] PASS: patched object compiled
-[row 35] database compilation_success=True
-[row 36] Pc=48decd9af36a target=net/ipv4/tcp_ipv4.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 36] PASS: patched object compiled
-[row 36] database compilation_success=True
-[row 37] Pc=7829c20e43e9 target=drivers/gpio/gpiolib.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 37] PASS: patched object compiled
-[row 37] database compilation_success=True
-[row 38] Pc=0a1454aceefa target=drivers/staging/usbip/stub_rx.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 38] PASS: patched object compiled
-[row 38] database compilation_success=True
-[row 39] Pc=c627716e77d4 target=kernel/sched.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 39] PASS: patched object compiled
-[row 39] database compilation_success=True
-[row 40] Pc=bc9dcdf2b3df target=arch/x86/kernel/cpu/perf_event.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 40] PASS: patched object compiled
-[row 40] database compilation_success=True
-[row 41] Pc=6c5bac3d6c83 target=drivers/staging/media/cec/cec-adap.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 41] PASS: patched object compiled
-[row 41] database compilation_success=True
-[row 42] Pc=ba4a679df78f target=drivers/media/dvb/frontends/s5h1420.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 42] PASS: patched object compiled
-[row 42] database compilation_success=True
-[row 43] Pc=625d1e783375 target=drivers/net/ethernet/hisilicon/hns3/hns3pf/hns3_enet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 43] PASS: patched object compiled
-[row 43] database compilation_success=True
-[row 44] Pc=bd84e6211e54 target=drivers/char/tpm/tpm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 44] PASS: patched object compiled
-[row 44] database compilation_success=True
-[row 45] Pc=925cab7b6a68 target=drivers/pci/hotplug.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 45] PASS: patched object compiled
-[row 45] database compilation_success=True
-[row 46] Pc=da9114015923 target=drivers/xen/events.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 46] PASS: patched object compiled
-[row 46] database compilation_success=True
-[row 47] Pc=3f5fc65eeb03 target=drivers/net/ethernet/cadence/macb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 47] PASS: patched object compiled
-[row 47] database compilation_success=True
-[row 48] Pc=ba1bd77cdf62 target=drivers/pinctrl/pinctrl-imx1-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 48] PASS: patched object compiled
-[row 48] database compilation_success=True
-[row 49] Pc=d0e02f4b273b target=drivers/usb/typec/tcpm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 49] PASS: patched object compiled
-[row 49] database compilation_success=True
-[row 50] Pc=99183227ce06 target=drivers/tty/tty_ioctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 50] PASS: patched object compiled
-[row 50] database compilation_success=True
-[row 51] Pc=3f406ecddf8a target=kernel/cgroup_pids.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 51] PASS: patched object compiled
-[row 51] database compilation_success=True
-[row 52] Pc=a7d82370253c target=drivers/net/wireless/mwifiex/scan.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 52] PASS: patched object compiled
-[row 52] database compilation_success=True
-[row 53] Pc=a818d84ffe08 target=drivers/pci/host/pci-aardvark.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 53] PASS: patched object compiled
-[row 53] database compilation_success=True
-[row 54] Pc=cbb26268a26b target=drivers/staging/usbip/stub_main.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 54] PASS: patched object compiled
-[row 54] database compilation_success=True
-[row 55] Pc=4bf124b5f179 target=drivers/media/dvb/frontends/cx24116.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 55] PASS: patched object compiled
-[row 55] database compilation_success=True
-[row 56] Pc=a782ad86522b target=drivers/virtio/virtio_pci.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 56] PASS: patched object compiled
-[row 56] database compilation_success=True
-[row 57] Pc=b78fc783c620 target=drivers/video/console/fbcon.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 57] PASS: patched object compiled
-[row 57] database compilation_success=True
-[row 58] Pc=eb013220ec20 target=drivers/media/dvb/dvb-usb/af9005.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 58] PASS: patched object compiled
-[row 58] database compilation_success=True
-[row 59] Pc=6281c0883a9d target=drivers/net/wireless/brcm80211/brcmfmac/cfg80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 59] PASS: patched object compiled
-[row 59] database compilation_success=True
-[row 60] Pc=6a1735ce60f0 target=drivers/pci/host/pci-v3-semi.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 60] PASS: patched object compiled
-[row 60] database compilation_success=True
-[row 61] Pc=d174ec8385a7 target=drivers/net/wireless/iwlwifi/mvm/mac80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 61] PASS: patched object compiled
 [row 61] database compilation_success=True
 [row 62] Pc=9e6ed4b8de9b target=drivers/staging/usbip/stub_dev.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 62] PASS: patched object compiled
@@ -546,9 +8,6 @@ make: *** [sub-make] Error 2
 [row 64] Pc=88a490906cd6 target=kernel/posix-cpu-timers.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 64] PASS: patched object compiled
 [row 64] database compilation_success=True
-[row 65] Pc=93a443b33068 target=drivers/net/wireless/iwlegacy/3945.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 65] PASS: patched object compiled
-[row 65] database compilation_success=True
 [row 66] Pc=f730db608b65 target=drivers/staging/media/pulse8-cec/pulse8-cec.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 66] PASS: patched object compiled
 [row 66] database compilation_success=True
@@ -561,27 +20,12 @@ make: *** [sub-make] Error 2
 [row 69] Pc=12c3680a16b7 target=drivers/video/fb_defio.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 69] PASS: patched object compiled
 [row 69] database compilation_success=True
-[row 70] Pc=f3995eb51ca8 target=drivers/input/tablet/wacom_wac.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 70] PASS: patched object compiled
-[row 70] database compilation_success=True
 [row 71] Pc=b61fc97ca5d5 target=drivers/pci/host/pcie-xilinx-nwl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 71] PASS: patched object compiled
 [row 71] database compilation_success=True
-[row 72] Pc=aa6be396714c target=drivers/pci/host/pci-hyperv.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 72] PASS: patched object compiled
-[row 72] database compilation_success=True
-[row 73] Pc=4d09fd3505c5 target=drivers/gpu/drm/vmwgfx/vmwgfx_resource.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 73] PASS: patched object compiled
-[row 73] database compilation_success=True
 [row 74] Pc=d9a675287ed4 target=drivers/char/tpm/tpm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 74] PASS: patched object compiled
 [row 74] database compilation_success=True
-[row 75] Pc=d516a1036397 target=drivers/net/wireless/brcm80211/brcmfmac/bcmsdh.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 75] PASS: patched object compiled
-[row 75] database compilation_success=True
-[row 76] Pc=4a99eac8d2b3 target=kernel/cgroup.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 76] PASS: patched object compiled
-[row 76] database compilation_success=True
 [row 77] Pc=9e70dd43a078 target=drivers/iio/kfifo_buf.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 77] PASS: patched object compiled
 [row 77] database compilation_success=True
@@ -594,12 +38,6 @@ make: *** [sub-make] Error 2
 [row 80] Pc=7851cea48abc target=drivers/pci/host/pci-ftpci100.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 80] PASS: patched object compiled
 [row 80] database compilation_success=True
-[row 81] Pc=28c391a1bf80 target=drivers/usb/gadget/u_serial.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 81] PASS: patched object compiled
-[row 81] database compilation_success=True
-[row 82] Pc=dbcecbbd1d07 target=drivers/media/video/v4l2-compat-ioctl32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 82] PASS: patched object compiled
-[row 82] database compilation_success=True
 [row 83] Pc=b311adfd117f target=drivers/net/wireless/rtlwifi/rtl8821ae/hw.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 83] PASS: patched object compiled
 [row 83] database compilation_success=True
@@ -609,9 +47,6 @@ make: *** [sub-make] Error 2
 [row 85] Pc=6ab3f7e0dca0 target=drivers/pci/host/pcie-mediatek.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 85] PASS: patched object compiled
 [row 85] database compilation_success=True
-[row 86] Pc=c2ddb5852a59 target=drivers/media/dvb/bt8xx/bt878.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 86] PASS: patched object compiled
-[row 86] database compilation_success=True
 [row 87] Pc=031e96b6ffde target=arch/x86/kernel/cpu/perf_event_intel_uncore.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 87] PASS: patched object compiled
 [row 87] database compilation_success=True
@@ -630,10 +65,9 @@ make: *** [sub-make] Error 2
 [row 92] Pc=8c871bdbd02f target=net/bridge/br_netfilter.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 92] PASS: patched object compiled
 [row 92] database compilation_success=True
-[row 93] Pc=fe0bde850b04 target=drivers/net/wireless/mwifiex/debugfs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 93] PASS: patched object compiled
-[row 93] database compilation_success=True
 [row 94] Pc=75af3d78168e target=net/netfilter/xt_connlimit.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 94] PASS: patched object compiled
+[row 94] database compilation_success=True
 [row 95] Pc=bae102ee0220 target=drivers/net/wireless/b43legacy/leds.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 95] PASS: patched object compiled
 [row 95] database compilation_success=True
@@ -649,13 +83,9 @@ make: *** [sub-make] Error 2
 [row 99] Pc=39b01edc01d0 target=drivers/usb/gadget/mv_udc_core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 99] PASS: patched object compiled
 [row 99] database compilation_success=True
-[row 100] Pc=4ee24ae83ccb target=drivers/staging/fsl-dpaa2/rtc/rtc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 101] Pc=b88a5dd150a5 target=drivers/usb/typec/tcpm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 101] PASS: patched object compiled
 [row 101] database compilation_success=True
-[row 102] Pc=bf8436856123 target=arch/arm/mach-imx/clk-vf610.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 102] PASS: patched object compiled
-[row 102] database compilation_success=True
 [row 103] Pc=8069deca8771 target=drivers/media/video/usbvision/usbvision-video.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 103] PASS: patched object compiled
 [row 103] database compilation_success=True
@@ -683,87 +113,51 @@ make: *** [sub-make] Error 2
 [row 111] Pc=fb0a96829d37 target=drivers/usb/gadget/m66592-udc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 111] PASS: patched object compiled
 [row 111] database compilation_success=True
-[row 112] Pc=ddabe0f7922d target=drivers/virtio/virtio_pci.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 112] PASS: patched object compiled
-[row 112] database compilation_success=True
 [row 113] Pc=88b3e1f4feb2 target=drivers/net/wireless/libertas/if_usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 113] PASS: patched object compiled
 [row 113] database compilation_success=True
-[row 114] Pc=a5a1c8fd6c00 target=drivers/pinctrl/pinctrl-imx.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 114] PASS: patched object compiled
-[row 114] database compilation_success=True
 [row 115] Pc=8f5b7e3f415c target=drivers/acpi/nfit.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 115] PASS: patched object compiled
 [row 115] database compilation_success=True
-[row 116] Pc=907acbc70285 target=drivers/net/can/rcar_can.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 116] PASS: patched object compiled
-[row 116] database compilation_success=True
-[row 117] Pc=be90e260145c target=arch/x86/xen/mmu.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 117] PASS: patched object compiled
-[row 117] database compilation_success=True
 [row 118] Pc=dbbb3062dd53 target=drivers/char/tpm/tpm_tis.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 118] PASS: patched object compiled
 [row 118] database compilation_success=True
-[row 119] Pc=b92072aadd83 target=drivers/media/video/cx231xx/cx231xx-cards.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 119] PASS: patched object compiled
-[row 119] database compilation_success=True
 [row 120] Pc=de57bad7f7a9 target=drivers/usb/gadget/u_ether.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 120] PASS: patched object compiled
-[row 120] database compilation_success=True
-[row 121] Pc=75d7f51f1aeb target=kernel/rcutiny.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 121] PASS: patched object compiled
-[row 121] database compilation_success=True
-[row 122] Pc=52604531f716 target=drivers/media/video/v4l2-compat-ioctl32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 122] PASS: patched object compiled
-[row 122] database compilation_success=True
+[row 120] FAIL: patched object did not compile
+make[2]: Nothing to be done for `all'.
+  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+  CC      scripts/mod/devicetable-offsets.s
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTLD  scripts/mod/modpost
+make[2]: Nothing to be done for `relocs'.
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      drivers/usb/gadget/u_ether.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/usb/gadget/u_ether.c: In function 'eth_start_xmit':
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/usb/gadget/u_ether.c:555:179: error: 'struct eth_dev' has no member named 'qmult'
+make[2]: *** [drivers/usb/gadget/u_ether.o] Error 1
+make[1]: *** [drivers/usb/gadget/u_ether.o] Error 2
+make: *** [sub-make] Error 2
+[row 120] database compilation_success=False
 [row 123] Pc=21c7e5a39da0 target=drivers/net/wireless/p54/fwio.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 123] PASS: patched object compiled
 [row 123] database compilation_success=True
 [row 124] Pc=006469cfaa90 target=drivers/mtd/nand/sunxi_nand.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 124] PASS: patched object compiled
 [row 124] database compilation_success=True
-[row 125] Pc=97adc534a506 target=fs/ext4/indirect.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 125] PASS: patched object compiled
-[row 125] database compilation_success=True
-[row 126] Pc=c76a4a07715c target=arch/x86/platform/efi/efi-bgrt.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 126] PASS: patched object compiled
-[row 126] database compilation_success=True
-[row 127] Pc=e329f6b94829 target=drivers/net/wireless/iwlwifi/mvm/mac80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 127] FAIL: patched object did not compile
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  CHK     include/config/kernel.release
-  GEN     ./Makefile
-  CHK     include/generated/uapi/linux/version.h
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      drivers/net/wireless/iwlwifi/mvm/mac80211.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/wireless/iwlwifi/mvm/mac80211.c: In function 'iwl_mvm_mac_tx':
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/wireless/iwlwifi/mvm/mac80211.c:486:7: error: 'IWL_MVM_STATUS_ROC_AUX_RUNNING' undeclared (first use in this function)
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/wireless/iwlwifi/mvm/mac80211.c:486:7: note: each undeclared identifier is reported only once for each function it appears in
-make[2]: *** [drivers/net/wireless/iwlwifi/mvm/mac80211.o] Error 1
-make[1]: *** [drivers/net/wireless/iwlwifi/mvm/mac80211.o] Error 2
-make: *** [sub-make] Error 2
-[row 127] database compilation_success=False
 [row 128] Pc=0d1c8d590b7f target=drivers/staging/dwc2/hcd.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 128] PASS: patched object compiled
 [row 128] database compilation_success=True
-[row 129] Pc=c47c6960b909 target=drivers/net/wireless/rtlwifi/rtl8192se/sw.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 129] PASS: patched object compiled
-[row 129] database compilation_success=True
-[row 130] Pc=c151a91547ff target=drivers/usb/gadget/dummy_hcd.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 130] PASS: patched object compiled
-[row 130] database compilation_success=True
 [row 131] Pc=72d8a061cbfb target=drivers/gpu/drm/drm_fops.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 131] PASS: patched object compiled
 [row 131] database compilation_success=True
 [row 132] Pc=e348885bd406 target=drivers/ntb/hw/intel/ntb_hw_intel.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 132] PASS: patched object compiled
 [row 132] database compilation_success=True
-[row 133] Pc=788ad9e65e6e target=drivers/staging/android/binder.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 133] PASS: patched object compiled
-[row 133] database compilation_success=True
 [row 134] Pc=2d7a0bb8c3a8 target=drivers/staging/iio/accel/kxsd9.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 134] PASS: patched object compiled
 [row 134] database compilation_success=True
@@ -773,18 +167,12 @@ make: *** [sub-make] Error 2
 [row 136] Pc=6f8688bf299b target=drivers/net/ethernet/hisilicon/hns3/hns3pf/hns3_enet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 136] PASS: patched object compiled
 [row 136] database compilation_success=True
-[row 137] Pc=e813577167c4 target=drivers/media/video/uvc/uvc_ctrl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 137] PASS: patched object compiled
-[row 137] database compilation_success=True
 [row 138] Pc=f9f71f3a1e4f target=drivers/media/video/em28xx/em28xx-audio.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 138] PASS: patched object compiled
 [row 138] database compilation_success=True
 [row 139] Pc=657f4204b23c target=drivers/power/twl4030_charger.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 139] PASS: patched object compiled
 [row 139] database compilation_success=True
-[row 140] Pc=9ae85fabdfc0 target=drivers/dma-buf/fence.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 140] PASS: patched object compiled
-[row 140] database compilation_success=True
 [row 141] Pc=84a0a2ec9f7f target=drivers/power/isp1704_charger.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 141] PASS: patched object compiled
 [row 141] database compilation_success=True
@@ -800,45 +188,41 @@ make: *** [sub-make] Error 2
 [row 145] Pc=dc7933209440 target=drivers/net/wireless/b43/phy_common.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 145] PASS: patched object compiled
 [row 145] database compilation_success=True
-[row 146] Pc=ccb0032b68ef target=drivers/mtd/ubi/scan.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 146] PASS: patched object compiled
-[row 146] database compilation_success=True
-[row 147] Pc=58e1fb13e2bc target=drivers/net/wireless/brcm80211/brcmfmac/cfg80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 147] PASS: patched object compiled
-[row 147] database compilation_success=True
 [row 148] Pc=b53261198957 target=drivers/media/v4l2-core/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 148] PASS: patched object compiled
 [row 148] database compilation_success=True
-[row 149] Pc=607fef725d78 target=drivers/pci/host/pci-xgene.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 149] PASS: patched object compiled
-[row 149] database compilation_success=True
-[row 150] Pc=f388d10de1e5 target=drivers/net/wireless/brcm80211/brcmsmac/mac80211_if.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 150] PASS: patched object compiled
-[row 150] database compilation_success=True
 [row 151] Pc=8d3decb7d93e target=drivers/tty/tty_ioctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 151] PASS: patched object compiled
 [row 151] database compilation_success=True
 [row 152] Pc=93b8f4a2302b target=drivers/net/ethernet/hisilicon/hns3/hns3pf/hns3_enet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 152] PASS: patched object compiled
 [row 152] database compilation_success=True
-[row 153] Pc=12958d0ffa66 target=drivers/net/wireless/brcm80211/brcmfmac/cfg80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 153] PASS: patched object compiled
-[row 153] database compilation_success=True
-[row 154] Pc=476b1ec9fb4a target=drivers/usb/gadget/f_phonet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 154] PASS: patched object compiled
-[row 154] database compilation_success=True
 [row 155] Pc=e4a5a335105a target=drivers/net/wireless/iwlwifi/dvm/lib.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 155] PASS: patched object compiled
 [row 155] database compilation_success=True
-[row 156] Pc=c5d351e19a69 target=sound/pci/hda/hda_intel.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 156] PASS: patched object compiled
-[row 156] database compilation_success=True
 [row 157] Pc=9ade62c27d3d target=drivers/staging/media/cec/cec-adap.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 157] PASS: patched object compiled
-[row 157] database compilation_success=True
-[row 158] Pc=5ce38a1bcb47 target=drivers/mtd/nand/marvell_nand.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 158] PASS: patched object compiled
-[row 158] database compilation_success=True
+[row 157] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  DESCEND  objtool
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/timeconst.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      drivers/staging/media/cec/cec-adap.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/staging/media/cec/cec-adap.c: In function 'cec_receive_notify':
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/staging/media/cec/cec-adap.c:1522:36: error: 'CEC_MSG_FL_REPLY_TO_FOLLOWERS' undeclared (first use in this function)
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/staging/media/cec/cec-adap.c:1522:36: note: each undeclared identifier is reported only once for each function it appears in
+make[2]: *** [drivers/staging/media/cec/cec-adap.o] Error 1
+make[1]: *** [drivers/staging/media/cec/cec-adap.o] Error 2
+make: *** [sub-make] Error 2
+[row 157] database compilation_success=False
 [row 159] Pc=b699efa9426d target=drivers/usb/gadget/f_fs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 159] PASS: patched object compiled
 [row 159] database compilation_success=True
@@ -848,18 +232,6 @@ make: *** [sub-make] Error 2
 [row 161] Pc=5020843db320 target=drivers/net/wireless/mwifiex/sta_ioctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 161] PASS: patched object compiled
 [row 161] database compilation_success=True
-[row 162] Pc=af4b41c56261 target=drivers/media/video/gspca/konica.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 162] PASS: patched object compiled
-[row 162] database compilation_success=True
-[row 163] Pc=b900774fc479 target=drivers/staging/android/binder.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 163] PASS: patched object compiled
-[row 163] database compilation_success=True
-[row 164] Pc=b1f46a545058 target=kernel/time.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 164] PASS: patched object compiled
-[row 164] database compilation_success=True
-[row 165] Pc=93af75d0aba0 target=lib/test-hexdump.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 165] PASS: patched object compiled
-[row 165] database compilation_success=True
 [row 166] Pc=c9ccd18aeaf0 target=drivers/usb/phy/phy-twl4030-usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 166] PASS: patched object compiled
 [row 166] database compilation_success=True
@@ -869,57 +241,33 @@ make: *** [sub-make] Error 2
 [row 168] Pc=acb9ef02c3b0 target=drivers/misc/mei/nfc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 168] PASS: patched object compiled
 [row 168] database compilation_success=True
-[row 169] Pc=572aaa97f567 target=drivers/usb/gadget/inode.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 169] PASS: patched object compiled
-[row 169] database compilation_success=True
 [row 170] Pc=9f6d6fb580c0 target=drivers/media/v4l2-core/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 170] PASS: patched object compiled
 [row 170] database compilation_success=True
-[row 171] Pc=ad020ae8a46b target=drivers/staging/imx-drm/imx-ldb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 171] PASS: patched object compiled
-[row 171] database compilation_success=True
 [row 172] Pc=a5a7f1e5ea01 target=drivers/net/wireless/mwifiex/join.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 172] PASS: patched object compiled
 [row 172] database compilation_success=True
 [row 173] Pc=d44d5d39426a target=drivers/net/wireless/rtlwifi/pci.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 173] PASS: patched object compiled
 [row 173] database compilation_success=True
-[row 174] Pc=a7bb99f52184 target=drivers/net/wireless/mwifiex/usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 174] PASS: patched object compiled
-[row 174] database compilation_success=True
-[row 175] Pc=b763ef80c244 target=net/netfilter/nfnetlink_queue_core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 175] PASS: patched object compiled
-[row 175] database compilation_success=True
-[row 176] Pc=6aa52b511174 target=drivers/media/video/v4l2-compat-ioctl32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 176] PASS: patched object compiled
-[row 176] database compilation_success=True
 [row 177] Pc=4d9707586ec7 target=drivers/remoteproc/qcom_q6v5_pil.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 178] Pc=1017144eb5cc target=drivers/usb/gadget/dummy_hcd.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 178] PASS: patched object compiled
-[row 178] database compilation_success=True
-[row 179] Pc=812925986c9f target=drivers/md/dm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 179] PASS: patched object compiled
-[row 179] database compilation_success=True
+[row 177] PASS: patched object compiled
+[row 177] database compilation_success=True
 [row 180] Pc=17743861edc7 target=drivers/media/platform/vicodec/vicodec-codec.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 180] PASS: patched object compiled
+[row 180] database compilation_success=True
 [row 181] Pc=d7f1d486a06d target=drivers/power/ab8500_charger.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 181] PASS: patched object compiled
 [row 181] database compilation_success=True
 [row 182] Pc=14945e0c7ba2 target=drivers/usb/gadget/udc-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 182] PASS: patched object compiled
 [row 182] database compilation_success=True
-[row 183] Pc=6d922880cca2 target=arch/x86/vdso/vdso32-setup.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 183] PASS: patched object compiled
-[row 183] database compilation_success=True
 [row 184] Pc=896b00bd9c66 target=drivers/staging/usbip/stub_main.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 184] PASS: patched object compiled
 [row 184] database compilation_success=True
-[row 185] Pc=4a30c1254229 target=drivers/base/power/opp/core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 185] PASS: patched object compiled
-[row 185] database compilation_success=True
 [row 186] Pc=e380f318e63d target=drivers/pci/dwc/pci-layerscape.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 187] Pc=ce7c57f67930 target=drivers/staging/imx-drm/imx-ldb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 187] PASS: patched object compiled
-[row 187] database compilation_success=True
+[row 186] PASS: patched object compiled
+[row 186] database compilation_success=True
 [row 188] Pc=89c165ce0791 target=drivers/staging/vme/bridges/vme_ca91cx42.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 188] PASS: patched object compiled
 [row 188] database compilation_success=True
@@ -929,9 +277,6 @@ make: *** [sub-make] Error 2
 [row 190] Pc=e0ec55a69450 target=drivers/video/udlfb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 190] PASS: patched object compiled
 [row 190] database compilation_success=True
-[row 191] Pc=125ccb6404d9 target=drivers/media/dvb/dvb-core/dvb_frontend.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 191] PASS: patched object compiled
-[row 191] database compilation_success=True
 [row 192] Pc=135e5d48d534 target=drivers/net/wireless/zd1211rw/zd_usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 192] PASS: patched object compiled
 [row 192] database compilation_success=True
@@ -941,31 +286,18 @@ make: *** [sub-make] Error 2
 [row 194] Pc=d32367d37aab target=drivers/usb/gadget/f_acm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 194] PASS: patched object compiled
 [row 194] database compilation_success=True
-[row 195] Pc=57422570fefd target=drivers/usb/gadget/f_fs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 195] PASS: patched object compiled
-[row 195] database compilation_success=True
 [row 196] Pc=0bae003f1e64 target=drivers/net/wireless/rtlwifi/pci.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 196] PASS: patched object compiled
 [row 196] database compilation_success=True
 [row 197] Pc=0954c87c16ba target=fs/nfs/nfs4filelayoutdev.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 197] PASS: patched object compiled
 [row 197] database compilation_success=True
-[row 198] Pc=07c41c408f32 target=drivers/media/v4l2-core/videobuf2-vmalloc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 198] PASS: patched object compiled
-[row 198] database compilation_success=True
-[row 199] Pc=c5331971f5c1 target=drivers/media/video/davinci/vpfe_capture.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 199] PASS: patched object compiled
-[row 199] database compilation_success=True
-[row 200] Pc=61718ee3175c target=drivers/video/efifb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 200] PASS: patched object compiled
-[row 200] database compilation_success=True
-[row 201] Pc=a06d3be52bce target=drivers/media/video/usbvision/usbvision-video.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 201] PASS: patched object compiled
-[row 201] database compilation_success=True
 [row 202] Pc=a461ae004649 target=arch/x86/kernel/cpu/perf_event_intel_uncore_nhmex.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 202] PASS: patched object compiled
 [row 202] database compilation_success=True
 [row 203] Pc=ee10dcb0d521 target=drivers/pci/host/vmd.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 203] PASS: patched object compiled
+[row 203] database compilation_success=True
 [row 204] Pc=b11e68ac5c25 target=drivers/media/v4l2-core/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 204] PASS: patched object compiled
 [row 204] database compilation_success=True
@@ -975,54 +307,21 @@ make: *** [sub-make] Error 2
 [row 206] Pc=95ce46919f51 target=drivers/mtd/nand/sh_flctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 206] PASS: patched object compiled
 [row 206] database compilation_success=True
-[row 207] Pc=671db0d11b33 target=drivers/pci/host/pci-ftpci100.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 207] PASS: patched object compiled
-[row 207] database compilation_success=True
-[row 208] Pc=a4da2b00fdab target=drivers/acpi/video.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 208] PASS: patched object compiled
-[row 208] database compilation_success=True
 [row 209] Pc=c5923c011cd5 target=net/ipv6/af_inet6.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 209] PASS: patched object compiled
 [row 209] database compilation_success=True
-[row 210] Pc=1b754ac29455 target=arch/x86/kernel/cpu/perf_event_intel.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 210] PASS: patched object compiled
-[row 210] database compilation_success=True
-[row 211] Pc=20996e6d81c9 target=drivers/gpu/drm/vmwgfx/vmwgfx_resource.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 211] PASS: patched object compiled
-[row 211] database compilation_success=True
-[row 212] Pc=83c428427da3 target=drivers/media/dvb/frontends/tda1004x.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 212] PASS: patched object compiled
-[row 212] database compilation_success=True
-[row 213] Pc=8f4d41d1e62b target=drivers/net/wireless/iwlwifi/mvm/mac80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 213] PASS: patched object compiled
-[row 213] database compilation_success=True
 [row 214] Pc=228dae652188 target=drivers/usb/gadget/printer.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 214] PASS: patched object compiled
 [row 214] database compilation_success=True
 [row 215] Pc=9fefd2252c8e target=drivers/net/wireless/iwlwifi/mvm/mac80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 215] PASS: patched object compiled
 [row 215] database compilation_success=True
-[row 216] Pc=1a4b6a9aa3a8 target=drivers/media/video/zr364xx.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 216] PASS: patched object compiled
-[row 216] database compilation_success=True
-[row 217] Pc=80f9b59cfb74 target=mm/page_cgroup.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 217] PASS: patched object compiled
-[row 217] database compilation_success=True
 [row 218] Pc=6c75d139608a target=crypto/crypto_user.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 218] PASS: patched object compiled
 [row 218] database compilation_success=True
 [row 219] Pc=ffbce80bcb9d target=drivers/net/wireless/brcm80211/brcmsmac/stf.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 219] PASS: patched object compiled
 [row 219] database compilation_success=True
-[row 220] Pc=9eae8ac6ab40 target=arch/x86/kernel/microcode_intel_early.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 220] PASS: patched object compiled
-[row 220] database compilation_success=True
-[row 221] Pc=510c84bdb87f target=drivers/usb/gadget/inode.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 221] PASS: patched object compiled
-[row 221] database compilation_success=True
-[row 222] Pc=0247466190be target=drivers/tty/tty_ioctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 222] PASS: patched object compiled
-[row 222] database compilation_success=True
 [row 223] Pc=9fea93e6f0ff target=drivers/net/wireless/iwlwifi/mvm/tx.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 223] PASS: patched object compiled
 [row 223] database compilation_success=True
@@ -1035,18 +334,9 @@ make: *** [sub-make] Error 2
 [row 226] Pc=37a48e6d83f5 target=drivers/dma/zx296702_dma.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 226] PASS: patched object compiled
 [row 226] database compilation_success=True
-[row 227] Pc=302c74b13298 target=kernel/printk.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 227] PASS: patched object compiled
-[row 227] database compilation_success=True
-[row 228] Pc=ef28f4977a83 target=drivers/pinctrl/sh-pfc/pfc-r8a7791.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 228] PASS: patched object compiled
-[row 228] database compilation_success=True
 [row 229] Pc=522ac5232ad7 target=kernel/sched/core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 229] PASS: patched object compiled
 [row 229] database compilation_success=True
-[row 230] Pc=3e56d9852d8b target=drivers/net/wireless/brcm80211/brcmfmac/wl_cfg80211.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 230] PASS: patched object compiled
-[row 230] database compilation_success=True
 [row 231] Pc=71944eb54288 target=drivers/net/ethernet/broadcom/genet/bcmmii.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 231] PASS: patched object compiled
 [row 231] database compilation_success=True
@@ -1054,6 +344,12 @@ make: *** [sub-make] Error 2
 [row 232] PASS: patched object compiled
 [row 232] database compilation_success=True
 [row 233] Pc=39bdb32876df target=drivers/gpu/drm/amd/amdgpu/gmc_v8_0.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 233] INCONCLUSIVE: unpatched baseline target did not compile; result is inconclusive:
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+arch/x86/Makefile:227: *** You are building kernel with non-retpoline compiler, please update your compiler..  Stop.
+make: *** [sub-make] Error 2
 [row 234] Pc=a0ebefb70b2a target=drivers/usb/serial/ti_usb_3410_5052.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 234] PASS: patched object compiled
 [row 234] database compilation_success=True
@@ -1064,54 +360,118 @@ make: *** [sub-make] Error 2
 [row 236] PASS: patched object compiled
 [row 236] database compilation_success=True
 [row 237] Pc=f61c0cf74359 target=net/mac80211/mesh.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 237] PASS: patched object compiled
-[row 237] database compilation_success=True
+[row 237] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/mac80211/mesh.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/mac80211/mesh.c: In function 'mesh_sta_cleanup':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/mac80211/mesh.c:151:38: error: 'struct sta_info' has no member named 'mesh'
+make[2]: *** [net/mac80211/mesh.o] Error 1
+make[1]: *** [net/mac80211/mesh.o] Error 2
+make: *** [sub-make] Error 2
+[row 237] database compilation_success=False
 [row 238] Pc=e4fa01001270 target=drivers/usb/class/cdc-acm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 238] PASS: patched object compiled
 [row 238] database compilation_success=True
-[row 239] Pc=c6b069f42344 target=drivers/gpu/drm/amd/amdkfd/kfd_topology.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 239] PASS: patched object compiled
-[row 239] database compilation_success=True
 [row 240] Pc=b53525eaac55 target=drivers/dma-buf/sw_sync.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 240] PASS: patched object compiled
-[row 240] database compilation_success=True
-[row 241] Pc=0a4cdc47f96f target=fs/hpfs/super.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 241] PASS: patched object compiled
-[row 241] database compilation_success=True
+[row 240] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  DESCEND  objtool
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/timeconst.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      drivers/dma-buf/sw_sync.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/dma-buf/sw_sync.c: In function 'timeline_fence_signaled':
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/dma-buf/sw_sync.c:220:5: error: implicit declaration of function '__dma_fence_is_later' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [drivers/dma-buf/sw_sync.o] Error 1
+make[1]: *** [drivers/dma-buf/sw_sync.o] Error 2
+make: *** [sub-make] Error 2
+[row 240] database compilation_success=False
 [row 242] Pc=9ab30a6529b5 target=drivers/gpu/drm/i915/intel_psr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 242] PASS: patched object compiled
 [row 242] database compilation_success=True
 [row 243] Pc=07eae146f5b7 target=sound/soc/codecs/sta32x.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 243] PASS: patched object compiled
+[row 243] database compilation_success=True
 [row 244] Pc=5c6fe7b6affd target=net/decnet/netfilter/dn_rtmsg.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 244] PASS: patched object compiled
 [row 244] database compilation_success=True
-[row 245] Pc=fd691a7b0dac target=sound/core/seq/oss/seq_oss_init.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 245] PASS: patched object compiled
-[row 245] database compilation_success=True
 [row 246] Pc=4fb228ae24ec target=drivers/usb/serial/io_ti.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 246] PASS: patched object compiled
 [row 246] database compilation_success=True
-[row 247] Pc=4b6986fcceb2 target=arch/x86/kvm/cpuid.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 247] PASS: patched object compiled
-[row 247] database compilation_success=True
 [row 248] Pc=72f157be2f81 target=fs/cifs/smb2pdu.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 248] PASS: patched object compiled
-[row 248] database compilation_success=True
-[row 249] Pc=45d20e9f61ce target=drivers/cpufreq/intel_pstate.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 249] PASS: patched object compiled
-[row 249] database compilation_success=True
-[row 250] Pc=3393778da387 target=fs/namespace.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 250] PASS: patched object compiled
-[row 250] database compilation_success=True
-[row 251] Pc=b67534c3cd56 target=net/unix/af_unix.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 251] PASS: patched object compiled
-[row 251] database compilation_success=True
+[row 248] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      fs/cifs/smb2pdu.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/cifs/smb2pdu.c: In function 'SMB2_ioctl':
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/cifs/smb2pdu.c:1313:17: error: 'struct smb2_hdr' has no member named 'sync_hdr'
+make[2]: *** [fs/cifs/smb2pdu.o] Error 1
+make[1]: *** [fs/cifs/smb2pdu.o] Error 2
+make: *** [sub-make] Error 2
+[row 248] database compilation_success=False
 [row 252] Pc=5363fd5fe17a target=fs/ext4/inode.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 252] PASS: patched object compiled
-[row 252] database compilation_success=True
+[row 252] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      fs/ext4/inode.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ext4/inode.c: In function 'ext4_block_truncate_page':
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/ext4/inode.c:3531:5: error: implicit declaration of function 'fscrypt_has_encryption_key' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [fs/ext4/inode.o] Error 1
+make[1]: *** [fs/ext4/inode.o] Error 2
+make: *** [sub-make] Error 2
+[row 252] database compilation_success=False
 [row 253] Pc=ef9fff760b03 target=net/ipv4/udp.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 253] PASS: patched object compiled
-[row 253] database compilation_success=True
+[row 253] FAIL: patched object did not compile
+make[2]: Nothing to be done for `all'.
+  CHK     include/config/kernel.release
+  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[2]: Nothing to be done for `relocs'.
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/ipv4/udp.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/udp.c: In function 'udp_v4_early_demux':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/udp.c:1951:5: error: implicit declaration of function 'READ_ONCE' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/udp.c:1951:9: warning: assignment makes pointer from integer without a cast [enabled by default]
+cc1: some warnings being treated as errors
+make[2]: *** [net/ipv4/udp.o] Error 1
+make[1]: *** [net/ipv4/udp.o] Error 2
+make: *** [sub-make] Error 2
+[row 253] database compilation_success=False
 [row 254] Pc=d1168c13578d target=net/ipv4/raw.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 254] FAIL: patched object did not compile
 make[2]: Nothing to be done for `relocs'.
@@ -1123,7 +483,7 @@ make[2]: Nothing to be done for `relocs'.
   CC      net/ipv4/raw.o
 
 /home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/raw.c: In function 'raw_sendmsg':
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/raw.c:498:2: error: implicit declaration of function 'READ_ONCE' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/raw.c:491:5: error: implicit declaration of function 'READ_ONCE' [-Werror=implicit-function-declaration]
 cc1: some warnings being treated as errors
 make[2]: *** [net/ipv4/raw.o] Error 1
 make[1]: *** [net/ipv4/raw.o] Error 2
@@ -1132,45 +492,68 @@ make: *** [sub-make] Error 2
 [row 255] Pc=addb3a32b0ed target=net/sched/sch_fq_codel.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 255] PASS: patched object compiled
 [row 255] database compilation_success=True
-[row 256] Pc=6d3ce108753b target=net/batman-adv/soft-interface.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 256] PASS: patched object compiled
-[row 256] database compilation_success=True
-[row 257] Pc=5e5da2b330fd target=drivers/target/target_core_transport.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 257] PASS: patched object compiled
-[row 257] database compilation_success=True
 [row 258] Pc=3ba1945b048a target=crypto/algif_skcipher.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 258] PASS: patched object compiled
-[row 258] database compilation_success=True
-[row 259] Pc=edc955345c7f target=drivers/regulator/tps65910-regulator.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 259] PASS: patched object compiled
-[row 259] database compilation_success=True
+[row 258] FAIL: patched object did not compile
+make[2]: Nothing to be done for `relocs'.
+  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
+  CHK     include/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      crypto/algif_skcipher.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/crypto/algif_skcipher.c: In function 'skcipher_accept_parent':
+/home/ubuntu/.cache/mystique-compile-check/worktree/crypto/algif_skcipher.c:761:5: error: implicit declaration of function 'crypto_skcipher_has_setkey' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [crypto/algif_skcipher.o] Error 1
+make[1]: *** [crypto/algif_skcipher.o] Error 2
+make: *** [sub-make] Error 2
+[row 258] database compilation_success=False
 [row 260] Pc=13eddc67565a target=net/ipv4/inet_connection_sock.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 260] PASS: patched object compiled
-[row 260] database compilation_success=True
-[row 261] Pc=556407758052 target=net/batman-adv/translation-table.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 261] PASS: patched object compiled
-[row 261] database compilation_success=True
-[row 262] Pc=4d9b7b3ab200 target=net/batman-adv/originator.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 262] PASS: patched object compiled
-[row 262] database compilation_success=True
+[row 260] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/timeconst.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/ipv4/inet_connection_sock.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/inet_connection_sock.c: In function 'inet_csk_route_req':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/inet_connection_sock.c:414:5: error: implicit declaration of function 'refcount_read' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [net/ipv4/inet_connection_sock.o] Error 1
+make[1]: *** [net/ipv4/inet_connection_sock.o] Error 2
+make: *** [sub-make] Error 2
+[row 260] database compilation_success=False
 [row 263] Pc=41431e402fc4 target=net/packet/af_packet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 263] PASS: patched object compiled
-[row 263] database compilation_success=True
-[row 264] Pc=f2d130454e46 target=drivers/usb/misc/adutux.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 264] PASS: patched object compiled
-[row 264] database compilation_success=True
-[row 265] Pc=686f71029ec2 target=arch/x86/kvm/vmx.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 265] PASS: patched object compiled
-[row 265] database compilation_success=True
+[row 263] FAIL: patched object did not compile
+make[2]: Nothing to be done for `relocs'.
+  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
+  CHK     include/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/packet/af_packet.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/packet/af_packet.c: In function 'packet_rcv_fanout':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/packet/af_packet.c:1212:5: error: implicit declaration of function 'READ_ONCE' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [net/packet/af_packet.o] Error 1
+make[1]: *** [net/packet/af_packet.o] Error 2
+make: *** [sub-make] Error 2
+[row 263] database compilation_success=False
 [row 266] Pc=9891f6816000 target=fs/overlayfs/dir.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 266] PASS: patched object compiled
 [row 266] database compilation_success=True
 [row 267] Pc=4b29da8db2b9 target=drivers/gpu/drm/i915/intel_dp.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 267] PASS: patched object compiled
 [row 267] database compilation_success=True
-[row 268] Pc=858ccdfd1586 target=drivers/usb/gadget/udc-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 268] PASS: patched object compiled
-[row 268] database compilation_success=True
 [row 269] Pc=5e949a74f0da target=drivers/usb/dwc3/dwc3-pci.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 269] PASS: patched object compiled
 [row 269] database compilation_success=True
@@ -1180,12 +563,6 @@ make: *** [sub-make] Error 2
 [row 271] Pc=a3cb38ea147c target=net/sctp/inqueue.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 271] PASS: patched object compiled
 [row 271] database compilation_success=True
-[row 272] Pc=4f981b33bdc7 target=net/ipv6/xfrm6_policy.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 272] PASS: patched object compiled
-[row 272] database compilation_success=True
-[row 273] Pc=988a86df7d85 target=fs/xattr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 273] PASS: patched object compiled
-[row 273] database compilation_success=True
 [row 274] Pc=c512940b28f7 target=drivers/md/dm-crypt.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 274] PASS: patched object compiled
 [row 274] database compilation_success=True
@@ -1198,42 +575,36 @@ make: *** [sub-make] Error 2
 [row 277] Pc=fdfce812d2c6 target=fs/proc/task_mmu.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 277] PASS: patched object compiled
 [row 277] database compilation_success=True
-[row 278] Pc=73bcecff7ee2 target=net/l2tp/l2tp_ppp.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 278] PASS: patched object compiled
-[row 278] database compilation_success=True
-[row 279] Pc=a5a6cebdd016 target=drivers/net/team/team.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 279] PASS: patched object compiled
-[row 279] database compilation_success=True
-[row 280] Pc=99c359302699 target=drivers/usb/host/xhci-mem.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 280] PASS: patched object compiled
-[row 280] database compilation_success=True
-[row 281] Pc=e21d66048d4d target=drivers/md/raid5.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 281] PASS: patched object compiled
-[row 281] database compilation_success=True
 [row 282] Pc=173109cffa11 target=net/ipv4/tcp_input.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 282] PASS: patched object compiled
-[row 282] database compilation_success=True
-[row 283] Pc=77f807e34765 target=net/ipv4/ip_fragment.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 283] PASS: patched object compiled
-[row 283] database compilation_success=True
-[row 284] Pc=cb463364d467 target=net/sunrpc/xprtsock.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 284] PASS: patched object compiled
-[row 284] database compilation_success=True
+[row 282] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+make[2]: `arch/x86/purgatory/kexec-purgatory.c' is up to date.
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/ipv4/tcp_input.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/tcp_input.c: In function 'tcp_rcv_space_adjust':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/tcp_input.c:580:13: warning: passing argument 1 of 'tcp_win_from_space' makes integer from pointer without a cast [enabled by default]
+In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/tcp_input.c:73:0:
+/home/ubuntu/.cache/mystique-compile-check/worktree/include/net/tcp.h:1100:19: note: expected 'int' but argument is of type 'struct sock *'
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/tcp_input.c:580:13: error: too many arguments to function 'tcp_win_from_space'
+In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/tcp_input.c:73:0:
+/home/ubuntu/.cache/mystique-compile-check/worktree/include/net/tcp.h:1100:19: note: declared here
+make[2]: *** [net/ipv4/tcp_input.o] Error 1
+make[1]: *** [net/ipv4/tcp_input.o] Error 2
+make: *** [sub-make] Error 2
+[row 282] database compilation_success=False
 [row 285] Pc=9bb86db161a3 target=drivers/md/dm-thin.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 285] PASS: patched object compiled
 [row 285] database compilation_success=True
-[row 286] Pc=f7c007162308 target=arch/x86/kvm/emulate.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 286] PASS: patched object compiled
-[row 286] database compilation_success=True
 [row 287] Pc=ad0ecc9bf60d target=fs/autofs4/waitq.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 287] PASS: patched object compiled
 [row 287] database compilation_success=True
-[row 288] Pc=86534d3d8243 target=drivers/usb/serial/option.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 288] PASS: patched object compiled
-[row 288] database compilation_success=True
-[row 289] Pc=cd21931fb23f target=kernel/printk/printk.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 289] PASS: patched object compiled
-[row 289] database compilation_success=True
 [row 290] Pc=44854a56abe9 target=fs/dcache.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 290] PASS: patched object compiled
 [row 290] database compilation_success=True
@@ -1241,150 +612,29 @@ make: *** [sub-make] Error 2
 [row 291] PASS: patched object compiled
 [row 291] database compilation_success=True
 [row 292] Pc=f6ba44ba3c36 target=drivers/target/iscsi/iscsi_target.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 292] PASS: patched object compiled
-[row 292] database compilation_success=True
-[row 293] Pc=52c872554bc5 target=mm/page_alloc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 293] PASS: patched object compiled
-[row 293] database compilation_success=True
-[row 294] Pc=db2697540738 target=fs/btrfs/ioctl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 294] PASS: patched object compiled
-[row 294] database compilation_success=True
-[row 295] Pc=c8a5f83fa43e target=drivers/char/tpm/tpm-chip.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 295] PASS: patched object compiled
-[row 295] database compilation_success=True
+[row 292] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      drivers/target/iscsi/iscsi_target.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/target/iscsi/iscsi_target.c: In function 'iscsit_handle_task_mgt_cmd':
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/target/iscsi/iscsi_target.c:1877:13: warning: passing argument 1 of 'target_put_sess_cmd' from incompatible pointer type [enabled by default]
+In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/drivers/target/iscsi/iscsi_target.c:30:0:
+/home/ubuntu/.cache/mystique-compile-check/worktree/include/target/target_core_fabric.h:130:5: note: expected 'struct se_session *' but argument is of type 'struct se_cmd *'
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/target/iscsi/iscsi_target.c:1877:13: error: too few arguments to function 'target_put_sess_cmd'
+In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/drivers/target/iscsi/iscsi_target.c:30:0:
+/home/ubuntu/.cache/mystique-compile-check/worktree/include/target/target_core_fabric.h:130:5: note: declared here
+make[2]: *** [drivers/target/iscsi/iscsi_target.o] Error 1
+make[1]: *** [drivers/target/iscsi/iscsi_target.o] Error 2
+make: *** [sub-make] Error 2
+[row 292] database compilation_success=False
 [row 296] Pc=04f625fc5a68 target=net/ipv4/ip_gre.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 296] PASS: patched object compiled
-[row 296] database compilation_success=True
-[row 297] Pc=b2761c510de9 target=drivers/infiniband/hw/mlx4/main.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 297] PASS: patched object compiled
-[row 297] database compilation_success=True
-[row 298] Pc=6dc50507697c target=net/ipv4/ipmr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 298] PASS: patched object compiled
-[row 298] database compilation_success=True
-[row 299] Pc=a6ca08a07293 target=drivers/phy/phy-twl4030-usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 299] PASS: patched object compiled
-[row 299] database compilation_success=True
-[row 300] Pc=a34207e99ce1 target=fs/proc_namespace.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 300] PASS: patched object compiled
-[row 300] database compilation_success=True
-[row 301] Pc=80fb16c09685 target=net/ceph/messenger.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 301] FAIL: patched object did not compile
-make[2]: Nothing to be done for `all'.
-  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
-  CHK     include/generated/uapi/linux/version.h
-  CHK     include/generated/utsrelease.h
-  CC      scripts/mod/devicetable-offsets.s
-  GEN     scripts/mod/devicetable-offsets.h
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTLD  scripts/mod/modpost
-make[2]: Nothing to be done for `relocs'.
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      net/ceph/messenger.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/ceph/messenger.c:10:28: fatal error: linux/sched/mm.h: No such file or directory
-compilation terminated.
-make[2]: *** [net/ceph/messenger.o] Error 1
-make[1]: *** [net/ceph/messenger.o] Error 2
-make: *** [sub-make] Error 2
-[row 301] database compilation_success=False
-[row 302] Pc=c23c045d1700 target=fs/btrfs/super.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 302] FAIL: patched object did not compile
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  CHK     include/config/kernel.release
-  GEN     ./Makefile
-  CHK     include/generated/uapi/linux/version.h
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      fs/btrfs/super.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/btrfs/super.c: In function 'btrfs_remount':
-/home/ubuntu/.cache/mystique-compile-check/worktree/fs/btrfs/super.c:1498:3: error: implicit declaration of function 'btrfs_qgroup_rescan_resume' [-Werror=implicit-function-declaration]
-cc1: some warnings being treated as errors
-make[2]: *** [fs/btrfs/super.o] Error 1
-make[1]: *** [fs/btrfs/super.o] Error 2
-make: *** [sub-make] Error 2
-[row 302] database compilation_success=False
-[row 303] Pc=0d669d90c169 target=kernel/locking/lockdep.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 303] FAIL: patched object did not compile
-make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
-  CHK     include/config/kernel.release
-  GEN     ./Makefile
-  CHK     include/generated/uapi/linux/version.h
-  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
-  CHK     include/generated/utsrelease.h
-  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      kernel/locking/lockdep.o
-
-/home/ubuntu/.cache/mystique-compile-check/worktree/kernel/locking/lockdep.c:31:28: fatal error: linux/sched/mm.h: No such file or directory
-compilation terminated.
-make[2]: *** [kernel/locking/lockdep.o] Error 1
-make[1]: *** [kernel/locking/lockdep.o] Error 2
-make: *** [sub-make] Error 2
-[row 303] database compilation_success=False
-[row 304] Pc=a8642e3075fb target=drivers/md/raid10.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 304] PASS: patched object compiled
-[row 304] database compilation_success=True
-[row 305] Pc=f871c03666d4 target=drivers/scsi/scsi_lib.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 305] PASS: patched object compiled
-[row 305] database compilation_success=True
-[row 306] Pc=88090a012c06 target=drivers/staging/iio/addac/adt7316.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 306] PASS: patched object compiled
-[row 306] database compilation_success=True
-[row 307] Pc=9f4a8ebb750b target=drivers/hv/channel.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 307] PASS: patched object compiled
-[row 307] database compilation_success=True
-[row 308] Pc=dfbed80c63bb target=drivers/target/target_core_tmr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 308] PASS: patched object compiled
-[row 308] database compilation_success=True
-[row 309] Pc=8e201ff7140a target=drivers/net/tun.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 309] PASS: patched object compiled
-[row 309] database compilation_success=True
-[row 310] Pc=eb982e5ed568 target=net/batman-adv/hard-interface.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 310] PASS: patched object compiled
-[row 310] database compilation_success=True
-[row 311] Pc=37e611e909ec target=net/l2tp/l2tp_netlink.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 311] PASS: patched object compiled
-[row 311] database compilation_success=True
-[row 312] Pc=b4245507843a target=drivers/md/raid10.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 312] PASS: patched object compiled
-[row 312] database compilation_success=True
-[row 313] Pc=6ac40d2dc0eb target=drivers/net/ethernet/qlogic/qed/qed_main.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 313] PASS: patched object compiled
-[row 313] database compilation_success=True
-[row 314] Pc=2c10d3e61756 target=drivers/iio/common/hid-sensors/hid-sensor-attributes.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 314] PASS: patched object compiled
-[row 314] database compilation_success=True
-[row 315] Pc=3360c51768c3 target=drivers/edac/edac_mc_sysfs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 315] PASS: patched object compiled
-[row 315] database compilation_success=True
-[row 316] Pc=f9a0da24705a target=drivers/tty/n_tty.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 316] PASS: patched object compiled
-[row 316] database compilation_success=True
-[row 317] Pc=91c5e6553af0 target=net/sched/sch_cbq.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 317] PASS: patched object compiled
-[row 317] database compilation_success=True
-[row 318] Pc=944723bf84d3 target=drivers/clocksource/timer-stm32.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 318] PASS: patched object compiled
-[row 318] database compilation_success=True
-[row 319] Pc=486256792807 target=drivers/pwm/pwm-tiehrpwm.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 319] PASS: patched object compiled
-[row 319] database compilation_success=True
-[row 320] Pc=9e27e4214621 target=drivers/spi/spi-ti-qspi.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 320] PASS: patched object compiled
-[row 320] database compilation_success=True
-[row 321] Pc=9964b4c4ee92 target=net/packet/af_packet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 321] PASS: patched object compiled
-[row 321] database compilation_success=True
-[row 322] Pc=6b59fb520123 target=drivers/media/pci/cx23885/cx23885-dvb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 322] PASS: patched object compiled
-[row 322] database compilation_success=True
-[row 323] Pc=f5281f836701 target=net/l2tp/l2tp_ppp.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 323] PASS: patched object compiled
-[row 323] database compilation_success=True
-[row 324] Pc=8b7b5f76693c target=drivers/net/ethernet/mellanox/mlx5/core/lib/mpfs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 324] FAIL: patched object did not compile
+[row 296] FAIL: patched object did not compile
 make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
   CHK     include/config/kernel.release
   GEN     ./Makefile
@@ -1397,88 +647,128 @@ make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
   CHK     include/generated/bounds.h
   CHK     include/generated/asm-offsets.h
   CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      drivers/net/ethernet/mellanox/mlx5/core/lib/mpfs.o
+  CC      net/ipv4/ip_gre.o
 make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
 
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/ethernet/mellanox/mlx5/core/lib/mpfs.c:36:32: fatal error: linux/mlx5/eswitch.h: No such file or directory
-compilation terminated.
-make[2]: *** [drivers/net/ethernet/mellanox/mlx5/core/lib/mpfs.o] Error 1
-make[1]: *** [drivers/net/ethernet/mellanox/mlx5/core/lib/mpfs.o] Error 2
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/ip_gre.c: In function 'ipgre_err':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/ip_gre.c:155:67: error: 'ETH_P_ERSPAN2' undeclared (first use in this function)
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/ipv4/ip_gre.c:155:67: note: each undeclared identifier is reported only once for each function it appears in
+make[2]: *** [net/ipv4/ip_gre.o] Error 1
+make[1]: *** [net/ipv4/ip_gre.o] Error 2
 make: *** [sub-make] Error 2
-[row 324] database compilation_success=False
-[row 325] Pc=f9b9919e59b2 target=fs/btrfs/disk-io.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 325] PASS: patched object compiled
-[row 325] database compilation_success=True
-[row 326] Pc=1f31381a6cc0 target=fs/fcntl.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 326] PASS: patched object compiled
-[row 326] database compilation_success=True
-[row 327] Pc=9453bd77685e target=crypto/algif_skcipher.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 327] FAIL: patched object did not compile
+[row 296] database compilation_success=False
+[row 299] Pc=a6ca08a07293 target=drivers/phy/phy-twl4030-usb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 299] PASS: patched object compiled
+[row 299] database compilation_success=True
+[row 300] Pc=a34207e99ce1 target=fs/proc_namespace.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 300] PASS: patched object compiled
+[row 300] database compilation_success=True
+[row 302] Pc=c23c045d1700 target=fs/btrfs/super.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 302] FAIL: patched object did not compile
 make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
   CHK     include/config/kernel.release
   GEN     ./Makefile
   CHK     include/generated/uapi/linux/version.h
   Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
   CHK     include/generated/utsrelease.h
-  CHK     include/generated/bounds.h
-  CHK     include/generated/asm-offsets.h
   CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      crypto/algif_skcipher.o
-make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CC      fs/btrfs/super.o
 
-/home/ubuntu/.cache/mystique-compile-check/worktree/crypto/algif_skcipher.c: In function 'skcipher_free_async_sgls':
-/home/ubuntu/.cache/mystique-compile-check/worktree/crypto/algif_skcipher.c:101:3: error: implicit declaration of function 'page_ref_count' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/btrfs/super.c: In function 'btrfs_remount':
+/home/ubuntu/.cache/mystique-compile-check/worktree/fs/btrfs/super.c:1474:9: error: implicit declaration of function 'btrfs_qgroup_rescan_resume' [-Werror=implicit-function-declaration]
 cc1: some warnings being treated as errors
-make[2]: *** [crypto/algif_skcipher.o] Error 1
-make[1]: *** [crypto/algif_skcipher.o] Error 2
+make[2]: *** [fs/btrfs/super.o] Error 1
+make[1]: *** [fs/btrfs/super.o] Error 2
 make: *** [sub-make] Error 2
-[row 327] database compilation_success=False
-[row 328] Pc=298fce960d6b target=drivers/target/target_core_transport.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 328] PASS: patched object compiled
-[row 328] database compilation_success=True
-[row 329] Pc=fc47eea4a7bb target=drivers/mtd/nand/omap2.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 329] PASS: patched object compiled
-[row 329] database compilation_success=True
-[row 330] Pc=db01878ca5dd target=drivers/net/phy/phy.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 330] FAIL: patched object did not compile
+[row 302] database compilation_success=False
+[row 306] Pc=88090a012c06 target=drivers/staging/iio/addac/adt7316.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 306] PASS: patched object compiled
+[row 306] database compilation_success=True
+[row 316] Pc=f9a0da24705a target=drivers/tty/n_tty.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 316] PASS: patched object compiled
+[row 316] database compilation_success=True
+[row 317] Pc=91c5e6553af0 target=net/sched/sch_cbq.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 317] FAIL: patched object did not compile
 make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
   CHK     include/config/kernel.release
   GEN     ./Makefile
   CHK     include/generated/uapi/linux/version.h
+  DESCEND  objtool
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CHK     include/generated/utsrelease.h
+  CHK     scripts/mod/devicetable-offsets.h
+  CHK     include/generated/timeconst.h
+  CHK     include/generated/bounds.h
+  CHK     include/generated/asm-offsets.h
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/sched/sch_cbq.o
+make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/sched/sch_cbq.c: In function 'cbq_init':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/sched/sch_cbq.c:1156:5: error: too many arguments to function 'tcf_block_get'
+In file included from /home/ubuntu/.cache/mystique-compile-check/worktree/net/sched/sch_cbq.c:22:0:
+/home/ubuntu/.cache/mystique-compile-check/worktree/include/net/pkt_cls.h:28:5: note: declared here
+make[2]: *** [net/sched/sch_cbq.o] Error 1
+make[1]: *** [net/sched/sch_cbq.o] Error 2
+make: *** [sub-make] Error 2
+[row 317] database compilation_success=False
+[row 321] Pc=9964b4c4ee92 target=net/packet/af_packet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 321] FAIL: patched object did not compile
+make[2]: Nothing to be done for `all'.
+  CHK     include/config/kernel.release
+  GEN     /home/ubuntu/.cache/mystique-compile-check/build/Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[2]: Nothing to be done for `relocs'.
+  Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
+  CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
+  CC      net/packet/af_packet.o
+
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/packet/af_packet.c: In function 'tpacket_fill_skb':
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/packet/af_packet.c:2059:5: error: implicit declaration of function 'packet_use_direct_xmit' [-Werror=implicit-function-declaration]
+cc1: some warnings being treated as errors
+make[2]: *** [net/packet/af_packet.o] Error 1
+make[1]: *** [net/packet/af_packet.o] Error 2
+make: *** [sub-make] Error 2
+[row 321] database compilation_success=False
+[row 322] Pc=6b59fb520123 target=drivers/media/pci/cx23885/cx23885-dvb.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 322] PASS: patched object compiled
+[row 322] database compilation_success=True
+[row 325] Pc=f9b9919e59b2 target=fs/btrfs/disk-io.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 325] PASS: patched object compiled
+[row 325] database compilation_success=True
+[row 331] Pc=09999807edd8 target=fs/ext4/balloc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 331] PASS: patched object compiled
+[row 331] database compilation_success=True
+[row 333] Pc=6acfa0b5a8cd target=drivers/misc/altera-stapl/altera.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 333] PASS: patched object compiled
+[row 333] database compilation_success=True
+[row 334] Pc=a317afc0c1ce target=drivers/usb/musb/musb_dsps.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
+[row 334] FAIL: patched object did not compile
+make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  DESCEND  objtool
   Using /home/ubuntu/.cache/mystique-compile-check/worktree as source for kernel
   CHK     include/generated/utsrelease.h
   CHK     include/generated/timeconst.h
   CHK     include/generated/bounds.h
   CHK     include/generated/asm-offsets.h
   CALL    /home/ubuntu/.cache/mystique-compile-check/worktree/scripts/checksyscalls.sh
-  CC      drivers/net/phy/phy.o
+  CC      drivers/usb/musb/musb_dsps.o
 make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
 
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/phy/phy.c: In function 'phy_state_machine':
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/net/phy/phy.c:931:4: error: implicit declaration of function 'phydev_err' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/usb/musb/musb_dsps.c: In function 'dsps_check_status':
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/usb/musb/musb_dsps.c:208:13: error: implicit declaration of function 'dsps_mod_timer_optional' [-Werror=implicit-function-declaration]
 cc1: some warnings being treated as errors
-make[2]: *** [drivers/net/phy/phy.o] Error 1
-make[1]: *** [drivers/net/phy/phy.o] Error 2
+make[2]: *** [drivers/usb/musb/musb_dsps.o] Error 1
+make[1]: *** [drivers/usb/musb/musb_dsps.o] Error 2
 make: *** [sub-make] Error 2
-[row 330] database compilation_success=False
-[row 331] Pc=09999807edd8 target=fs/ext4/balloc.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 331] PASS: patched object compiled
-[row 331] database compilation_success=True
-[row 332] Pc=aef9f7db7e8c target=kernel/rcu/tree.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 332] PASS: patched object compiled
-[row 332] database compilation_success=True
-[row 333] Pc=6acfa0b5a8cd target=drivers/misc/altera-stapl/altera.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 333] PASS: patched object compiled
-[row 333] database compilation_success=True
-[row 334] Pc=a317afc0c1ce target=drivers/usb/musb/musb_dsps.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 334] PASS: patched object compiled
-[row 334] database compilation_success=True
+[row 334] database compilation_success=False
 [row 335] Pc=f3963877fbd9 target=drivers/pinctrl/berlin/berlin.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 335] PASS: patched object compiled
 [row 335] database compilation_success=True
-[row 336] Pc=410570f9d797 target=net/ipv6/route.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 336] PASS: patched object compiled
-[row 336] database compilation_success=True
 [row 337] Pc=1c3e006c2a46 target=net/openvswitch/flow_netlink.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 337] FAIL: patched object did not compile
 make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
@@ -1495,43 +785,12 @@ make[1]: Entering directory `/home/ubuntu/.cache/mystique-compile-check/build'
 make[1]: Leaving directory `/home/ubuntu/.cache/mystique-compile-check/build'
 
 /home/ubuntu/.cache/mystique-compile-check/worktree/net/openvswitch/flow_netlink.c: In function 'set_action_to_attr':
-/home/ubuntu/.cache/mystique-compile-check/worktree/net/openvswitch/flow_netlink.c:2385:3: error: implicit declaration of function 'ip_tun_to_nlattr' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/net/openvswitch/flow_netlink.c:2382:9: error: implicit declaration of function 'ip_tun_to_nlattr' [-Werror=implicit-function-declaration]
 cc1: some warnings being treated as errors
 make[2]: *** [net/openvswitch/flow_netlink.o] Error 1
 make[1]: *** [net/openvswitch/flow_netlink.o] Error 2
 make: *** [sub-make] Error 2
 [row 337] database compilation_success=False
-[row 338] Pc=9a9c1bae4713 target=drivers/scsi/sg.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 338] PASS: patched object compiled
-[row 338] database compilation_success=True
-[row 339] Pc=bb6f76ba4c6b target=net/core/flow_dissector.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 339] PASS: patched object compiled
-[row 339] database compilation_success=True
-[row 340] Pc=1b8363d0f0b3 target=sound/usb/quirks.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 340] PASS: patched object compiled
-[row 340] database compilation_success=True
-[row 341] Pc=f4fc9f3d0496 target=fs/fuse/file.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 341] PASS: patched object compiled
-[row 341] database compilation_success=True
-[row 342] Pc=a06749016adf target=arch/x86/crypto/sha1_ssse3_glue.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 342] PASS: patched object compiled
-[row 342] database compilation_success=True
-[row 343] Pc=8b8fbe5c25ab target=net/sctp/socket.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 343] PASS: patched object compiled
-[row 343] database compilation_success=True
-[row 344] Pc=f200de49dff8 target=net/ipv4/ipmr.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 344] PASS: patched object compiled
-[row 344] database compilation_success=True
-[row 345] Pc=a725c5201f08 target=drivers/net/ethernet/hisilicon/hns/hns_enet.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 346] Pc=d52288ac550e target=drivers/media/video/videobuf2-core.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 346] PASS: patched object compiled
-[row 346] database compilation_success=True
-[row 347] Pc=8492c95e430d target=drivers/usb/gadget/function/f_fs.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 347] PASS: patched object compiled
-[row 347] database compilation_success=True
-[row 348] Pc=ab75811f7181 target=drivers/net/tun.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
-[row 348] PASS: patched object compiled
-[row 348] database compilation_success=True
 [row 349] Pc=13b23ccfa288 target=drivers/gpu/drm/i915/intel_lspcon.o config=allyesconfig vars={'HOSTCC': 'gcc-4.7', 'CC': 'gcc-4.7'}
 [row 349] PASS: patched object compiled
 [row 349] database compilation_success=True
@@ -1546,10 +805,10 @@ make[2]: Nothing to be done for `relocs'.
   CC      drivers/rtc/interface.o
 
 /home/ubuntu/.cache/mystique-compile-check/worktree/drivers/rtc/interface.c: In function 'rtc_timer_enqueue':
-/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/rtc/interface.c:768:2: error: implicit declaration of function 'ktime_before' [-Werror=implicit-function-declaration]
+/home/ubuntu/.cache/mystique-compile-check/worktree/drivers/rtc/interface.c:764:5: error: implicit declaration of function 'ktime_before' [-Werror=implicit-function-declaration]
 cc1: some warnings being treated as errors
 make[2]: *** [drivers/rtc/interface.o] Error 1
 make[1]: *** [drivers/rtc/interface.o] Error 2
 make: *** [sub-make] Error 2
 [row 350] database compilation_success=False
-[summary] passed=328 failed=13 inconclusive=9 db_errors=0
+[summary] passed=166 failed=20 inconclusive=1 db_errors=0

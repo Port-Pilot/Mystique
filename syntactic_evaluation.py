@@ -3,7 +3,7 @@ syntactic_evaluation.py
 
 Automated syntactic-equivalence evaluation for patch-porting / backporting
 results, stored in a
-Postgres table `backport_benchmark_results`.
+Postgres table `backport_benchmark_results_mystique`.
 
 Compares each generated patch against its corresponding ground-truth
 (developer-written) patch along two independent axes, following the same
@@ -304,7 +304,7 @@ def compare_patches(generated_patch: str, ground_truth_patch: str, language: str
 
 SELECT_SQL_TEMPLATE = """
     SELECT id, programming_language, generated_patch, old_version_patch
-    FROM backport_benchmark_results
+    FROM backport_benchmark_results_mystique
     WHERE generated_patch IS NOT NULL
       AND old_version_patch IS NOT NULL
       {compile_filter}
@@ -317,7 +317,7 @@ SELECT_SQL_TEMPLATE = """
 
 # NOTE: run this once against your schema before using the script:
 #
-# ALTER TABLE backport_benchmark_results
+# ALTER TABLE backport_benchmark_results_mystique
 #   ADD COLUMN IF NOT EXISTS content_match BOOLEAN,
 #   ADD COLUMN IF NOT EXISTS content_similarity DOUBLE PRECISION,
 #   ADD COLUMN IF NOT EXISTS file_match BOOLEAN,
@@ -329,7 +329,7 @@ SELECT_SQL_TEMPLATE = """
 #   ADD COLUMN IF NOT EXISTS syntactic_evaluated_at TIMESTAMPTZ;
 
 UPDATE_SQL = """
-    UPDATE backport_benchmark_results
+    UPDATE backport_benchmark_results_mystique
     SET content_match = %(content_match)s,
         content_similarity = %(content_similarity)s,
         file_match = %(file_match)s,
