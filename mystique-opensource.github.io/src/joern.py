@@ -42,136 +42,284 @@ def export(code_path: str, output_path: str, language: Language, overwrite: bool
         if os.path.exists(cpg_dir):
             subprocess.run(['rm', '-rf', cpg_dir])
 
-    error_code_cache = None
+    # error_code_cache = None
+    # error_file_path = None
+    # if language == Language.C:
+    #     code_file_n = 0
+    #     file_path = None
+    #     for root, dirs, files in os.walk(code_path):
+    #         for file in files:
+    #             if file.endswith(".c") or file.endswith(".h"):
+    #                 code_file_n += 1
+    #                 file_path = os.path.join(root, file)
+    #     if code_file_n == 1:
+    #         assert file_path is not None
+    #         with open(file_path, 'r+') as f:
+    #             code = f.read()
+    #             line_number = len(code.strip().split("\n"))
+    #             code_ast = ASTParser(code, language)
+    #             function_node = code_ast.query_oneshot(TS_C_METHOD)
+    #             if function_node is not None:
+    #                 function_len = function_node.end_point[0] - function_node.start_point[0] + 1
+    #                 if function_len == line_number:
+    #                     error_nodes = code_ast.get_error_nodes()
+    #                     for node in error_nodes:
+    #                         if node.start_point[0] != 0 and node.end_point[0] != 0:
+    #                             continue
+    #                         if len(node.named_children) != 1:
+    #                             continue
+    #                         identifier_node = node.named_children[0]
+    #                         if identifier_node.type != "identifier":
+    #                             continue
+    #                         assert identifier_node.text is not None
+    #                         identifier = identifier_node.text.decode()
+    #                         error_file_path = file_path
+    #                         error_code_cache = code
+    #                         code = code.replace(identifier, "", 1)
+    #                         f.seek(0)
+    #                         f.write(code)
+    #                         f.truncate()
+    #                     call_node = code_ast.query_oneshot("(function_declarator(call_expression)@call)")
+    #                     if call_node is not None:
+    #                         assert call_node.text is not None
+    #                         call = call_node.text.decode()
+    #                         error_file_path = file_path
+    #                         error_code_cache = code
+    #                         code = code.replace(call, "", 1)
+    #                         f.seek(0)
+    #                         f.write(code)
+    #                         f.truncate()
+
+    # if language == Language.CPP:
+    #     lang = Language.C.value
+    # else:
+    #     lang = language.value
+
+    # # Fix: pass --output explicitly so joern-parse writes cpg.bin into output_path
+    # # (without this, joern-parse writes to the Python process cwd, not output_path)
+    # # cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
+    # # subprocess.run(['joern-parse', '--language', lang,
+    # #                 '-o', cpg_bin_path,
+    # #                 os.path.abspath(code_path)],
+    # #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # # subprocess.run(['joern-export', '--repr', 'cfg', '--out', os.path.abspath(cfg_dir)],
+    # #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # # subprocess.run(['joern-export', '--repr', 'pdg', '--out', os.path.abspath(pdg_dir)],
+    # #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # # subprocess.run(['joern-export', '--repr', 'all', '--out', os.path.abspath(cpg_dir)],
+    # #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
+
+    # parse_result = subprocess.run(
+    #     ['joern-parse',
+    #     '--language', lang,
+    #     '-o', cpg_bin_path,
+    #     os.path.abspath(code_path)],
+    #     cwd=output_path,
+    #     stdout=subprocess.PIPE,
+    #     stderr=subprocess.PIPE,
+    #     text=True
+    # )
+
+    # if parse_result.returncode != 0:
+    #     print("Joern parse failed:")
+    #     print(parse_result.stderr)
+
+    # export_results = {}
+
+    # for repr_name, out_dir in [
+    #     ('cfg', cfg_dir),
+    #     ('pdg', pdg_dir),
+    #     ('all', cpg_dir)
+    # ]:
+    #     result = subprocess.run(
+    #         ['joern-export',
+    #         '--repr', repr_name,
+    #         '--out', os.path.abspath(out_dir)],
+    #         cwd=output_path,
+    #     stdout=subprocess.PIPE,
+    #     stderr=subprocess.PIPE,
+    #     text=True
+    # )
+
+    #     export_results[repr_name] = result
+
+    #     if result.returncode != 0:
+    #         print(f"Joern export failed for {repr_name}:")
+    #         print(result.stderr)
+    # # --------------------------------------------------------
+
+    # if error_code_cache is not None and error_file_path is not None:
+    #     with open(error_file_path, "w") as f:
+    #         f.write(error_code_cache)
+
+    # # Fix: build a synthetic PDG from tree-sitter so the pipeline can still slice
+    # # if Joern fails on some files (e.g. unresolved macros in kernel C).
+    # # if language in (Language.C, Language.CPP):
+    # #     pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
+    # #     _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
+    # # Build synthetic PDG only if Joern PDG export produced nothing
+    # pdg_dot_files = []
+
+    # if os.path.exists(pdg_dir):
+    #     pdg_dot_files = [
+    #         f for f in os.listdir(pdg_dir)
+    #         if f.endswith(".dot")
+    # ]
+
+    # if language in (Language.C, Language.CPP) and len(pdg_dot_files) == 0:
+    #     print("No Joern PDG dot files found. Building synthetic PDG.")
+
+    #     pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
+    #     _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
+    error_code_cache = None  # kept for compatibility with the old single-var path; unused now
     error_file_path = None
-    if language == Language.C:
-        code_file_n = 0
-        file_path = None
-        for root, dirs, files in os.walk(code_path):
-            for file in files:
-                if file.endswith(".c") or file.endswith(".h"):
-                    code_file_n += 1
-                    file_path = os.path.join(root, file)
-        if code_file_n == 1:
-            assert file_path is not None
-            with open(file_path, 'r+') as f:
-                code = f.read()
-                line_number = len(code.strip().split("\n"))
-                code_ast = ASTParser(code, language)
-                function_node = code_ast.query_oneshot(TS_C_METHOD)
-                if function_node is not None:
-                    function_len = function_node.end_point[0] - function_node.start_point[0] + 1
-                    if function_len == line_number:
-                        error_nodes = code_ast.get_error_nodes()
-                        for node in error_nodes:
-                            if node.start_point[0] != 0 and node.end_point[0] != 0:
-                                continue
-                            if len(node.named_children) != 1:
-                                continue
-                            identifier_node = node.named_children[0]
-                            if identifier_node.type != "identifier":
-                                continue
-                            assert identifier_node.text is not None
-                            identifier = identifier_node.text.decode()
-                            error_file_path = file_path
-                            error_code_cache = code
-                            code = code.replace(identifier, "", 1)
-                            f.seek(0)
-                            f.write(code)
-                            f.truncate()
-                        call_node = code_ast.query_oneshot("(function_declarator(call_expression)@call)")
-                        if call_node is not None:
-                            assert call_node.text is not None
-                            call = call_node.text.decode()
-                            error_file_path = file_path
-                            error_code_cache = code
-                            code = code.replace(call, "", 1)
-                            f.seek(0)
-                            f.write(code)
-                            f.truncate()
 
     if language == Language.CPP:
         lang = Language.C.value
     else:
         lang = language.value
 
-    # Fix: pass --output explicitly so joern-parse writes cpg.bin into output_path
-    # (without this, joern-parse writes to the Python process cwd, not output_path)
-    # cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
-    # subprocess.run(['joern-parse', '--language', lang,
-    #                 '-o', cpg_bin_path,
-    #                 os.path.abspath(code_path)],
-    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    # subprocess.run(['joern-export', '--repr', 'cfg', '--out', os.path.abspath(cfg_dir)],
-    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    # subprocess.run(['joern-export', '--repr', 'pdg', '--out', os.path.abspath(pdg_dir)],
-    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    # subprocess.run(['joern-export', '--repr', 'all', '--out', os.path.abspath(cpg_dir)],
-    #                cwd=output_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
+    source_files = []
+    if language in (Language.C, Language.CPP):
+        for root, _dirs, files in os.walk(code_path):
+            for file in files:
+                if file.endswith(".c") or file.endswith(".h"):
+                    source_files.append(os.path.join(root, file))
+    else:
+        # non-C languages: keep the original single whole-tree behavior
+        source_files = None
 
-    parse_result = subprocess.run(
-        ['joern-parse',
-        '--language', lang,
-        '-o', cpg_bin_path,
-        os.path.abspath(code_path)],
-        cwd=output_path,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
+    if source_files is None:
+        # ---- original whole-tree path, unchanged, for non-C/CPP languages ----
+        cpg_bin_path = os.path.join(os.path.abspath(output_path), 'cpg.bin')
+        parse_result = subprocess.run(
+            ['joern-parse', '--language', lang, '-o', cpg_bin_path, os.path.abspath(code_path)],
+            cwd=output_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if parse_result.returncode != 0:
+            print("Joern parse failed:")
+            print(parse_result.stderr)
+        for repr_name, out_dir in [('cfg', cfg_dir), ('pdg', pdg_dir), ('all', cpg_dir)]:
+            result = subprocess.run(
+                ['joern-export', '--repr', repr_name, '--out', os.path.abspath(out_dir)],
+                cwd=output_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            if result.returncode != 0:
+                print(f"Joern export failed for {repr_name}:")
+                print(result.stderr)
+        return
 
-    if parse_result.returncode != 0:
-        print("Joern parse failed:")
-        print(parse_result.stderr)
+    # ---- new: isolated per-file Joern runs (TSBPORT-style) ----
+    OFFSET = 1_000_000_000  # same convention as _build_synthetic_pdg's base_id
+    merged_cpg = nx.MultiDiGraph()
 
-    export_results = {}
+    for file_idx, fpath in enumerate(source_files):
+        rel_path = os.path.relpath(fpath, code_path)
+        work_dir = os.path.join(output_path, '_joern_work', str(file_idx))
+        isolated_src_root = os.path.join(work_dir, 'src')
+        isolated_src = os.path.join(isolated_src_root, rel_path)
+        os.makedirs(os.path.dirname(isolated_src), exist_ok=True)
+        subprocess.run(['cp', fpath, isolated_src])
 
-    for repr_name, out_dir in [
-        ('cfg', cfg_dir),
-        ('pdg', pdg_dir),
-        ('all', cpg_dir)
-    ]:
-        result = subprocess.run(
-            ['joern-export',
-            '--repr', repr_name,
-            '--out', os.path.abspath(out_dir)],
-            cwd=output_path,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
+        # ---- apply the existing macro/identifier-stripping fix, now per file ----
+        # (this is the same body that used to live inside `if code_file_n == 1:`,
+        #  lines 56-91 of the original function; only the guard is removed)
+        with open(isolated_src, 'r+') as f:
+            code = f.read()
+            line_number = len(code.strip().split("\n"))
+            code_ast = ASTParser(code, language)
+            function_node = code_ast.query_oneshot(TS_C_METHOD)
+            if function_node is not None:
+                function_len = function_node.end_point[0] - function_node.start_point[0] + 1
+                if function_len == line_number:
+                    error_nodes = code_ast.get_error_nodes()
+                    for node in error_nodes:
+                        if node.start_point[0] != 0 and node.end_point[0] != 0:
+                            continue
+                        if len(node.named_children) != 1:
+                            continue
+                        identifier_node = node.named_children[0]
+                        if identifier_node.type != "identifier":
+                            continue
+                        assert identifier_node.text is not None
+                        identifier = identifier_node.text.decode()
+                        code = code.replace(identifier, "", 1)
+                        f.seek(0)
+                        f.write(code)
+                        f.truncate()
+                    call_node = code_ast.query_oneshot("(function_declarator(call_expression)@call)")
+                    if call_node is not None:
+                        assert call_node.text is not None
+                        call = call_node.text.decode()
+                        code = code.replace(call, "", 1)
+                        f.seek(0)
+                        f.write(code)
+                        f.truncate()
 
-        export_results[repr_name] = result
+        cpg_bin = os.path.join(work_dir, 'cpg.bin')
+        parse_result = subprocess.run(
+            ['joern-parse', '--language', lang, '-o', cpg_bin, isolated_src_root],
+            cwd=work_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-        if result.returncode != 0:
-            print(f"Joern export failed for {repr_name}:")
-            print(result.stderr)
-    # --------------------------------------------------------
+        file_ok = parse_result.returncode == 0
+        if not file_ok:
+            print(f"Joern parse failed on {rel_path}:")
+            print(parse_result.stderr)
 
-    if error_code_cache is not None and error_file_path is not None:
-        with open(error_file_path, "w") as f:
-            f.write(error_code_cache)
+        if file_ok:
+            for repr_name, sub in [('cfg', 'cfg'), ('pdg', 'pdg'), ('all', 'all')]:
+                out_dir = os.path.join(work_dir, sub)
+                r = subprocess.run(
+                    ['joern-export', '--repr', repr_name, '--out', os.path.abspath(out_dir)],
+                    cwd=work_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                if r.returncode != 0:
+                    print(f"Joern export failed for {repr_name} on {rel_path}:")
+                    print(r.stderr)
+                    file_ok = False
 
-    # Fix: build a synthetic PDG from tree-sitter so the pipeline can still slice
-    # if Joern fails on some files (e.g. unresolved macros in kernel C).
-    # if language in (Language.C, Language.CPP):
-    #     pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
-    #     _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
-    # Build synthetic PDG only if Joern PDG export produced nothing
-    pdg_dot_files = []
+        pdg_src_dir = os.path.join(work_dir, 'pdg')
+        pdg_dot_names = (
+            [f for f in os.listdir(pdg_src_dir) if f.endswith('.dot')]
+            if file_ok and os.path.exists(pdg_src_dir) else []
+        )
+        if file_ok and len(pdg_dot_names) == 0:
+            file_ok = False
 
-    if os.path.exists(pdg_dir):
-        pdg_dot_files = [
-            f for f in os.listdir(pdg_dir)
-            if f.endswith(".dot")
-    ]
+        if file_ok:
+            offset = file_idx * OFFSET
+            id_map = {}
+            for dot_name in pdg_dot_names:
+                file_id = dot_name.split('-')[0]
+                pdg_g = nx.nx_agraph.read_dot(os.path.join(pdg_src_dir, dot_name))
 
-    if language in (Language.C, Language.CPP) and len(pdg_dot_files) == 0:
-        print("No Joern PDG dot files found. Building synthetic PDG.")
+                cfg_path = os.path.join(work_dir, 'cfg', f'{file_id}-cfg.dot')
+                cfg_g = nx.nx_agraph.read_dot(cfg_path) if os.path.exists(cfg_path) else nx.MultiDiGraph()
 
-        pdg_synthetic_dir = os.path.join(output_path, 'pdg_synthetic')
-        _build_synthetic_pdg(code_path, pdg_synthetic_dir, language)
+                # relabel this method's node ids so they can't collide with any
+                # other file's ids once copied into the shared pdg_dir/cfg_dir
+                relabel = {n: str(int(n) + offset) for n in pdg_g.nodes}
+                relabel.update({n: str(int(n) + offset) for n in cfg_g.nodes if n not in relabel})
+                id_map.update(relabel)
+                pdg_g = nx.relabel_nodes(pdg_g, relabel)
+                cfg_g = nx.relabel_nodes(cfg_g, relabel)
+
+                new_id = f'{file_idx}_{file_id}'
+                nx.nx_agraph.write_dot(pdg_g, os.path.join(pdg_dir, f'{new_id}-pdg.dot'))
+                nx.nx_agraph.write_dot(cfg_g, os.path.join(cfg_dir, f'{new_id}-cfg.dot'))
+
+            all_dot = os.path.join(work_dir, 'all', 'export.dot')
+            if os.path.exists(all_dot):
+                g = nx.nx_agraph.read_dot(all_dot)
+                relabel = {n: id_map.get(n, str(int(n) + offset)) for n in g.nodes}
+                g = nx.relabel_nodes(g, relabel)
+                merged_cpg = nx.compose(merged_cpg, g)
+
+        if not file_ok:
+            print(f"Falling back to synthetic PDG for {rel_path} only.")
+            _build_synthetic_pdg_single_file(fpath, code_path, pdg_dir, language, dot_index=file_idx)
+
+        subprocess.run(['rm', '-rf', work_dir])
+
+    nx.nx_agraph.write_dot(merged_cpg, os.path.join(cpg_dir, 'export.dot'))
 
 
 def _dot_escape(s: str) -> str:
@@ -180,188 +328,182 @@ def _dot_escape(s: str) -> str:
 
 
 def _build_synthetic_pdg(code_path: str, pdg_dir: str, language: Language) -> None:
-    """
-    Build synthetic PDG dot file(s) from tree-sitter when Joern's c2cpg fails to emit any
-    PDG output (most commonly because kernel C files use unresolved macros in function
-    declarators, causing c2cpg to fall back to a bare <global> namespace only).
-
-    tree-sitter is error-tolerant by design and can always extract function definitions even
-    from macro-heavy source.  We produce a dot graph in the preprocessed-merge format that
-    joern.PDG and project.ProjectJoern.build_pdgs() expect:
-      - METHOD node  : NODE_TYPE='METHOD', NAME=<func>, FILENAME=<path>, LINE_NUMBER=<N>
-      - Statement nodes: NODE_TYPE='variable_declaration' or 'RETURN', LINE_NUMBER, CODE
-      - CFG edges (sequential control flow)
-      - DDG edges (simple variable def-use)
-
-    The resulting PDG is keyed by (line_number, name, filename) and allows slice_by_diff_lines
-    to do meaningful backward/forward slicing even without a Joern CPG.
-    """
+    """Kept for any other call sites; now just fans out per file."""
     os.makedirs(pdg_dir, exist_ok=True)
-
     dot_index = 0
     for root_dir, _dirs, files in os.walk(code_path):
         for fname in sorted(files):
             if not (fname.endswith('.c') or fname.endswith('.h')):
                 continue
             fpath = os.path.join(root_dir, fname)
-            try:
-                with open(fpath, 'r', errors='replace') as fh:
-                    code = fh.read()
-            except OSError:
+            _build_synthetic_pdg_single_file(fpath, code_path, pdg_dir, language, dot_index)
+            dot_index += 1
+
+
+def _build_synthetic_pdg_single_file(fpath: str, code_path: str, pdg_dir: str,
+                                      language: Language, dot_index: int) -> None:
+    """Body of the old per-file inner loop (lines 206-364 of the original),
+    unchanged except it now takes fpath/dot_index as parameters instead of
+    discovering them itself."""
+    os.makedirs(pdg_dir, exist_ok=True)
+    try:
+        with open(fpath, 'r', errors='replace') as fh:
+            code = fh.read()
+    except OSError:
+        return
+    # everything from "parser = ASTParser(code, language)" (old line 213)
+    # through "dot_index += 1" (old line 364), verbatim, just de-indented
+    # by one level since it's no longer nested inside the file/dir loops
+    parser = ASTParser(code, language)
+    method_nodes = parser.query(TS_C_METHOD)
+    if not method_nodes:
+        continue
+    code_lines = code.split('\n')
+
+    for method_idx, (method_node, _) in enumerate(method_nodes):
+        # ---- extract function name ----
+        func_name: str | None = None
+        decl_node = method_node.child_by_field_name('declarator')
+        cursor = decl_node
+        while cursor is not None and cursor.type not in ('identifier', 'type_identifier', 'field_identifier'):
+            next_c = cursor.child_by_field_name('declarator')
+            if next_c is None:
+                # try first identifier child
+                for child in cursor.children:
+                    if child.type in ('identifier', 'type_identifier'):
+                        next_c = child
+                        break
+                if next_c is None:
+                    break
+            cursor = next_c
+        if cursor is not None and cursor.text is not None:
+            func_name = cursor.text.decode('utf-8', errors='replace')
+        if not func_name:
+            continue
+
+        start_line = method_node.start_point[0] + 1   # 1-indexed
+        end_line   = method_node.end_point[0]   + 1
+
+        # file_path as Mystique sees it: relative path from the code tree root.
+        # create_code_tree() writes the file to pre/code/<file_path>, and
+        # method.file.path is the original CodeFile.file_path (e.g. 'net/bridge/br.c').
+        # So store os.path.relpath(fpath, code_path) to match that value.
+        file_path_attr = os.path.relpath(fpath, code_path)
+
+        # ---- build networkx graph ----
+        g: nx.MultiDiGraph = nx.MultiDiGraph()
+
+        # Use large integer IDs like Joern does
+        base_id = (dot_index * 100 + method_idx) * 1_000_000_000
+        method_nid   = str(base_id + 1)
+        return_nid   = str(base_id + 2)
+
+        method_line_code = code_lines[start_line - 1].strip() if start_line <= len(code_lines) else func_name
+
+        # METHOD node — keys for get_pdg(): (LINE_NUMBER, NAME, FILENAME)
+        g.add_node(method_nid, **{
+            'NODE_TYPE':      'METHOD',
+            'NAME':           func_name,
+            'FILENAME':       file_path_attr,
+            'LINE_NUMBER':    str(start_line),
+            'LINE_NUMBER_END': str(end_line),
+            'CODE':           _dot_escape(method_line_code),
+            'FULL_NAME':      func_name,
+            'INCLUDE_ID':     repr({str(start_line): [method_nid]}),
+            'label':          f'[{method_nid}][{start_line}:0][METHOD]: {_dot_escape(func_name)}',
+        })
+
+        # METHOD_RETURN node
+        g.add_node(return_nid, **{
+            'NODE_TYPE':   'METHOD_RETURN',
+            'CODE':        'RET',
+            'LINE_NUMBER': str(end_line),
+            'INCLUDE_ID':  repr({str(end_line): [return_nid]}),
+            'label':       f'[{return_nid}][{end_line}:0][METHOD_RETURN]: RET',
+        })
+
+        # ---- statement nodes ----
+        body_node = method_node.child_by_field_name('body')
+        body_start = (body_node.start_point[0] + 1) if body_node else start_line
+        body_end   = (body_node.end_point[0]   + 1) if body_node else end_line
+
+        # line_number (absolute) -> node_id
+        line_node_map: dict[int, str] = {start_line: method_nid}
+        stmt_counter = base_id + 10
+        prev_nid = method_nid
+
+        SKIP_RE = re.compile(r'^\s*[\{\}]?\s*$')
+
+        for lineno in range(body_start + 1, body_end):  # +1 skips opening '{'
+            raw_line = code_lines[lineno - 1] if lineno <= len(code_lines) else ''
+            stripped = raw_line.strip()
+            if not stripped or SKIP_RE.match(stripped):
                 continue
 
-            parser = ASTParser(code, language)
-            method_nodes = parser.query(TS_C_METHOD)
-            if not method_nodes:
+            nid = str(stmt_counter)
+            stmt_counter += 1
+
+            is_return = stripped.startswith('return')
+            node_type = 'RETURN' if is_return else 'variable_declaration'
+
+            g.add_node(nid, **{
+                'NODE_TYPE':   node_type,
+                'CODE':        _dot_escape(stripped),
+                'LINE_NUMBER': str(lineno),
+                'FILENAME':    file_path_attr,
+                'INCLUDE_ID':  repr({str(lineno): [nid]}),
+                'label':       f'[{nid}][{lineno}:0][{node_type}]: {_dot_escape(stripped)}',
+            })
+
+            # CFG: sequential flow from previous node
+            g.add_edge(prev_nid, nid, label='CFG')
+            line_node_map[lineno] = nid
+            prev_nid = nid
+
+        # Last statement → METHOD_RETURN via CFG
+        g.add_edge(prev_nid, return_nid, label='CFG')
+        # METHOD → METHOD_RETURN (always present)
+        g.add_edge(method_nid, return_nid, label='DDG: ')
+
+        # ---- DDG edges (variable def-use) ----
+        # Pass 1: find definitions  (pattern: `ident =` or `type ident =`)
+        ASSIGN_RE = re.compile(r'(?:^|[\s\*])([a-zA-Z_]\w*)\s*(?:\[[^\]]*\])?\s*=(?!=)')
+        var_def_node: dict[str, str] = {}   # var_name -> defining nid
+        for nid in list(g.nodes):
+            if nid in (method_nid, return_nid):
                 continue
+            code_text = g.nodes[nid].get('CODE', '')
+            m = ASSIGN_RE.search(code_text)
+            if m:
+                var_name = m.group(1)
+                var_def_node[var_name] = nid
 
-            code_lines = code.split('\n')
+        # Pass 2: add DDG use edges
+        IDENT_RE = re.compile(r'\b([a-zA-Z_]\w*)\b')
+        C_KEYWORDS = {
+            'if', 'else', 'for', 'while', 'do', 'switch', 'case', 'break',
+            'continue', 'return', 'goto', 'typedef', 'struct', 'union',
+            'enum', 'void', 'int', 'long', 'short', 'char', 'float',
+            'double', 'unsigned', 'signed', 'const', 'static', 'extern',
+            'volatile', 'register', 'auto', 'NULL', 'true', 'false',
+        }
+        for nid in list(g.nodes):
+            if nid in (method_nid, return_nid):
+                continue
+            code_text = g.nodes[nid].get('CODE', '')
+            used = set(IDENT_RE.findall(code_text)) - C_KEYWORDS
+            for var in used:
+                def_nid = var_def_node.get(var)
+                if def_nid and def_nid != nid:
+                    g.add_edge(def_nid, nid, label=f'DDG: {var}')
 
-            for method_idx, (method_node, _) in enumerate(method_nodes):
-                # ---- extract function name ----
-                func_name: str | None = None
-                decl_node = method_node.child_by_field_name('declarator')
-                cursor = decl_node
-                while cursor is not None and cursor.type not in ('identifier', 'type_identifier', 'field_identifier'):
-                    next_c = cursor.child_by_field_name('declarator')
-                    if next_c is None:
-                        # try first identifier child
-                        for child in cursor.children:
-                            if child.type in ('identifier', 'type_identifier'):
-                                next_c = child
-                                break
-                        if next_c is None:
-                            break
-                    cursor = next_c
-                if cursor is not None and cursor.text is not None:
-                    func_name = cursor.text.decode('utf-8', errors='replace')
-                if not func_name:
-                    continue
-
-                start_line = method_node.start_point[0] + 1   # 1-indexed
-                end_line   = method_node.end_point[0]   + 1
-
-                # file_path as Mystique sees it: relative path from the code tree root.
-                # create_code_tree() writes the file to pre/code/<file_path>, and
-                # method.file.path is the original CodeFile.file_path (e.g. 'net/bridge/br.c').
-                # So store os.path.relpath(fpath, code_path) to match that value.
-                file_path_attr = os.path.relpath(fpath, code_path)
-
-
-                # ---- build networkx graph ----
-                g: nx.MultiDiGraph = nx.MultiDiGraph()
-
-                # Use large integer IDs like Joern does
-                base_id = (dot_index * 100 + method_idx) * 1_000_000_000
-                method_nid   = str(base_id + 1)
-                return_nid   = str(base_id + 2)
-
-                method_line_code = code_lines[start_line - 1].strip() if start_line <= len(code_lines) else func_name
-
-                # METHOD node — keys for get_pdg(): (LINE_NUMBER, NAME, FILENAME)
-                g.add_node(method_nid, **{
-                    'NODE_TYPE':      'METHOD',
-                    'NAME':           func_name,
-                    'FILENAME':       file_path_attr,
-                    'LINE_NUMBER':    str(start_line),
-                    'LINE_NUMBER_END': str(end_line),
-                    'CODE':           _dot_escape(method_line_code),
-                    'FULL_NAME':      func_name,
-                    'INCLUDE_ID':     repr({str(start_line): [method_nid]}),
-                    'label':          f'[{method_nid}][{start_line}:0][METHOD]: {_dot_escape(func_name)}',
-                })
-
-                # METHOD_RETURN node
-                g.add_node(return_nid, **{
-                    'NODE_TYPE':   'METHOD_RETURN',
-                    'CODE':        'RET',
-                    'LINE_NUMBER': str(end_line),
-                    'INCLUDE_ID':  repr({str(end_line): [return_nid]}),
-                    'label':       f'[{return_nid}][{end_line}:0][METHOD_RETURN]: RET',
-                })
-
-                # ---- statement nodes ----
-                body_node = method_node.child_by_field_name('body')
-                body_start = (body_node.start_point[0] + 1) if body_node else start_line
-                body_end   = (body_node.end_point[0]   + 1) if body_node else end_line
-
-                # line_number (absolute) -> node_id
-                line_node_map: dict[int, str] = {start_line: method_nid}
-                stmt_counter = base_id + 10
-                prev_nid = method_nid
-
-                SKIP_RE = re.compile(r'^\s*[\{\}]?\s*$')
-
-                for lineno in range(body_start + 1, body_end):  # +1 skips opening '{'
-                    raw_line = code_lines[lineno - 1] if lineno <= len(code_lines) else ''
-                    stripped = raw_line.strip()
-                    if not stripped or SKIP_RE.match(stripped):
-                        continue
-
-                    nid = str(stmt_counter)
-                    stmt_counter += 1
-
-                    is_return = stripped.startswith('return')
-                    node_type = 'RETURN' if is_return else 'variable_declaration'
-
-                    g.add_node(nid, **{
-                        'NODE_TYPE':   node_type,
-                        'CODE':        _dot_escape(stripped),
-                        'LINE_NUMBER': str(lineno),
-                        'FILENAME':    file_path_attr,
-                        'INCLUDE_ID':  repr({str(lineno): [nid]}),
-                        'label':       f'[{nid}][{lineno}:0][{node_type}]: {_dot_escape(stripped)}',
-                    })
-
-                    # CFG: sequential flow from previous node
-                    g.add_edge(prev_nid, nid, label='CFG')
-                    line_node_map[lineno] = nid
-                    prev_nid = nid
-
-                # Last statement → METHOD_RETURN via CFG
-                g.add_edge(prev_nid, return_nid, label='CFG')
-                # METHOD → METHOD_RETURN (always present)
-                g.add_edge(method_nid, return_nid, label='DDG: ')
-
-                # ---- DDG edges (variable def-use) ----
-                # Pass 1: find definitions  (pattern: `ident =` or `type ident =`)
-                ASSIGN_RE = re.compile(r'(?:^|[\s\*])([a-zA-Z_]\w*)\s*(?:\[[^\]]*\])?\s*=(?!=)')
-                var_def_node: dict[str, str] = {}   # var_name -> defining nid
-                for nid in list(g.nodes):
-                    if nid in (method_nid, return_nid):
-                        continue
-                    code_text = g.nodes[nid].get('CODE', '')
-                    m = ASSIGN_RE.search(code_text)
-                    if m:
-                        var_name = m.group(1)
-                        var_def_node[var_name] = nid
-
-                # Pass 2: add DDG use edges
-                IDENT_RE = re.compile(r'\b([a-zA-Z_]\w*)\b')
-                C_KEYWORDS = {
-                    'if', 'else', 'for', 'while', 'do', 'switch', 'case', 'break',
-                    'continue', 'return', 'goto', 'typedef', 'struct', 'union',
-                    'enum', 'void', 'int', 'long', 'short', 'char', 'float',
-                    'double', 'unsigned', 'signed', 'const', 'static', 'extern',
-                    'volatile', 'register', 'auto', 'NULL', 'true', 'false',
-                }
-                for nid in list(g.nodes):
-                    if nid in (method_nid, return_nid):
-                        continue
-                    code_text = g.nodes[nid].get('CODE', '')
-                    used = set(IDENT_RE.findall(code_text)) - C_KEYWORDS
-                    for var in used:
-                        def_nid = var_def_node.get(var)
-                        if def_nid and def_nid != nid:
-                            g.add_edge(def_nid, nid, label=f'DDG: {var}')
-
-                # ---- write dot file ----
-                dot_fname = f'{dot_index}-pdg.dot'
-                dot_fpath = os.path.join(pdg_dir, dot_fname)
-                nx.nx_agraph.write_dot(g, dot_fpath)
-                logging.info('Synthetic PDG: wrote %s  (func=%s start_line=%d nodes=%d)',
-                             dot_fpath, func_name, start_line, g.number_of_nodes())
-                dot_index += 1
+        # ---- write dot file ----
+        dot_fname = f'{dot_index}-pdg.dot'
+        dot_fpath = os.path.join(pdg_dir, dot_fname)
+        nx.nx_agraph.write_dot(g, dot_fpath)
+        logging.info('Synthetic PDG: wrote %s  (func=%s start_line=%d nodes=%d)',
+                     dot_fpath, func_name, start_line, g.number_of_nodes())
+        dot_index += 1
 
 
 def joern_script_run(cpgFile: str, script_path: str, output_path: str):
