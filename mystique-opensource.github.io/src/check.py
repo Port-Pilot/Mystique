@@ -143,17 +143,58 @@ def checking_ast_error(code: str) -> Fault:
         #     if error_code in syntax_code_exclude or "new" in error_code:
         #         continue
         #     return Fault(FaultType.AST_ERROR, error_meseage + error_code)
+
+        # ===============================
+        # if node.is_error:
+        #     error_code = node.text.decode().strip()
+        #     if error_code in syntax_code_exclude or "new" in error_code:
+        #         continue
+        #     # if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
+        #     #     # A bare identifier token with no punctuation/parens is
+        #     #     # almost always a GCC/kernel attribute or section macro
+        #     #     # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
+        #     #     # before a function declarator, not a genuine syntax error.
+        #     #     continue
+        #     # return Fault(FaultType.AST_ERROR, error_meseage + error_code)
+        #     if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
+        #         # A bare identifier token with no punctuation/parens is
+        #         # almost always a GCC/kernel attribute or section macro
+        #         # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
+        #         # before a function declarator, not a genuine syntax error.
+        #         continue
+        #     # if error_code.startswith(kernel_iter_macro_prefixes):
+        #     #     # Linux kernel iteration macros (list_for_each_entry*,
+        #     #     # for_each_child_of_node, ...) expand to for-loops but
+        #     #     # tree-sitter's plain-C grammar has no macro expansion, so
+        #     #     # it parses `macro_name(args) { ... }` as an error node.
+        #     #     # Match by prefix, not exact string (unlike syntax_code_exclude
+        #     #     # above), since the arguments differ at every call site.
+        #     #     continue
+        #     matched = error_code.startswith(kernel_iter_macro_prefixes)
+        #     print(f"[DEBUG checking_ast_error] line={error_line} matched={matched} repr={error_code!r}")
+        #     if matched:
+        #         continue
+        #     return Fault(FaultType.AST_ERROR, error_meseage + error_code)
+        # # if node.is_missing:
+        # #     missing_code = ""
+        # #     if node.parent is not None:
+        # #         assert node.parent.text is not None
+        # #         missing_code = node.parent.text.decode().strip()
+        # #     return Fault(FaultType.AST_ERROR, error_meseage + missing_code)
+        # if node.is_missing:
+        #     missing_code = ""
+        #     if node.parent is not None:
+        #         assert node.parent.text is not None
+        #         missing_code = node.parent.text.decode().strip()
+        #     matched = missing_code.startswith(kernel_iter_macro_prefixes)
+        #     print(f"[DEBUG is_missing] line={error_line} matched={matched} repr={missing_code!r}")
+        #     if matched:
+        #         continue
+        #     return Fault(FaultType.AST_ERROR, error_meseage + missing_code)
         if node.is_error:
             error_code = node.text.decode().strip()
             if error_code in syntax_code_exclude or "new" in error_code:
                 continue
-            # if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
-            #     # A bare identifier token with no punctuation/parens is
-            #     # almost always a GCC/kernel attribute or section macro
-            #     # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
-            #     # before a function declarator, not a genuine syntax error.
-            #     continue
-            # return Fault(FaultType.AST_ERROR, error_meseage + error_code)
             if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
                 # A bare identifier token with no punctuation/parens is
                 # almost always a GCC/kernel attribute or section macro
@@ -174,6 +215,13 @@ def checking_ast_error(code: str) -> Fault:
             if node.parent is not None:
                 assert node.parent.text is not None
                 missing_code = node.parent.text.decode().strip()
+            if missing_code.startswith(kernel_iter_macro_prefixes):
+                # Same false positive as above, reached via a different
+                # tree-sitter recovery path: the parser expects a token
+                # (e.g. ';') after the macro call that a real for-loop
+                # would never have, and reports the parent expression's
+                # text as "missing" rather than flagging an error node.
+                continue
             return Fault(FaultType.AST_ERROR, error_meseage + missing_code)
     return Fault(FaultType.SUCCESS)
 
