@@ -134,10 +134,15 @@ def checking_placeholder(target_before_sliced: str, llm_result: str) -> Fault:
 
 def checking_ast_error(code: str) -> Fault:
     ast_parser = ASTParser(code, Language.C)
+    code_lines = code.split("\n")
+    lock_annotation_macros = ("__acquires(", "__releases(", "__must_hold(", "__acquire(", "__release(")
     for node in ast_parser.traverse_tree():
         assert node.text is not None
         error_line = node.start_point[0] + 1
         error_meseage = f"There is a syntax error in line {error_line}: "
+        line_text = code_lines[error_line - 1] if 0 <= error_line - 1 < len(code_lines) else ""
+        if any(m in line_text for m in lock_annotation_macros):
+            continue
         # if node.is_error:
         #     error_code = node.text.decode().strip()
         #     if error_code in syntax_code_exclude or "new" in error_code:

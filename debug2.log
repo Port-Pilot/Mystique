@@ -1,0 +1,76 @@
+12:41:06 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+12:41:07 INFO Excel lookup built: 350 entries
+12:41:07 INFO Fetched 145 rows to process
+12:41:07 INFO --limit applied: processing 1 rows
+12:41:07 INFO [1/1] Row id=7 ...
+12:41:22 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:38 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:49 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+12:41:49 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED lock_timer_base [There is a syntax error in line 2: >, attempts=2]
+12:41:49 INFO === Phase 2 complete. done=0 (of which fallback=0) error=1 ===
+12:41:49 INFO Error breakdown: {'PARTIAL_BACKPORT_FAILED': 1}
+12:41:49 INFO CHECK_FAILED reason breakdown: {'There is a syntax error in line 2': 1}
+[DEBUG syntax_fail] reason='There is a syntax error in line 2: >'
+[DEBUG syntax_fail] final_code=
+static struct tvec_base *lock_timer_base(struct timer_list *timer, unsigned long *flags)
+__acquires(timer->base->lock) {
+    for (;;) {
+        u32 tf;
+        tf = READ_ONCE(timer->flags);
+        struct tvec_base *base;
+        if (!(tf & TIMER_MIGRATING)) {
+            base = per_cpu_ptr(&tvec_bases, tf & TIMER_CPUMASK);
+            spin_lock_irqsave(&base->lock, *flags);
+            if (timer->flags == tf) {
+                return base;
+            }
+            spin_unlock_irqrestore(&base->lock, *flags);
+        }
+        cpu_relax();
+    }
+}
+
+[DEBUG syntax_fail] reason='There is a syntax error in line 2: >'
+[DEBUG syntax_fail] final_code=
+static struct tvec_base *lock_timer_base(struct timer_list *timer, unsigned long *flags)
+__acquires(timer->base->lock)
+{
+    for (;;) {
+        struct tvec_base *base;
+        u32 tf;
+
+        tf = READ_ONCE(timer->flags);
+        struct tvec_base *base;
+        if (!(tf & TIMER_MIGRATING)) {
+            base = per_cpu_ptr(&tvec_bases, tf & TIMER_CPUMASK);
+            spin_lock_irqsave(&base->lock, *flags);
+            if (timer->flags == tf) {
+                return base;
+            }
+            spin_unlock_irqrestore(&base->lock, *flags);
+        }
+        cpu_relax();
+    }
+}
+
+[DEBUG syntax_fail] reason='There is a syntax error in line 2: >'
+[DEBUG syntax_fail] final_code=
+static struct tvec_base *lock_timer_base(struct timer_list *timer, unsigned long *flags)
+__acquires(timer->base->lock) {
+    for (;;) {
+        struct tvec_base *base;
+        u32 tf;
+        tf = READ_ONCE(timer->flags);
+        struct tvec_base *base;
+        if (!(tf & TIMER_MIGRATING)) {
+            base = per_cpu_ptr(&tvec_bases, tf & TIMER_CPUMASK);
+            spin_lock_irqsave(&base->lock, *flags);
+            if (timer->flags == tf) {
+                return base;
+            }
+            spin_unlock_irqrestore(&base->lock, *flags);
+        }
+        cpu_relax();
+    }
+}
+

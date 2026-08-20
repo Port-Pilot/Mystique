@@ -408,7 +408,11 @@ def bp_java(cveid: str, patch: dict[str, str], file_path: str, method_name: str,
             if gt_code.find(hunk, pos) != -1:
                 gt_code = gt_code[:pos] + gt_code[pos:].replace(hunk, config.PLACE_HOLDER + "\n", 1)
             else:
+                # results["error"] = ErrorCode.GROUNDTRUTH_SLICE_FAILED.value
+                print(f"[DEBUG groundtruth] hunk repr={hunk!r}")
+                print(f"[DEBUG groundtruth] gt_code snippet repr={gt_code[:400]!r}")
                 results["error"] = ErrorCode.GROUNDTRUTH_SLICE_FAILED.value
+
                 diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
                 results["pre_sliced_code"] = origin_before_func_code
                 results["post_sliced_code"] = origin_after_func_code
@@ -638,7 +642,12 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
             pos = 0 if pos == -1 else pos
             if gt_code.find(hunk, pos) != -1:
                 gt_code = gt_code[:pos] + gt_code[pos:].replace(hunk, config.PLACE_HOLDER + "\n", 1)
+            # else:
+            #     results["error"] = ErrorCode.GROUNDTRUTH_SLICE_FAILED.value
             else:
+                print(f"[DEBUG groundtruth2] hunk repr={hunk!r}")
+                print(f"[DEBUG groundtruth2] gt_code snippet repr={gt_code[:400]!r}")
+                
                 results["error"] = ErrorCode.GROUNDTRUTH_SLICE_FAILED.value
                 diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
                 results["pre_sliced_code"] = origin_before_func_code
@@ -711,8 +720,16 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
         final_code = attempt_final_code
         
         # Step 2: Syntax/AST Validity check
+        # syntax_fault = check.checking_ast_error(final_code)
+        # if syntax_fault.type != check.FaultType.SUCCESS:
+        #     check_passed = False
+        #     check_fail_reason = syntax_fault.description or syntax_fault.type.value
+        #     feedback_prompt = check_fail_reason
+        #     continue
         syntax_fault = check.checking_ast_error(final_code)
         if syntax_fault.type != check.FaultType.SUCCESS:
+            print(f"[DEBUG syntax_fail] reason={syntax_fault.description!r}")
+            print(f"[DEBUG syntax_fail] final_code=\n{final_code}")
             check_passed = False
             check_fail_reason = syntax_fault.description or syntax_fault.type.value
             feedback_prompt = check_fail_reason
@@ -859,7 +876,21 @@ def bp_wrapper(cveid: str, patch: dict[str, str], file_path: str,
                     "usage": total_usage,
                     "target": target_code,
                 }
+            # if target_counts[name] == 0:
+            #     return {
+            #         **result_base,
+            #         "error": ErrorCode.TARGET_METHOD_NOT_FOUND.value,
+            #         "failed_method": name,
+            #         "usage": total_usage,
+            #         "target": target_code,
+            #     }
             if target_counts[name] == 0:
+                print(f"[DEBUG target_not_found] missing method={name!r}")
+                print(f"[DEBUG target_not_found] target_counts keys sample={list(target_counts.keys())[:20]!r}")
+                debug_path = f"/tmp/target_dump_{name}.c"
+                with open(debug_path, "w") as _f:
+                    _f.write(target_code)
+                print(f"[DEBUG target_not_found] full target file dumped to {debug_path}")
                 return {
                     **result_base,
                     "error": ErrorCode.TARGET_METHOD_NOT_FOUND.value,
