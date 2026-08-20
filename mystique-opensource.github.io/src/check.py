@@ -34,6 +34,16 @@ syntax_code_exclude = [
     "struct", "int", "new", "size_t", "size_t,", ",", ";", "->", "=", "__be16",
     "__u16", "__be32", "__u32", "__u64", "tr", "bio_size", "link_sta", "__iomem", "__asm__", "RFMT", "ret", "int,", "DECLARE_SOCKADDR(struct sockaddr_llc *, addr, msg->msg_name)", "r5conf", "=&r", "+r", "ASM_EXCEPTIONTABLE_ENTRY_EFAULT(2b"]
 
+kernel_iter_macro_prefixes = (
+    "list_for_each_entry", "list_for_each_entry_safe", "list_for_each_entry_rcu",
+    "list_for_each_entry_reverse", "list_for_each_entry_continue",
+    "list_for_each_entry_from", "list_for_each_entry_safe_reverse",
+    "hlist_for_each_entry", "hlist_for_each_entry_safe", "hlist_for_each_entry_rcu",
+    "for_each_child_of_node", "for_each_available_child_of_node",
+    "for_each_possible_cpu", "for_each_online_cpu", "for_each_cpu",
+    "for_each_pci_dev", "for_each_netdev", "for_each_netdev_rcu", "for_each_sg",
+)
+
 
 def clang_tidy_report(code: str) -> list[str]:
     code_file = tempfile.NamedTemporaryFile(mode='w', suffix=".c")
@@ -137,11 +147,26 @@ def checking_ast_error(code: str) -> Fault:
             error_code = node.text.decode().strip()
             if error_code in syntax_code_exclude or "new" in error_code:
                 continue
+            # if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
+            #     # A bare identifier token with no punctuation/parens is
+            #     # almost always a GCC/kernel attribute or section macro
+            #     # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
+            #     # before a function declarator, not a genuine syntax error.
+            #     continue
+            # return Fault(FaultType.AST_ERROR, error_meseage + error_code)
             if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
                 # A bare identifier token with no punctuation/parens is
                 # almost always a GCC/kernel attribute or section macro
                 # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
                 # before a function declarator, not a genuine syntax error.
+                continue
+            if error_code.startswith(kernel_iter_macro_prefixes):
+                # Linux kernel iteration macros (list_for_each_entry*,
+                # for_each_child_of_node, ...) expand to for-loops but
+                # tree-sitter's plain-C grammar has no macro expansion, so
+                # it parses `macro_name(args) { ... }` as an error node.
+                # Match by prefix, not exact string (unlike syntax_code_exclude
+                # above), since the arguments differ at every call site.
                 continue
             return Fault(FaultType.AST_ERROR, error_meseage + error_code)
         if node.is_missing:
