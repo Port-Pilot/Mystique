@@ -180,6 +180,10 @@ def export(code_path: str, output_path: str, language: Language, overwrite: bool
     else:
         lang = language.value
 
+    os.makedirs(pdg_dir, exist_ok=True)
+    os.makedirs(cfg_dir, exist_ok=True)
+    os.makedirs(cpg_dir, exist_ok=True)
+
     source_files = []
     if language in (Language.C, Language.CPP):
         for root, _dirs, files in os.walk(code_path):
@@ -357,7 +361,8 @@ def _build_synthetic_pdg_single_file(fpath: str, code_path: str, pdg_dir: str,
     parser = ASTParser(code, language)
     method_nodes = parser.query(TS_C_METHOD)
     if not method_nodes:
-        continue
+        # continue
+        return
     code_lines = code.split('\n')
 
     for method_idx, (method_node, _) in enumerate(method_nodes):
@@ -498,7 +503,8 @@ def _build_synthetic_pdg_single_file(fpath: str, code_path: str, pdg_dir: str,
                     g.add_edge(def_nid, nid, label=f'DDG: {var}')
 
         # ---- write dot file ----
-        dot_fname = f'{dot_index}-pdg.dot'
+        # dot_fname = f'{dot_index}-pdg.dot'
+        dot_fname = f'{dot_index}_{method_idx}-pdg.dot'
         dot_fpath = os.path.join(pdg_dir, dot_fname)
         nx.nx_agraph.write_dot(g, dot_fpath)
         logging.info('Synthetic PDG: wrote %s  (func=%s start_line=%d nodes=%d)',

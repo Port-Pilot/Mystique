@@ -1,0 +1,31 @@
+04:22:35 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+04:22:35 INFO Excel lookup built: 350 entries
+04:22:35 INFO Fetched 6 rows to process
+04:22:35 INFO [1/6] Row id=2 ...
+04:22:45 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:22:58 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:23:16 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:23:16 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED spectre_v2_parse_cmdline
+04:23:16 INFO [2/6] Row id=3 ...
+04:23:20 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:23:34 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:23:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:09 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED core_tmr_drain_state_list
+04:24:09 INFO [3/6] Row id=4 ...
+04:24:10 WARNING   -> ERROR CHANGE_OUTSIDE_METHOD:
+04:24:10 INFO [4/6] Row id=5 ...
+04:24:24 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:39 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:46 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:51 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:24:51 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED __dwc3_cleanup_done_trbs
+04:24:51 INFO [5/6] Row id=6 ...
+04:25:09 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:25:10 INFO   -> DONE  method=mystique                  tokens=809 cost=$0.0075 elapsed=18.6s
+04:25:10 INFO [6/6] Row id=7 ...
+04:25:20 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:25:30 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:25:43 INFO HTTP Request: POST http://127.0.0.1:8317/v1/chat/completions "HTTP/1.1 200 OK"
+04:25:43 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: CHECK_FAILED lock_timer_base
+04:25:43 INFO === Phase 2 complete. done=1 (of which fallback=0) error=5 ===
