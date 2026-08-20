@@ -904,11 +904,28 @@ def bp_wrapper(cveid: str, patch: dict[str, str], file_path: str,
                 slice_level,
             )
             _add_usage(total_usage, res.get("usage"))
+            # if res.get("error") != ErrorCode.SUCCESS.value:
+            #     return {
+            #         **result_base,
+            #         "error": ErrorCode.PARTIAL_BACKPORT_FAILED.value,
+            #         "cause": res.get("error", ErrorCode.EXCEPTION.value),
+            #         "failed_method": name,
+            #         "completed_methods": list(patched_bodies),
+            #         "usage": total_usage,
+            #         "target": target_code,
+            #     }
             if res.get("error") != ErrorCode.SUCCESS.value:
                 return {
                     **result_base,
                     "error": ErrorCode.PARTIAL_BACKPORT_FAILED.value,
                     "cause": res.get("error", ErrorCode.EXCEPTION.value),
+                    # res["check_fail_reason"] holds the specific
+                    # check.checking()/checking_ast_error() Fault.type or
+                    # description (NO_FIX / PLACEHOLDER / SYNTAX_ERROR / ...)
+                    # -- without this, every CHECK_FAILED row is indistinguishable
+                    # in downstream logs and summaries.
+                    "check_fail_reason": res.get("check_fail_reason"),
+                    "refinement_attempts": res.get("refinement_attempts"),
                     "failed_method": name,
                     "completed_methods": list(patched_bodies),
                     "usage": total_usage,

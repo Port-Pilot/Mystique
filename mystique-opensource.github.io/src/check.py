@@ -82,6 +82,20 @@ def clang_tidy_check(code: str, ignore_error_message: list[str] = []) -> Fault:
                 identifier = matches[0]
                 if identifier.isupper():
                     continue
+        elif (
+            diag_message.startswith("unknown type name")
+            or diag_message.startswith("implicit declaration of function")
+        ):
+            # clang-tidy is run here with no include paths or compile
+            # database, so these two diagnostic classes are structurally
+            # unable to distinguish "the LLM invented a bogus symbol" from
+            # "this is a real kernel typedef/helper (u32, spinlock_t,
+            # container_of, ...) whose header we don't have". Treating them
+            # as SYNTAX_ERROR produces false positives on essentially every
+            # kernel snippet the LLM touches, regardless of correctness --
+            # same rationale as the all-uppercase macro exception above,
+            # just covering the two message classes that one doesn't catch.
+            continue
         elif "too many errors emitted" in diag_message:
             continue
         diag_name = diag["DiagnosticName"]
@@ -114,9 +128,20 @@ def checking_ast_error(code: str) -> Fault:
         assert node.text is not None
         error_line = node.start_point[0] + 1
         error_meseage = f"There is a syntax error in line {error_line}: "
+        # if node.is_error:
+        #     error_code = node.text.decode().strip()
+        #     if error_code in syntax_code_exclude or "new" in error_code:
+        #         continue
+        #     return Fault(FaultType.AST_ERROR, error_meseage + error_code)
         if node.is_error:
             error_code = node.text.decode().strip()
             if error_code in syntax_code_exclude or "new" in error_code:
+                continue
+            if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", error_code):
+                # A bare identifier token with no punctuation/parens is
+                # almost always a GCC/kernel attribute or section macro
+                # (__init, __exit, __cold, asmlinkage, noinline, ...) sitting
+                # before a function declarator, not a genuine syntax error.
                 continue
             return Fault(FaultType.AST_ERROR, error_meseage + error_code)
         if node.is_missing:

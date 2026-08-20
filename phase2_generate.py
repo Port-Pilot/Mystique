@@ -589,10 +589,20 @@ def process_row(row: dict, excel_lookup: dict, dry_run: bool) -> dict:
         usage           = bp_usage,
         api_cost        = cost,
         status          = status,
+        # error_detail    = (
+        #     f"{bp_error}: {bp_result.get('cause', '')} "
+        #     f"{bp_result.get('failed_method', '')}"
+        # ).strip() if fixed_code is None else "",
         error_detail    = (
             f"{bp_error}: {bp_result.get('cause', '')} "
             f"{bp_result.get('failed_method', '')}"
+            + (
+                f" [{bp_result.get('check_fail_reason')}"
+                f", attempts={bp_result.get('refinement_attempts')}]"
+                if bp_result.get("check_fail_reason") is not None else ""
+            )
         ).strip() if fixed_code is None else "",
+        check_fail_reason = bp_result.get("check_fail_reason") if fixed_code is None else None,
     )
 
 
@@ -659,6 +669,9 @@ def main():
 
     stats = {"done": 0, "error": 0, "fallback": 0}
 
+    error_breakdown: dict[str, int] = {}
+    check_fault_breakdown: dict[str, int] = {}
+
     for i, row in enumerate(rows, 1):
         log.info("[%d/%d] Row id=%s ...", i, len(rows), row["id"])
 
@@ -694,14 +707,33 @@ def main():
                 result["method"], result["usage"].total_tokens,
                 result["api_cost"], result["elapsed"],
             )
+        # else:
+        #     stats["error"] += 1
+        #     log.warning("  -> ERROR %s", result.get("error_detail", ""))
         else:
             stats["error"] += 1
             log.warning("  -> ERROR %s", result.get("error_detail", ""))
+            bp_error_code = (result.get("error_detail") or "").split(":", 1)[0]
+            error_breakdown[bp_error_code] = error_breakdown.get(bp_error_code, 0) + 1
+            check_reason = result.get("check_fail_reason")
+            if check_reason:
+                bucket = check_reason.split(":")[0].strip()
+                check_fault_breakdown[bucket] = check_fault_breakdown.get(bucket, 0) + 1
 
+    # log.info(
+    #     "=== Phase 2 complete. done=%d (of which fallback=%d) error=%d ===",
+    #     stats["done"], stats["fallback"], stats["error"],
+    # )
     log.info(
         "=== Phase 2 complete. done=%d (of which fallback=%d) error=%d ===",
         stats["done"], stats["fallback"], stats["error"],
     )
+    if error_breakdown:
+        log.info("Error breakdown: %s", dict(
+            sorted(error_breakdown.items(), key=lambda kv: -kv[1])))
+    if check_fault_breakdown:
+        log.info("CHECK_FAILED reason breakdown: %s", dict(
+            sorted(check_fault_breakdown.items(), key=lambda kv: -kv[1])))
 
 
 if __name__ == "__main__":
