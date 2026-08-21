@@ -1,0 +1,18 @@
+05:55:45 INFO Building Excel lookup from /home/ubuntu/Mystique/FixMorph-Dataset/Main-data-set.xlsx ...
+05:55:45 INFO Excel lookup built: 350 entries
+05:55:45 INFO Fetched 2 rows to process
+05:55:45 INFO --limit applied: processing 2 rows
+05:55:45 INFO [1/2] Row id=318 ...
+05:55:46 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND stm32_clockevent_init
+05:55:46 INFO [2/2] Row id=342 ...
+05:55:47 WARNING   -> ERROR PARTIAL_BACKPORT_FAILED: PDG_NOT_FOUND avx2_usable
+05:55:47 INFO === Phase 2 complete. done=0 (of which fallback=0) error=2 ===
+05:55:47 INFO Error breakdown: {'PARTIAL_BACKPORT_FAILED': 2}
+[DEBUG pdg_not_found_2] pre=False post=False target=False
+[DEBUG pdg_not_found_2] pre key=(58, 'stm32_clockevent_init', 'drivers/clocksource/timer-stm32.c')
+[DEBUG pdg_not_found_2] post key=(58, 'stm32_clockevent_init', 'drivers/clocksource/timer-stm32.c')
+[DEBUG pdg_not_found_2] target key=(58, 'stm32_clockevent_init', 'drivers/clocksource/timer-stm32.c')
+[DEBUG pdg_not_found_2] pre=True post=True target=False
+[DEBUG pdg_not_found_2] pre key=(106, 'avx2_usable', 'arch/x86/crypto/sha1_ssse3_glue.c')
+[DEBUG pdg_not_found_2] post key=(106, 'avx2_usable', 'arch/x86/crypto/sha1_ssse3_glue.c')
+[DEBUG pdg_not_found_2] target key=(130, 'avx2_usable', 'arch/x86/crypto/sha1_ssse3_glue.c')

@@ -300,6 +300,11 @@ def bp_java(cveid: str, patch: dict[str, str], file_path: str, method_name: str,
     gt_method.counterpart = target_method
 
     if pre_method.pdg is None or post_method.pdg is None or target_method.pdg is None:
+        print(f"[DEBUG pdg_not_found_1] pre={pre_method.pdg is not None} "
+              f"post={post_method.pdg is not None} target={target_method.pdg is not None}")
+        print(f"[DEBUG pdg_not_found_1] pre key=({pre_method.start_line!r}, {pre_method.name!r}, {pre_method.file.path!r})")
+        print(f"[DEBUG pdg_not_found_1] post key=({post_method.start_line!r}, {post_method.name!r}, {post_method.file.path!r})")
+        print(f"[DEBUG pdg_not_found_1] target key=({target_method.start_line!r}, {target_method.name!r}, {target_method.file.path!r})")
         results["error"] = ErrorCode.PDG_NOT_FOUND.value
         diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
         results["pre_sliced_code"] = origin_before_func_code
@@ -470,6 +475,7 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     pre_dir = os.path.join(cache_dir, "pre")
     post_dir = os.path.join(cache_dir, "post")
     target_dir = os.path.join(cache_dir, "target")
+    print(f"[DEBUG target_dir] {os.path.abspath(target_dir)}")
     gt_dir = os.path.join(cache_dir, "gt")
 
     pre_codefile = CodeFile(file_path, origin_before_func_code)
@@ -535,6 +541,11 @@ def bp(cveid: str, patch: dict[str, str], file_path: str, method_name: str, lang
     results["sig_target"] = _extract_structural_signature(target_method)
 
     if pre_method.pdg is None or post_method.pdg is None or target_method.pdg is None:
+        print(f"[DEBUG pdg_not_found_2] pre={pre_method.pdg is not None} "
+              f"post={post_method.pdg is not None} target={target_method.pdg is not None}")
+        print(f"[DEBUG pdg_not_found_2] pre key=({pre_method.start_line!r}, {pre_method.name!r}, {pre_method.file.path!r})")
+        print(f"[DEBUG pdg_not_found_2] post key=({post_method.start_line!r}, {post_method.name!r}, {post_method.file.path!r})")
+        print(f"[DEBUG pdg_not_found_2] target key=({target_method.start_line!r}, {target_method.name!r}, {target_method.file.path!r})")
         results["error"] = ErrorCode.PDG_NOT_FOUND.value
         diff = difftools.git_diff_code(origin_before_func_code, origin_after_func_code, remove_diff_header=True)
         results["pre_sliced_code"] = origin_before_func_code

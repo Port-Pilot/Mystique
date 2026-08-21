@@ -259,9 +259,14 @@ def export(code_path: str, output_path: str, language: Language, overwrite: bool
                         f.write(code)
                         f.truncate()
 
+        # cpg_bin = os.path.join(work_dir, 'cpg.bin')
+        # parse_result = subprocess.run(
+        #     ['joern-parse', '--language', lang, '-o', cpg_bin, isolated_src_root],
+        #     cwd=work_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         cpg_bin = os.path.join(work_dir, 'cpg.bin')
         parse_result = subprocess.run(
-            ['joern-parse', '--language', lang, '-o', cpg_bin, isolated_src_root],
+            ['joern-parse', '--language', lang,
+             '-o', os.path.abspath(cpg_bin), os.path.abspath(isolated_src_root)],
             cwd=work_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         file_ok = parse_result.returncode == 0

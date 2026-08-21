@@ -3,7 +3,7 @@
 syntactic_evaluation.py
 
 Automated syntactic-equivalence evaluation for patch-porting / backporting
-results, stored in `backport_benchmark_results_mystique`.
+results, stored in `backport_benchmark_results_mystique_new`.
 
 Two independent measures are written per row:
 
@@ -74,7 +74,7 @@ from syntactic_evaluation_core import compare_patches, DEFAULT_SIMILARITY_THRESH
 
 SELECT_SQL_TEMPLATE = """
     SELECT id, programming_language, generated_patch, old_version_patch
-    FROM backport_benchmark_results_mystique
+    FROM backport_benchmark_results_mystique_new
     WHERE generated_patch IS NOT NULL
       AND old_version_patch IS NOT NULL
       {compile_filter}
@@ -86,7 +86,7 @@ SELECT_SQL_TEMPLATE = """
 """
 
 UPDATE_SQL = """
-    UPDATE backport_benchmark_results_mystique
+    UPDATE backport_benchmark_results_mystique_new
     SET syntactic_match = %(syntactic_match)s,
         content_exact_match = %(content_exact_match)s,
         location_match = %(location_match)s,

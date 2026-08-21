@@ -15,7 +15,7 @@ object to compile, and which compiler/vars to use) come straight from PortGPT da
         make allyesconfig
         make HOSTCC=gcc-4.7 CC=gcc-4.7 -j `nproc` fs/crypto/policy.o
 
-Each ``backport_benchmark_results_mystique`` row's ``id`` corresponds directly to a
+Each ``backport_benchmark_results_mystique_new`` row's ``id`` corresponds directly to a
 ``fixmorph_bugs/<id>`` folder in that repo, so no separate benchmark
 spreadsheet is needed and no per-kernel-version compiler/config guessing is
 needed either: every case in the dataset uses the same recipe shape, so the
@@ -561,7 +561,7 @@ def apply_patch(worktree: Path, patch_text: str, timeout: int) -> tuple[bool, st
 def fetch_rows(
     dsn: str, method: str | None, limit: int | None, ids: list[int] | None
 ) -> list[dict]:
-    where = "generated_patch IS NOT NULL AND btrim(generated_patch) <> ''"
+    where = "generated_patch IS NOT NULL AND btrim(generated_patch) <> '' AND compilation_success IS NULL"
     params: list[object] = []
     if method:
         where += " AND method = %s"
@@ -575,7 +575,7 @@ def fetch_rows(
         params.append(limit)
     query = (
         "SELECT id, new_version_patch_commit_url, old_version_patch_commit_url, "
-        f"generated_patch FROM backport_benchmark_results_mystique WHERE {where} "
+        f"generated_patch FROM backport_benchmark_results_mystique_new WHERE {where} "
         f"ORDER BY id{limit_clause}"
     )
     with psycopg2.connect(dsn) as connection:
@@ -588,7 +588,7 @@ def update_compilation_result(dsn: str, row_id: int, success: bool) -> None:
     with psycopg2.connect(dsn) as connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE backport_benchmark_results_mystique "
+                "UPDATE backport_benchmark_results_mystique_new "
                 "SET compilation_success = %s, updated_at = NOW() WHERE id = %s",
                 (success, row_id),
             )
